@@ -1,0 +1,23 @@
+backend = "pulseaudio"
+use_nerdfont = false
+notify = true
+album_column = true
+
+# looks good with solarized colors
+[theme]
+background = "black"
+primary = "white"
+secondary = "black"
+title = "white"
+playing = "light white"
+playing_selected = "light white"
+playing_bg = "green"
+highlight = "light white"
+highlight_bg = "blue"
+error = "light white"
+error_bg = "red"
+statusbar = "black"
+statusbar_progress = "yellow"
+statusbar_bg = "yellow"
+cmdline = "light white"
+cmdline_bg = "black"

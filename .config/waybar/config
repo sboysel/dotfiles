@@ -1,0 +1,159 @@
+{
+    "layer": "top", // Waybar at top layer
+    "modules-left": [
+        "sway/workspaces",
+        "custom/arrow5",
+        "sway/mode",
+        "custom/ncspot",
+        "custom/arrow1"
+    ],
+    "modules-center": [
+        "clock#1",
+        "clock#2"
+    ],
+    "modules-right": [
+        "custom/arrow2",
+        "cpu",
+        "memory",
+        "temperature",
+        "custom/arrow3",
+        "pulseaudio",
+        "network",
+        "battery",
+        "tray"
+    ],
+
+    // MODULES //
+
+    // WORKSPACES
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": " main",
+            "2": " web",
+            "3": " comm",
+            "4": " doc",
+            "5": " misc",
+            "6": " zoom",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+     },
+
+    // SWAY MODE 
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    // PLAYERCTL / NCSPOT
+
+    "custom/ncspot": {
+        "format": "{}",
+        "max-length": 70,
+        "escape": true,
+        "interval": 1,
+        "exec": "$HOME/.config/waybar/mediaplayer.sh",
+        "on-click": "playerctl play-pause --player ncspot",
+    },
+
+    // CPU
+
+    "cpu": {
+        "format": " {usage}%"
+    },
+
+    // MEMORY
+
+    "memory": {
+        "format": " {}%",
+	"on-click": "kitty -e htop"
+    },
+
+    // NETWORK
+
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "  {essid}",
+        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+        "format-disconnected": "⚠ Disconnected"
+    },
+
+    // VOLUME
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    // BATTERY
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    // SYSTEM TRAY
+
+    "tray": {
+        "spacing": 10
+    },
+
+    // TIME
+
+    "clock#1": {
+        "format": " {:%I:%M %p}"
+    },
+
+    // DATE
+
+    "clock#2": {
+	"format": " {:%Y %B %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+    // SPACERS //
+
+    "custom/arrow1": {
+            "format": ""
+    },
+    "custom/arrow2": {
+            "format": ""
+    },
+    "custom/arrow3": {
+            "format": ""
+    },
+    "custom/arrow4": {
+            "format": ""
+    },
+    "custom/arrow5": {
+            "format": ""
+    },
+}
+

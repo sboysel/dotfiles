@@ -1,0 +1,304 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Mod1 = Alt, Mod4 = Cmd
+set $mod Mod4
+set $term kitty
+set $web firefox
+set $lock ~/bin/swaylock-blur
+font pango: Fira Code 8
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg ~/img/wallpaper/swirl2.jpg center
+# output * bg ~/img/wallpaper/moebius1440x900.png center
+# output * bg ~/img/wallpaper/moebius-wave1440x900.png center
+# output * bg ~/img/wallpaper/moebius-whales1440x900.png center
+# output * bg ~/img/wallpaper/moebius1440x900.png center
+output * bg ~/img/wallpaper/moebius.png center
+
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Autostart processes with sway 
+exec --no-startup-id mako
+
+### Idle configuration
+exec swayidle -w \
+    timeout 600 'swaylock-blur' \
+    timeout 1200 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock-blur'
+
+# This will lock your screen after 600 seconds of inactivity, then turn off
+# your displays after another 600 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+# enable tap-to-click for touchpad
+input "1452:657:bcm5974" {
+    tap enabled
+    natural_scroll enabled
+}
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Start a web browser
+    bindsym $mod+q exec $web 
+
+    # Kill focused window
+    bindsym $mod+Shift+c kill
+
+    # Start your launcher
+    bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
+    bindsym $mod+d exec 'wofi --show=drun --allow-images'
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # lock screen
+    bindsym $mod+l exec $lock
+
+    # Exit sway (logs you out of your Wayland session)
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # volume
+    bindsym XF86AudioMute exec 'pactl set-sink-mute 0 toggle' 
+    bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume 0 -5%'
+    bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume 0 +5%'
+
+    # media keys
+    # requires spotify and playerctl
+    bindsym XF86AudioPlay exec 'playerctl -p ncspot play-pause' 
+    bindsym XF86AudioPrev exec 'playerctl -p ncspot previous'
+    bindsym XF86AudioNext exec 'playerctl -p ncspot next'
+
+    # backlight
+    # https://github.com/haikarainen/light#permissions
+    # > yay --editmenu -S light-git
+    # > gpasswd -a sam video
+    # relogin
+    # > mkdir -p .config/light/targets/sysfs/backlight/acpi_video0
+    # > echo "0" >> .config/light/targets/sysfs/backlight/acpi_video0/minimum
+    bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
+    bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
+    bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 10'
+    bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 10'
+
+#
+# Moving around:
+#
+    # Move your focus around
+    # $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+
+    # workspace display output
+    workspace 1 output eDP1 HDMI2
+    workspace 2 output eDP1 HDMI2
+    workspace 3 output eDP1 HDMI2
+    workspace 4 output eDP1 HDMI2
+    workspace 5 output eDP1 HDMI2
+    # switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    # cycle through active workspaces
+    bindsym $mod+Mod1+Right workspace next
+    bindsym $mod+Mod1+Left workspace prev
+    # move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    # Move the current workspace to the next output
+    # (effectively toggles when you only have two outputs)
+    bindsym $mod+Control+Right move workspace to output right
+    bindsym $mod+Control+Left move workspace to output left
+
+#
+# Clients
+#
+
+    default_border pixel 1
+    smart_gaps on
+    gaps inner 8
+
+    # main
+    assign [class="^code-oss$"] 1
+    # web
+    assign [class="^Chromium$"] 2 
+    assign [class="^Google-chrome$"] 2
+    assign [class="^Navigator$"] 2
+    assign [class="^firefox$"] 2
+    assign [class="^qutebrowser$"] 2
+    # communication
+    assign [class="Slack"] 3
+    assign [class="Discord$"] 3
+    assign [class="Ferdi$"] 3
+    assign [class="^Rambox$"] 3
+    # doc
+    assign [class="Zathura"] 4
+    assign [class="zathura"] 4
+    assign [class="org.pwmt.zathura"] 4
+    # misc
+    assign [class="^libreoffice$"] 5
+    assign [class="Gimp"] 5
+    assign [class="Spotify"] 5
+    for_window [class="Spotify"] move to workspace 5
+    assign [class="BpyTOP"] 5
+    assign [class="^Zotero$"] 5
+    # zoom
+    assign [class="^zoom$"] 6
+
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+h or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+h splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+#
+# Resizing containers:
+#
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#
+# Colors
+#
+
+include colorscheme
+
+#                       Border  BG      Text    Ind     Child Border
+client.focused          $base0A $base0A $base00 $base0D $base0A
+client.focused_inactive $base01 $base01 $base06 $base0D $base01
+client.unfocused        $base01 $base01 $base06 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command	waybar
+}
+
+#
+# Exit dialog:
+#
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+mode "$mode_system" {
+    bindsym l exec $lock, mode "default"
+    bindsym e exit
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"
+
+### Auxillary config files
+include /etc/sway/config.d/*
