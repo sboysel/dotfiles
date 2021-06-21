@@ -116,8 +116,8 @@ theme.warn  = { fg = base00, bg = base0E }
 theme.error = { fg = base08, bg = base00 }
 
 -- Font
-theme.font      = "12px monospace"
-theme.hint_font = "10px monospace, courier, sans-serif"
+theme.font      = "12px FiraCode Nerd Font"
+theme.hint_font = "10px FiraCode Nerd Font, courier, sans-serif"
 
 return theme
 
