@@ -33,7 +33,7 @@
         "format": "{icon}",
         "format-icons": {
             "1": " main",
-            "2": " web",
+            "2": " web",
             "3": " comm",
             "4": " doc",
             "5": " misc",

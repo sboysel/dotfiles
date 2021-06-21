@@ -11,6 +11,7 @@ set $mod Mod4
 set $term kitty
 set $web min
 set $lock ~/bin/swaylock-blur
+set $scrot swayshot display
 font pango: FiraCode Nerd Font 8
 
 ### Output configuration
@@ -94,6 +95,9 @@ input "1452:657:bcm5974" {
 
     # lock screen
     bindsym $mod+l exec $lock
+
+    # screenshot
+    bindsym $mod+Shift+s exec $scrot
 
     # volume
     bindsym XF86AudioMute exec 'pactl set-sink-mute 0 toggle' 
