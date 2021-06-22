@@ -1,24 +1,3 @@
-# ## Rigel
-# ## Author: Alexander Keliris (https://github.com/Rigellute/rigel)
-# set $basefg #e6e6dc
-# set $basebg #002635
-# set $base0 #00384d
-# set $base1 #c43060
-# set $base2 #7fc06e
-# set $base3 #f08e48
-# set $base4 #1c8db2
-# set $base5 #c694ff
-# set $base6 #00cccc
-# set $base7 #77929e
-# set $base8 #517f8d
-# set $base9 #ff5a67
-# set $base10 #9cf087
-# set $base11 #ffcc1b
-# set $base12 #7eb2dd
-# set $base13 #fb94ff
-# set $base14 #00ffff
-# set $base15 #b7cff9
-
 ## Base16 Solarized Dark
 # Author: Ethan Schoonover (modified by aramisgithub)
 
@@ -38,23 +17,3 @@ set $base0C #2aa198
 set $base0D #268bd2
 set $base0E #6c71c4
 set $base0F #d33682
-
-## Base16 Gruvbox dark, hard
-# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
-
-# set $base00 #1d2021
-# set $base01 #3c3836
-# set $base02 #504945
-# set $base03 #665c54
-# set $base04 #bdae93
-# set $base05 #d5c4a1
-# set $base06 #ebdbb2
-# set $base07 #fbf1c7
-# set $base08 #fb4934
-# set $base09 #fe8019
-# set $base0A #fabd2f
-# set $base0B #b8bb26
-# set $base0C #8ec07c
-# set $base0D #83a598
-# set $base0E #d3869b
-# set $base0F #d65d0e
