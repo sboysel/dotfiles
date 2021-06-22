@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+ac_adapter=$(acpi -a | cut -d' ' -f3 | cut -d- -f1) 
+
+if [ $ac_adapter = "off" ]; then
+    swaylock \
+        --screenshots \
+        --clock \
+        --timestr "%I:%M %p" \
+        --datestr "%F" \
+        --indicator \
+        --indicator-radius 100 \
+        --indicator-thickness 7 \
+        --effect-pixelate 10 \
+        --ring-color daa520 \
+        --key-hl-color 880033 \
+        --line-color 00000000 \
+        --inside-color 00000088 \
+        --separator-color 00000000 \
+        --grace 2 \
+        --fade-in 0.2
+fi
+
