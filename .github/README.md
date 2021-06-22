@@ -6,7 +6,9 @@ My dotfiles that I manage with [yadm](https://yadm.io/).
 
 ## Screenshot
 
-![](.screenshots/screenshot_2021-06-21_09-28-49_714159412.png?raw=true)
+![](../.screenshots/screen2.png?raw=true)
+
+More screenshots in [.screenshots](../.screenshots) directory.
 
 ## Installation
 
