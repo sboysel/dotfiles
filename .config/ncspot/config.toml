@@ -7,7 +7,7 @@ album_column = true
 [theme]
 background = "black"
 primary = "white"
-secondary = "black"
+secondary = "light white"
 title = "white"
 playing = "light white"
 playing_selected = "light white"

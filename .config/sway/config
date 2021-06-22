@@ -17,13 +17,7 @@ font pango: FiraCode Nerd Font 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg ~/img/wallpaper/swirl2.jpg center
-# output * bg ~/img/wallpaper/moebius1440x900.png center
-# output * bg ~/img/wallpaper/moebius-wave1440x900.png center
-# output * bg ~/img/wallpaper/moebius-whales1440x900.png center
-# output * bg ~/img/wallpaper/moebius1440x900.png center
-# output * bg ~/img/wallpaper/moebius.png center
-output * bg ~/img/wallpaper/meditate-wall.png center
+output * bg ~/.wallpaper/meditate-wall.png center
 
 #
 # Example configuration:
@@ -186,6 +180,7 @@ input "1452:657:bcm5974" {
     assign [class="^Navigator$"] 2
     assign [class="^firefox$"] 2
     assign [class="^qutebrowser$"] 2
+    assign [class="Min"] 2
     # communication
     assign [class="Slack"] 3
     assign [class="Discord$"] 3
@@ -271,8 +266,8 @@ bindsym $mod+r mode "resize"
 include colorscheme
 
 #                       Border  BG      Text    Ind     Child Border
-client.focused          $base0A $base0A $base00 $base0D $base0A
-client.focused_inactive $base01 $base01 $base06 $base0D $base01
+client.focused          $base0C $base0C $base00 $base0F $base0C
+client.focused_inactive $base01 $base01 $base06 $base0F $base01
 client.unfocused        $base01 $base01 $base06 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 
