@@ -32,6 +32,7 @@ Plug 'lervag/vimtex'
 
 """ productivity """""""""""""""""""""""""""""""""
 Plug 'sillybun/vim-repl'
+Plug 'jpalardy/vim-slime'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -102,10 +103,12 @@ let g:repl_predefine_python = {
             \   'numpy': 'import numpy as np',
             \   'matplotlib': 'from matplotlib import pyplot as plt'
             \   }
-let g:repl_position = 3
+let g:repl_position = 0 """ bottom
 let g:repl_python_pre_launch_command = 'source ~/.venv/replenv/bin/activate'
 let g:repl_python_auto_import = 0
 
 " plugin.vimtex
 let g:vimtex_view_method = 'zathura'
 
+" plugin.vim-slime
+let g:slime_target = 'kitty'
