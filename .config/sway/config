@@ -167,8 +167,7 @@ input "1452:657:bcm5974" {
 #
 # Clients
 #
-
-    default_border pixel 1
+    default_border pixel 4
     smart_gaps on
     gaps inner 8
 
