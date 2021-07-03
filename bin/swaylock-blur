@@ -10,7 +10,7 @@ if [ $ac_adapter = "off" ]; then
         --indicator \
         --indicator-radius 100 \
         --indicator-thickness 7 \
-        --effect-pixelate 10 \
+        --effect-pixelate 20 \
         --ring-color daa520 \
         --key-hl-color 880033 \
         --line-color 00000000 \
