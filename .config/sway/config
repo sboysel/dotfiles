@@ -17,7 +17,7 @@ font pango: FiraCode Nerd Font 8
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.wallpaper/meditate-wall.png center
+output * bg ~/.wallpaper/swirl3.jpg center
 
 #
 # Example configuration:
@@ -265,8 +265,8 @@ bindsym $mod+r mode "resize"
 include colorscheme
 
 #                       Border  BG      Text    Ind     Child Border
-client.focused          $base0C $base0C $base00 $base0F $base0C
-client.focused_inactive $base01 $base01 $base06 $base0F $base01
+client.focused          $base09 $base09 $base00 $base0C $base09
+client.focused_inactive $base01 $base01 $base06 $base0C $base01
 client.unfocused        $base01 $base01 $base06 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 
