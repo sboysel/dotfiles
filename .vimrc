@@ -13,9 +13,6 @@ endif
 """ being vim-plug """""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-""" chezmoi
-Plug 'alker0/chezmoi.vim'
-
 """ colorschemes """""""""""""""""""""""""""""""""
 Plug 'lifepillar/vim-solarized8'
 " Plug 'lifepillar/vim-gruvbox8'
@@ -33,7 +30,6 @@ Plug 'lervag/vimtex'
 """ productivity """""""""""""""""""""""""""""""""
 Plug 'sillybun/vim-repl'
 Plug 'jpalardy/vim-slime'
-Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
@@ -73,11 +69,10 @@ autocmd FileType yaml setlocal textwidth=60 colorcolumn=60
 
 " chezmoi
 " Source: https://www.chezmoi.io/docs/how-to/#integrate-chezmoi-with-your-editor
-autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
+" autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
 
 """ plugin settings """"""""""""""""""""""""""""""
 " plugin.vim-airline
-let g:rigel_airline = 1
 let g:airline_theme='base16_solarized_dark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#virtualenv#enabled = 1
