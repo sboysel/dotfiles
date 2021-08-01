@@ -9,15 +9,16 @@
 # Mod1 = Alt, Mod4 = Cmd
 set $mod Mod4
 set $term kitty
-set $web min
+set $web firefox
 set $lock ~/bin/swaylock-blur
 set $scrot swayshot display
-font pango: FiraCode Nerd Font 8
+font pango: FiraCode Nerd Font 10
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.wallpaper/swirl3.jpg center
+# Default wallpaper (more resolutions are available in
+# /usr/share/backgrounds/sway/)
+output * bg ~/.wallpaper/flamingos2560x1440.jpg center
 
 #
 # Example configuration:
@@ -25,6 +26,10 @@ output * bg ~/.wallpaper/swirl3.jpg center
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+## >> thinkpad
+output eDP-1 resolution 2560x1440 position 0,0 scale 1
+output HDMI-A-2 resolution 1920x1080 position 2560,0 scale 1
 
 ### Autostart processes with sway 
 exec --no-startup-id mako
@@ -36,8 +41,8 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock-blur'
 
-# This will lock your screen after 600 seconds of inactivity, then turn off
-# your displays after another 600 seconds, and turn your screens back on when
+# This will lock your screen after 600 seconds of inactivity, then turn off your
+# displays after another 600 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
@@ -55,6 +60,13 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 # enable tap-to-click for touchpad
+# >> thinkpad
+input "1739:0:Synaptics_TM3072-003" {
+    tap enabled
+    natural_scroll enabled
+}
+
+# >> macbook air
 input "1452:657:bcm5974" {
     tap enabled
     natural_scroll enabled
@@ -104,17 +116,26 @@ input "1452:657:bcm5974" {
     bindsym XF86AudioPrev exec 'playerctl -p ncspot previous'
     bindsym XF86AudioNext exec 'playerctl -p ncspot next'
 
-    # backlight
-    # https://github.com/haikarainen/light#permissions
-    # > yay --editmenu -S light-git
-    # > gpasswd -a sam video
-    # relogin
-    # > mkdir -p .config/light/targets/sysfs/backlight/acpi_video0
-    # > echo "0" >> .config/light/targets/sysfs/backlight/acpi_video0/minimum
-    bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
-    bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
-    bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 10'
-    bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 10'
+    ## >> install notes
+    ##
+    ## backlight
+    ## https://github.com/haikarainen/light#permissions
+    ## > yay --editmenu -S light-git
+    ## > gpasswd -a sam video
+    ## relogin
+    ## > mkdir -p .config/light/targets/sysfs/backlight/acpi_video0
+    ## > echo "0" >> .config/light/targets/sysfs/backlight/acpi_video0/minimum
+    
+    ## >> macbook air
+    # bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
+    # bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
+    # bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 10'
+    # bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 10'
+    
+    ## >> thinkpad
+    bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/intel_backlight -U 10'
+    bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/intel_backlight -A 10'
+
 
 #
 # Moving around:
@@ -137,11 +158,13 @@ input "1452:657:bcm5974" {
 #
 
     # workspace display output
-    workspace 1 output eDP1 HDMI2
-    workspace 2 output eDP1 HDMI2
-    workspace 3 output eDP1 HDMI2
-    workspace 4 output eDP1 HDMI2
-    workspace 5 output eDP1 HDMI2
+    workspace 1 output eDP1
+    workspace 2 output eDP1
+    workspace 3 output eDP1
+    workspace 4 output eDP1
+    workspace 5 output eDP1
+    workspace 6 output eDP1
+    workspace 7 output HDMI-A-2
     # switch to workspace
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
@@ -149,6 +172,7 @@ input "1452:657:bcm5974" {
     bindsym $mod+4 workspace 4
     bindsym $mod+5 workspace 5
     bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
     # cycle through active workspaces
     bindsym $mod+Mod1+Right workspace next
     bindsym $mod+Mod1+Left workspace prev
@@ -159,6 +183,7 @@ input "1452:657:bcm5974" {
     bindsym $mod+Shift+4 move container to workspace 4
     bindsym $mod+Shift+5 move container to workspace 5
     bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
     # Move the current workspace to the next output
     # (effectively toggles when you only have two outputs)
     bindsym $mod+Control+Right move workspace to output right
@@ -233,8 +258,8 @@ input "1452:657:bcm5974" {
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
+    # Show the next scratchpad window or hide the focused scratchpad window.  If
+    # there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
 #
@@ -265,8 +290,8 @@ bindsym $mod+r mode "resize"
 include colorscheme
 
 #                       Border  BG      Text    Ind     Child Border
-client.focused          $base09 $base09 $base00 $base0C $base09
-client.focused_inactive $base01 $base01 $base06 $base0C $base01
+client.focused          $base0B $base0B $base00 $base09 $base0B
+client.focused_inactive $base01 $base01 $base06 $base09 $base01
 client.unfocused        $base01 $base01 $base06 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 
