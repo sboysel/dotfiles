@@ -29,7 +29,8 @@
 
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
+        "numeric-first": true,
         "format": "{icon}",
         "format-icons": {
             "1": " main",
@@ -38,6 +39,7 @@
             "4": " doc",
             "5": " misc",
             "6": " zoom",
+            "7": " ext",
             "urgent": "",
             "focused": "",
             "default": ""
