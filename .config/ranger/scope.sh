@@ -94,6 +94,11 @@ handle_extension() {
             xlsx2csv -- "${FILE_PATH}" && exit 5
             exit 1;;
 
+        ## Markdown
+        md)
+            mdcat "${FILE_PATH}" && exit 5
+            exit 1;;
+
         ## HTML
         htm|html|xhtml)
             ## Preview as text conversion
