@@ -19,7 +19,7 @@ font pango: FiraCode Nerd Font 10
 #
 # Default wallpaper (more resolutions are available in
 # /usr/share/backgrounds/sway/)
-output * bg ~/.wallpaper/flamingos2560x1440.jpg center
+output * bg ~/.wallpaper/expreso-2560x1440.jpg center
 
 #
 # Example configuration:
@@ -39,7 +39,8 @@ exec_always ~/bin/clamshell_preserve.sh
 
 ### Autostart processes with sway 
 exec --no-startup-id mako
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec dbus-update-activation-environment \
+    --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 
 ### Idle configuration
