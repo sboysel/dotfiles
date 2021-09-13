@@ -12,6 +12,7 @@ set $term kitty
 set $web firefox
 set $lock ~/bin/swaylock-blur
 set $scrot swayshot display
+set $laptop eDP-1
 font pango: FiraCode Nerd Font 10
 
 ### Output configuration
@@ -31,8 +32,15 @@ output * bg ~/.wallpaper/flamingos2560x1440.jpg center
 output eDP-1 resolution 2560x1440 position 0,0 scale 1
 output HDMI-A-2 resolution 1920x1080 position 2560,0 scale 1
 
+## clamshell mode
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/bin/clamshell_preserve.sh
+
 ### Autostart processes with sway 
 exec --no-startup-id mako
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 
 ### Idle configuration
 exec swayidle -w \
@@ -89,6 +97,9 @@ input "1452:657:bcm5974" {
     bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
     bindsym $mod+d exec 'wofi --show=drun --allow-images'
 
+    # wofi web search
+    # bindsym $mod+/ exec 'wofi'
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -133,9 +144,10 @@ input "1452:657:bcm5974" {
     # bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 10'
     
     ## >> thinkpad
-    bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/intel_backlight -U 10'
-    bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/intel_backlight -A 10'
-
+    bindsym XF86MonBrightnessDown exec 'brightnessctl --device=intel_backlight set 10%-'
+    bindsym XF86MonBrightnessUp exec 'brightnessctl --device=intel_backlight set +10%'
+    bindsym Mod1+XF86MonBrightnessDown exec 'brightnessctl --device=tpacpi::kbd_backlight set 50%-'
+    bindsym Mod1+XF86MonBrightnessUp exec 'brightnessctl --device=tpacpi::kbd_backlight set 50%+'
 
 #
 # Moving around:
