@@ -12,12 +12,14 @@
         "clock#2"
     ],
     "modules-right": [
+        "idle_inhibitor",
         "custom/arrow2",
         "cpu",
         "memory",
         "temperature",
         "custom/arrow3",
         "pulseaudio",
+        "custom/mullvad",
         "network",
         "battery",
         "tray"
@@ -76,6 +78,17 @@
 	"on-click": "kitty -e htop"
     },
 
+    // MULLVAD
+
+    "custom/mullvad": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 1,
+        "exec": "$HOME/bin/mullvad-status.sh",
+        "exec-if": "pgrep mullvad-daemon",
+        "on-click": "$HOME/bin/mullvad-toggle.sh"
+    },
+
     // NETWORK
 
     "network": {
@@ -127,6 +140,15 @@
         "spacing": 10
     },
 
+    // IDLE INHIBITOR
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
     // TIME
 
     "clock#1": {
@@ -138,6 +160,7 @@
     "clock#2": {
 	"format": " {:%Y %B %d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "firefox --new-tab 'https://www.google.com/calendar'"
     },
 
     // SPACERS //

@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: FiraCode Nerd Font, Source Code Pro Nerd Font;
-    font-size: 14px;
+    font-size: 18px;
     min-height: 0;
 }
 
@@ -35,12 +35,12 @@ window#waybar {
 
 #workspaces button:hover {
     color: #eee8d5;
-    background: #b58900;
+    background: #859900;
 }
 
 #workspaces button.focused:hover {
     color: #eee8d5;
-    background: #b58900;
+    background: #859900;
 }
 
 #mode {
@@ -56,7 +56,7 @@ window#waybar {
     margin: 0 0px;
 }
 
-#clock.1, #clock.2 {
+#idle_inhibitor, #clock.1, #clock.2 {
     background-color: transparent;
     padding: 0 10px;
     margin: 0 0px;
@@ -68,14 +68,14 @@ window#waybar {
     margin: 0 0px;
 }
 
-#battery, #network,
+#battery, #custom-mullvad, #network,
 #pulseaudio, #tray {
     background-color: #586e75;
     padding: 0 10px;
     margin: 0 0px;
 }
 
-#battery.charging, #battery.plugged {
+#custom-mullvad.connected, #battery.charging, #battery.plugged {
     color: #eee8d5;
     background-color: #859900;
 }
@@ -84,7 +84,7 @@ window#waybar {
     background: #dc322f;
 }
 
-#pulseaudio.muted {
+#custom-mullvad.disconnected, #pulseaudio.muted {
     background: #dc322f;
 }
 
