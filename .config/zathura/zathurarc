@@ -17,6 +17,9 @@ set scroll-step 100
 set zoom-min 10
 # set guioptions ""
 
+# clipboard
+set selection-clipboard clipboard
+
 # Base16 Solarized Dark
 # Author: Ethan Schoonover (modified by aramisgithub)
 
