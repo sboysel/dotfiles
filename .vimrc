@@ -24,16 +24,19 @@ Plug 'vim-airline/vim-airline-themes'
 
 """ language support """""""""""""""""""""""""""""
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'vim-python/python-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'lervag/vimtex'
 
 """ productivity """""""""""""""""""""""""""""""""
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sillybun/vim-repl'
 Plug 'jpalardy/vim-slime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 call plug#end()
 """ end vim-plug
@@ -44,7 +47,7 @@ set termguicolors
 set background=dark
 syntax enable
 colorscheme solarized8 
-let python_highlight_all=1
+let g:python_highlight_all=1
 
 
 " settings.editor
@@ -84,6 +87,10 @@ let g:SimpylFold_docstring_preview=1
 " plugin.python-mode
 let g:pymode_lint_cwindow = 0
 let g:pymode_virtualenv = 1
+
+" plugin.vim-markdown-preview
+let vim_markdown_preview_use_xdg_open=1
+let vim_markdown_preview_browser='Firefox'
 
 " plugin.vim-repl
 let g:repl_program = {
