@@ -18,3 +18,5 @@ SAVEHIST=1000
 setopt autocd
 bindkey -e
 
+# direnv
+eval "$(direnv hook zsh)"
