@@ -1,5 +1,9 @@
-font=Fira Code 10
+font=Fira Code 14
+format=<b>%a </b> %s\n%b
 default-timeout=0
+border-size=4
+icon-path=/usr/share/icons/Arc
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
 ## Base16 Solarized Dark
 # Author: Ethan Schoonover (modified by aramisgithub)
@@ -8,14 +12,7 @@ default-timeout=0
 
 background-color=#002b36
 text-color=#93a1a1
-border-color=#268bd2
-
-[urgency=low]
-background-color=#002b36
-text-color=#b58900
-border-color=#268bd2
+border-color=#859900
 
 [urgency=high]
-background-color=#002b36
-text-color=#dc322f
-border-color=#268bd2
+border-color=#dc322f
