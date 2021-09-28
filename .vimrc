@@ -1,4 +1,16 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"
+" @@@  @@@  @@@  @@@@@@@@@@   @@@@@@@    @@@@@@@  
+" @@@  @@@  @@@  @@@@@@@@@@@  @@@@@@@@  @@@@@@@@  
+" @@!  @@@  @@!  @@! @@! @@!  @@!  @@@  !@@       
+" !@!  @!@  !@!  !@! !@! !@!  !@!  @!@  !@!       
+" @!@  !@!  !!@  @!! !!@ @!@  @!@!!@!   !@!       
+" !@!  !!!  !!!  !@!   ! !@!  !!@!@!    !!!       
+" :!:  !!:  !!:  !!:     !!:  !!: :!!   :!!       
+"  ::!!:!   :!:  :!:     :!:  :!:  !:!  :!:       
+"   ::::     ::  :::     ::   ::   :::   ::: :::  
+"    :      :     :      :     :   : :   :: :: :                                 
+"
 " ~/.vimrc
 " Author: Sam Boysel
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,12 +27,11 @@ call plug#begin('~/.vim/plugged')
 
 """ colorschemes """""""""""""""""""""""""""""""""
 Plug 'lifepillar/vim-solarized8'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline-themes' 
 " Plug 'lifepillar/vim-gruvbox8'
 " Plug 'Rigellute/rigel'
 " Plug 'whatyouhide/vim-gotham'
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline' 
-Plug 'vim-airline/vim-airline-themes' 
 
 """ language support """""""""""""""""""""""""""""
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -29,13 +40,12 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'lervag/vimtex'
 
 """ productivity """""""""""""""""""""""""""""""""
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sillybun/vim-repl'
-Plug 'jpalardy/vim-slime'
+Plug 'vim-airline/vim-airline' 
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'sillybun/vim-repl'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 
 call plug#end()
@@ -48,7 +58,6 @@ set background=dark
 syntax enable
 colorscheme solarized8 
 let g:python_highlight_all=1
-
 
 " settings.editor
 set tabstop=8
@@ -78,11 +87,9 @@ autocmd FileType yaml setlocal textwidth=60 colorcolumn=60
 " plugin.vim-airline
 let g:airline_theme='base16_solarized_dark'
 let g:airline_powerline_fonts = 1
+let g:airline_highlighting_cache = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-
-" plugin.SimplyFold
-let g:SimpylFold_docstring_preview=1
 
 " plugin.python-mode
 let g:pymode_lint_cwindow = 0
@@ -111,6 +118,10 @@ let g:repl_python_auto_import = 0
 
 " plugin.vimtex
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_format_enabled = 1
 
 " plugin.vim-slime
 let g:slime_target = 'kitty'
+
+" plugin.markdown-preview
+let g:mkdp_browser = 'luakit'
