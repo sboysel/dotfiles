@@ -19,4 +19,5 @@ setopt autocd
 bindkey -e
 
 # direnv
-eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=   # turn down verbosity
+eval "$(direnv hook zsh)"   # load
