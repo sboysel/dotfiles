@@ -19,7 +19,16 @@ font pango: FiraCode Nerd Font 10
 #
 # Default wallpaper (more resolutions are available in
 # /usr/share/backgrounds/sway/)
-output * bg ~/.wallpaper/expreso-2560x1440.jpg center
+
+# output * bg ~/.wallpaper/expreso-2560x1440.jpg center
+# output * bg ~/.wallpaper/pexels-johannes-plenio-2259232.jpg center
+# output * bg ~/.wallpaper/pexels-artem-beliaikin-1485630.jpg center
+# output * bg ~/.wallpaper/pexels-aarti-vijay-2900315.jpg center
+# output * bg ~/.wallpaper/clark.jpg center
+output * bg ~/.wallpaper/sigmund.jpg center
+# output * bg ~/.wallpaper/martins.jpg center
+# output * bg ~/.wallpaper/burns.jpg center
+
 
 #
 # Example configuration:
@@ -30,7 +39,7 @@ output * bg ~/.wallpaper/expreso-2560x1440.jpg center
 
 ## >> thinkpad
 output eDP-1 resolution 2560x1440 position 0,0 scale 1
-output HDMI-A-2 resolution 1920x1080 position 2560,0 scale 1
+output HDMI-A-2 resolution 1920x1080 position 2560,0 scale 0.75 scale_filter nearest subpixel rgb adaptive_sync on
 
 ## clamshell mode
 bindswitch --reload --locked lid:on output $laptop disable
@@ -38,18 +47,31 @@ bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/bin/clamshell_preserve.sh
 
 ### Autostart processes with sway 
+# mako (notifications)
 exec --no-startup-id mako
+
+# dbus
 exec dbus-update-activation-environment \
     --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-
-### Idle configuration
+# swayidle (system idle behavior)
 exec swayidle -w \
     timeout 600 'swaylock-blur' \
     timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock-blur'
 
+## layouts
+# [1] main
+exec \
+    swaymsg 'workspace 1'; \
+    swaymsg 'exec $term ~/repos/jmp'; \
+    sleep 0.3s; \
+    swaymsg 'exec $term ranger ~/repos/jmp'; \
+    sleep 0.3s; \
+    swaymsg 'splitv'; \
+    swaymsg 'exec $term'
+ 
 # This will lock your screen after 600 seconds of inactivity, then turn off your
 # displays after another 600 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -300,7 +322,7 @@ bindsym $mod+r mode "resize"
 # Colors
 #
 
-include colorscheme
+include solarized-dark
 
 #                       Border  BG      Text    Ind     Child Border
 client.focused          $base0B $base0B $base00 $base09 $base0B
@@ -321,7 +343,7 @@ bar {
 #
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
 mode "$mode_system" {
-    bindsym l exec $lock, mode "default"
+    bindsym l exec '$lock -f', mode "default"
     bindsym e exit
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
