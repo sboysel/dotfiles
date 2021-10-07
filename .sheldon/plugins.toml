@@ -16,8 +16,11 @@
 github = 'zsh-users/zsh-autosuggestions'
 use = ['{{ name }}.zsh']
 
-[plugins.spaceship]
-github = 'denysdovhan/spaceship-prompt'
+# [plugins.spaceship]
+# github = 'denysdovhan/spaceship-prompt'
+
+# [plugins.starship]
+# github = 'starship/starship'
 
 [plugins.blackbox]
 github = 'StackExchange/blackbox'
