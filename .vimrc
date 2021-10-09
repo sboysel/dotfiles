@@ -38,6 +38,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'vim-python/python-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'lervag/vimtex'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 
 """ productivity """""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline' 
@@ -47,11 +48,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'sillybun/vim-repl'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 """ end vim-plug
 
 """ general settings """""""""""""""""""""""""""""
+set nocompatible
+filetype plugin on
+
 " settings.colorscheme
 set termguicolors
 set background=dark
