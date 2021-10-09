@@ -19,5 +19,4 @@ export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 
-## alias
-alias ls='ls --color -hlX'
+

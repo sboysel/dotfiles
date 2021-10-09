@@ -16,6 +16,7 @@ setopt autocd
 bindkey -e
 
 # aliases
+alias ls='ls --color -hlX'
 alias zsrc="source ~/.zshrc"
 alias ysu="yay -Syyu"
 alias yss="yay -Ss"
@@ -24,6 +25,8 @@ alias yqs="yay -Qs"
 alias sys="systemctl status"
 alias syf="systemctl failed"
 alias jfu="journalctl -f -u"
+
+alias R="R --no-save"
 
 # external plugins (managed by sheldon, see ~/.sheldon/plugins.toml)
 eval "$(sheldon source)"
