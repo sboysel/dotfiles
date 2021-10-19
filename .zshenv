@@ -1,6 +1,6 @@
 ## path
 typeset -U PATH path
-path=("$HOME/bin" "$HOME/go/bin" "/opt/sonar-scanner" $path)
+path=("$HOME/.local/bin" "$HOME/bin" "$HOME/go/bin" "/opt/sonar-scanner" $path)
 export PATH
 
 ## environment
@@ -15,6 +15,8 @@ export JULIA_PROJECT='@.'
 export JULIA_NUM_THREADS=4
 export RUSTC_WRAPPER=sccache
 export SONAR_SCANNER_HOME="/opt/sonar-scanner"
+
+export npm_config_prefix="$HOME/.local"
 
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
