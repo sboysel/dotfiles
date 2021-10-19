@@ -17,18 +17,27 @@ font pango: FiraCode Nerd Font 10
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in
-# /usr/share/backgrounds/sway/)
 
-# output * bg ~/.wallpaper/expreso-2560x1440.jpg center
-# output * bg ~/.wallpaper/pexels-johannes-plenio-2259232.jpg center
-# output * bg ~/.wallpaper/pexels-artem-beliaikin-1485630.jpg center
-# output * bg ~/.wallpaper/pexels-aarti-vijay-2900315.jpg center
-# output * bg ~/.wallpaper/clark.jpg center
-output * bg ~/.wallpaper/sigmund.jpg center
-# output * bg ~/.wallpaper/martins.jpg center
-# output * bg ~/.wallpaper/burns.jpg center
+# output * bg ~/.wallpaper/thinkpad/expreso-2560x1440.jpg center
+# output * bg ~/.wallpaper/thinkpad/pexels-johannes-plenio-2259232.jpg center
+# output * bg ~/.wallpaper/thinkpad/pexels-artem-beliaikin-1485630.jpg center
+# output * bg ~/.wallpaper/thinkpad/pexels-aarti-vijay-2900315.jpg center
+# output * bg ~/.wallpaper/thinkpad/clark.jpg center
+# output * bg ~/.wallpaper/thinkpad/sigmund.jpg center
+# output * bg ~/.wallpaper/thinkpad/snowy.jpg center
+# output * bg ~/.wallpaper/thinkpad/tile1.png tile
+# output * bg ~/.wallpaper/thinkpad/fluid.png center
+# output * bg ~/.wallpaper/thinkpad/desierto.png center
+# output * bg ~/.wallpaper/thinkpad/martins.jpg center
+# output * bg ~/.wallpaper/thinkpad/burns.jpg center
+# output * bg ~/.wallpaper/thinkpad/red-moon.jpg center
+# output * bg ~/.wallpaper/thinkpad/viktor.jpg center
+# output * bg ~/.wallpaper/thinkpad/moebius-tree.png center
+output * bg ~/.wallpaper/thinkpad/hakan-nural.jpg center
+# output * bg ~/.wallpaper/thinkpad/tokyo.jpg center
 
+## random wallpaper
+# output * bg $(find ~/.wallpaper/thinkpad -type f | shuf -n 1) center
 
 #
 # Example configuration:
@@ -39,7 +48,11 @@ output * bg ~/.wallpaper/sigmund.jpg center
 
 ## >> thinkpad
 output eDP-1 resolution 2560x1440 position 0,0 scale 1
-output HDMI-A-2 resolution 1920x1080 position 2560,0 scale 0.75 scale_filter nearest subpixel rgb adaptive_sync on
+output HDMI-A-2 resolution 1920x1080 position 2560,0 \
+    scale 0.75 \
+    scale_filter nearest \
+    subpixel rgb \
+    adaptive_sync on
 
 ## clamshell mode
 bindswitch --reload --locked lid:on output $laptop disable
