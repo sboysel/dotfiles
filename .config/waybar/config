@@ -1,5 +1,6 @@
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar in front of windows
+    "position": "top",
     "modules-left": [
         "sway/workspaces",
         "custom/arrow5",
