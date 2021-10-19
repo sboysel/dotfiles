@@ -1,2 +1,5 @@
+# resize
+convert -resize 1280x720 in.jpg out.jpg
+
 # vertically stack images
 convert 1.jpg 2.jpg 3.jpg -gravity center -append out.jpg
