@@ -1,18 +1,18 @@
 font=Fira Code 14
-format=<b>%a </b> %s\n%b
+format=<b>%s</b>\n%b
 default-timeout=0
 border-size=4
+margin=12
+padding=10
+text-alignment=left
 icon-path=/usr/share/icons/Arc
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
-## Base16 Solarized Dark
-# Author: Ethan Schoonover (modified by aramisgithub)
-#
-# You can use these variables anywhere in the mako configuration file.
-
-background-color=#002b36
-text-color=#93a1a1
-border-color=#859900
+# Rigel
+# Source: https://github.com/Rigellute/rigel
+background-color=#002635
+text-color=#e6e6dc
+border-color=#ffcc1b
 
 [urgency=high]
-border-color=#dc322f
+border-color=#ff5a67
+
