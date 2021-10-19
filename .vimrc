@@ -15,6 +15,10 @@
 " Author: Sam Boysel
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
+" make ale and coc.nvim play nicely
+" https://github.com/dense-analysis/ale#5iii-how-can-i-use-ale-and-cocnvim-together
+let g:ale_disable_lsp = 1
+
 """ install vim-plug """""""""""""""""""""""""""""
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -34,7 +38,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'whatyouhide/vim-gotham'
 
 """ language support """""""""""""""""""""""""""""
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'vim-python/python-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'lervag/vimtex'
@@ -43,7 +46,7 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 """ productivity """""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline' 
 Plug 'tpope/vim-commentary'
-Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'sillybun/vim-repl'
@@ -97,8 +100,8 @@ let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " plugin.python-mode
-let g:pymode_lint_cwindow = 0
-let g:pymode_virtualenv = 1
+" let g:pymode_lint_cwindow = 0
+" let g:pymode_virtualenv = 1
 
 " plugin.vim-markdown-preview
 let vim_markdown_preview_use_xdg_open=1
@@ -115,7 +118,8 @@ let g:repl_program = {
             \   }
 let g:repl_predefine_python = {
             \   'numpy': 'import numpy as np',
-            \   'matplotlib': 'from matplotlib import pyplot as plt'
+            \   'matplotlib': 'from matplotlib import pyplot as plt',
+            \   'pandas': 'import pandas as pd'
             \   }
 let g:repl_position = 0 """ bottom
 let g:repl_python_pre_launch_command = 'source ~/.venv/replenv/bin/activate'
@@ -130,3 +134,8 @@ let g:slime_target = 'kitty'
 
 " plugin.markdown-preview
 let g:mkdp_browser = 'luakit'
+
+" plugin.ale
+let g:ale_linters = {
+\   'python': ['pyright'],
+\}
