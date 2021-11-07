@@ -64,7 +64,8 @@ filetype plugin on
 set termguicolors
 set background=dark
 syntax enable
-colorscheme solarized8 
+colorscheme solarized8
+" colorscheme base16-tomorrow-night
 let g:python_highlight_all=1
 
 " settings.editor
@@ -138,4 +139,5 @@ let g:mkdp_browser = 'luakit'
 " plugin.ale
 let g:ale_linters = {
 \   'python': ['pyright'],
+\   'r': ['lintr'],
 \}
