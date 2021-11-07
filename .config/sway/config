@@ -25,16 +25,22 @@ font pango: FiraCode Nerd Font 10
 # output * bg ~/.wallpaper/thinkpad/clark.jpg center
 # output * bg ~/.wallpaper/thinkpad/sigmund.jpg center
 # output * bg ~/.wallpaper/thinkpad/snowy.jpg center
-# output * bg ~/.wallpaper/thinkpad/tile1.png tile
+# output * bg ~/.wallpaper/thinkpad/hodaka-kato.jpg center
+# output * bg ~/.wallpaper/tiles/tile1.png tile
 # output * bg ~/.wallpaper/thinkpad/fluid.png center
 # output * bg ~/.wallpaper/thinkpad/desierto.png center
+# output * bg ~/.wallpaper/thinkpad/john-fowler2560x1752.jpg center
 # output * bg ~/.wallpaper/thinkpad/martins.jpg center
 # output * bg ~/.wallpaper/thinkpad/burns.jpg center
 # output * bg ~/.wallpaper/thinkpad/red-moon.jpg center
 # output * bg ~/.wallpaper/thinkpad/viktor.jpg center
-# output * bg ~/.wallpaper/thinkpad/moebius-tree.png center
-output * bg ~/.wallpaper/thinkpad/hakan-nural.jpg center
+output * bg ~/.wallpaper/thinkpad/moebius-tree.png center
+# output * bg ~/.wallpaper/thinkpad/hakan-nural.jpg center
 # output * bg ~/.wallpaper/thinkpad/tokyo.jpg center
+# output * bg ~/.wallpaper/thinkpad/lotus.jpg center
+# output * bg ~/.wallpaper/thinkpad/agnis-leznins.jpg center
+# output * bg ~/.wallpaper/thinkpad/jake-noren.jpg center
+# output * bg ~/.wallpaper/thinkpad/nadine-shaabana.jpg center
 
 ## random wallpaper
 # output * bg $(find ~/.wallpaper/thinkpad -type f | shuf -n 1) center
@@ -60,6 +66,9 @@ bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/bin/clamshell_preserve.sh
 
 ### Autostart processes with sway 
+# gammastep
+exec_always --no-startup-id gammastep -l 34.420830:-119.698189
+
 # mako (notifications)
 exec --no-startup-id mako
 
@@ -270,7 +279,7 @@ input "1452:657:bcm5974" {
     assign [class="BpyTOP"] 5
     assign [class="^Zotero$"] 5
     # zoom
-    assign [class="^zoom$"] 6
+    assign [app_id="^zoom$"] 6
 
 #
 # Layout stuff:
