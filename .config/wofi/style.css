@@ -1,30 +1,30 @@
 /* base16-wofi (https://sr.ht/~knezi/base16-wofi)
  * Base16 wofi template by knezi
- * Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub) */
+ * Gruvbox dark, medium scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox) */
 
 window {
-	background-color: #002b36;
-	color: #93a1a1;
+	background-color: #282828;
+	color: #d5c4a1;
 }
 
 #entry:nth-child(odd) {
-	background-color: #002b36;
+	background-color: #282828;
 }
 
 #entry:nth-child(even) {
-	background-color: #073642;
+	background-color: #3c3836;
 }
 
 #entry:selected {
-	background-color: #586e75;
+	background-color: #504945;
 }
 
 #input {
-	background-color: #073642;
-	color: #839496;
-	border-color: #586e75; 
+	background-color: #3c3836;
+	color: #bdae93;
+	border-color: #504945; 
 }
 
 #input:focus {
-	border-color: #b58900; 
+	border-color: #fabd2f; 
 }
