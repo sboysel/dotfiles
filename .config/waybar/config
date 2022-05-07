@@ -3,10 +3,10 @@
     "position": "top",
     "modules-left": [
         "sway/workspaces",
-        "custom/arrow5",
-        "sway/mode",
-        "custom/ncspot",
-        "custom/arrow1"
+        /* "custom/arrow1", */
+        "sway/mode"
+        /* "custom/ncspot", */
+        /* "custom/arrow2" */
     ],
     "modules-center": [
         "clock#1",
@@ -14,14 +14,14 @@
     ],
     "modules-right": [
         "idle_inhibitor",
-        "custom/arrow2",
+        /* "custom/arrow3", */
         "cpu",
         "memory",
         "temperature",
-        "custom/arrow3",
+        /* "custom/arrow4", */
         "pulseaudio",
-        "custom/mullvad",
         "network",
+        "custom/mullvad",
         "battery",
         "tray"
     ],
@@ -170,15 +170,12 @@
             "format": ""
     },
     "custom/arrow2": {
-            "format": ""
+            "format": ""
     },
     "custom/arrow3": {
-            "format": ""
+            "format": ""
     },
     "custom/arrow4": {
-            "format": ""
-    },
-    "custom/arrow5": {
             "format": ""
     },
 }

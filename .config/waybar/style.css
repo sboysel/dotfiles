@@ -2,20 +2,21 @@
     border: none;
     border-radius: 0;
     font-family: FiraCode Nerd Font, Source Code Pro Nerd Font;
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: #002b36;
-    color: #eee8d5;
+    background-color: #3c3836; /* base01 */ /* #002b36; */
+    color: #fbf1c7; /* #eee8d5; */
     transition-property: background-color;
     transition-duration: 0.5s;
 }
 
 #workspaces {
-    color: #eee8d5;
-    background-color: #586e75;
+    color: #fbf1c7;
+    background-color: #83a598;
 }
 
 #workspaces button {
@@ -24,97 +25,90 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    background-color: #2aa198;
-    color: #fdf6e3;
+    background-color: #fabd2f;
+    color: #fbf1c7;
 }
 
 #workspaces button.urgent {
-    background-color: #dc322f;
-    color: #fdf6e3;
+    background-color: #fb4934;
+    color: #fbf1c7;
 }
 
 #workspaces button:hover {
-    color: #eee8d5;
-    background: #859900;
-}
-
-#workspaces button.focused:hover {
-    color: #eee8d5;
-    background: #859900;
+    color: #fbf1c7;
+    background: #d65d0e;
 }
 
 #mode {
+    font-size: 9px;
     color: #dc322f;
-    background-color: #073642;
-    padding: 0 10px;
+    background-color: #d5c4a1;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #custom-ncspot {
-    background-color: #073642;
-    padding: 0 10px;
+    background-color: #83a598;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #idle_inhibitor, #clock.1, #clock.2 {
     background-color: transparent;
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #cpu, #memory, #temperature {
-    background-color: #073642;
-    padding: 0 10px;
+    background-color: #83a598; /* 0d blue */
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #battery, #custom-mullvad, #network,
 #pulseaudio, #tray {
-    background-color: #586e75;
-    padding: 0 10px;
+    background-color: #b8bb26; 
+    padding: 0 8px;
+    margin: 0 0px;
+}
+
+#battery {
+    background-color: #d65d0e;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #custom-mullvad.connected, #battery.charging, #battery.plugged {
     color: #eee8d5;
-    background-color: #859900;
+    background-color: #b8bb26;
 }
 
 #network.disconnected {
-    background: #dc322f;
+    background: #d65d0e;
 }
 
 #custom-mullvad.disconnected, #pulseaudio.muted {
-    background: #dc322f;
-}
-
-@keyframes blink {
-    to {
-        background-color: #dc322f;
-    }
+    background: #d65d0e;
 }
 
 #custom-arrow1 {
-	color: #073642;
-	background: transparent;
+    color: #83a598;
+    background-color: #d5c4a1;
 }
 
 #custom-arrow2 {
-	color: #073642;
-	background: transparent;
+    color: #d5c4a1;
+    background: transparent;
 }
 
 #custom-arrow3 {
-	color: #586e75;
-	background-color: #073642;
+    color: #3c3836;
+    background-color: #83a598;
 }
 
 #custom-arrow4 {
-	color: #073642;
-	background: transparent;
+    color: #83a598;
+    background-color: #b8bb26;
 }
 
-#custom-arrow5 {
-	color: #586e75;
-	background-color: #073642;
-}
+
