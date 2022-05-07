@@ -3,6 +3,7 @@ ac_adapter=$(acpi -a | cut -d' ' -f3 | cut -d- -f1)
 
 if [ $ac_adapter = "off" ] || [ -n $1 ]; then
     swaylock \
+        --daemonize \
         --screenshots \
         --clock \
         --timestr "%I:%M %p" \
