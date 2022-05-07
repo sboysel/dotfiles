@@ -56,6 +56,9 @@ Plug 'sillybun/vim-repl'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'vimwiki/vimwiki'
 
+""" other """"""""""""""""""""""""""""""""""""""""
+" Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 """ end vim-plug
 
