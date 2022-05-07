@@ -3,17 +3,17 @@ use_nerdfont = false
 notify = true
 album_column = true
 
+# colors
+# source: https://github.com/sflip/dotfiles
 # looks good with solarized colors
 [theme]
-background = "black"
-primary = "white"
-secondary = "light white"
-title = "white"
-playing = "light white"
-playing_selected = "light white"
-playing_bg = "green"
+primary = "light white"
+secondary = "light black"
+title = "green"
+playing = "green"
+playing_bg = "black"
 highlight = "light white"
-highlight_bg = "cyan"
+highlight_bg = "#484848"
 error = "light white"
 error_bg = "red"
 statusbar = "black"
