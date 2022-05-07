@@ -17,11 +17,12 @@ set -gx RUSTC_WRAPPER sccache
 set -gx npm_config_prefix "$HOME/.local"
 set -gx XDG_CURRENT_DESKTOP sway
 set -gx XDG_SESSION_TYPE wayland
+set -gx NOTES_REPO "$HOME/repos/notes"
 
 ### functions (aliases) ###
-function fish_greeting
-    fish_logo
-end
+# function fish_greeting
+#     fish_logo
+# end
 
 function m
     /usr/bin/macchina
@@ -53,6 +54,14 @@ function yd
     yay -Yc
 end
 
+function ye
+    yay -Qe
+end
+
+function ym
+    yay -Qm
+end
+
 # maintenance
 function rmcache
     rm -rf $HOME/.cache/*
@@ -73,6 +82,19 @@ end
 
 function zathura
     GDK_BACKEND=x11 /usr/bin/zathura $argv
+end
+
+function cmatrix
+    /usr/bin/cmatrix -asr 
+end
+
+# utilities
+function note
+    vim $NOTES_REPO/(date +"%Y%M%d")_$argv.md
+end
+
+function lsnotes
+    lf $NOTES_REPO
 end
 
 ### theme / colors ###
