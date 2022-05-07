@@ -6,10 +6,9 @@ My dotfiles that I manage with [yadm](https://yadm.io/).
 
 ## Screenshot
 
-![](../.screenshots/thinkpad/screen0.png?raw=true)
+![](../.screenshots/mba/screen0.png?raw=true)
 
-More screenshots in [.screenshots](../.screenshots) directory.  Wallpaper is by
-[Agnis Leznins](https://unsplash.com/photos/DXa7-nmPKSk).
+More screenshots in [.screenshots](../.screenshots) directory.
 
 ## Installation
 
