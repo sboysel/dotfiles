@@ -33,7 +33,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'lifepillar/vim-solarized8'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline-themes' 
-" Plug 'lifepillar/vim-gruvbox8'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'sainnhe/everforest'
+" Plug 'tribela/vim-transparent'
 " Plug 'Rigellute/rigel'
 " Plug 'whatyouhide/vim-gotham'
 
@@ -42,6 +44,7 @@ Plug 'vim-python/python-syntax'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'lervag/vimtex'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'dag/vim-fish'
 
 """ productivity """""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline' 
@@ -64,8 +67,16 @@ filetype plugin on
 set termguicolors
 set background=dark
 syntax enable
-colorscheme solarized8
+" let g:everforest_transparent_background = 1
+" let g:everforest_background = 'hard'
+" let g:everforest_enable_italic = 1
+" let g:everforest_better_performance = 1
+" colorscheme everforest
+" colorscheme solarized8
+colorscheme gruvbox8
+" colorscheme base16-gruvbox_dark_hard
 " colorscheme base16-tomorrow-night
+
 let g:python_highlight_all=1
 
 " settings.editor
@@ -93,9 +104,14 @@ autocmd FileType yaml setlocal textwidth=60 colorcolumn=60
 " autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
 
 """ plugin settings """"""""""""""""""""""""""""""
+" plugin.vim-gruvbox8
+let g:gruvbox_transp_bg = 1
+
 " plugin.vim-airline
-let g:airline_theme='base16_solarized_dark'
-let g:airline_powerline_fonts = 1
+" let g:airline_theme='base16_gruvbox_dark_hard'
+" let g:airline_theme='everforest'
+let g:airline_theme = 'gruvbox8'
+" let g:airline_powerline_fonts = 1
 let g:airline_highlighting_cache = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
