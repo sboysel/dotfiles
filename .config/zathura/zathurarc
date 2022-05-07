@@ -1,4 +1,4 @@
-set font "FiraCode Nerd Font 12"
+set font "FiraCode Nerd Font 8"
 # Open document in fit-width mode by default
 set adjust-open "width"
 
@@ -21,38 +21,41 @@ set zoom-min 10
 # clipboard
 set selection-clipboard clipboard
 
-# Base16 Solarized Dark
-# Author: Ethan Schoonover (modified by aramisgithub)
+# disable sandbox
+set sandbox none
 
-set default-bg                  "#002b36"
-set default-fg                  "#073642"
+# Base16 Gruvbox dark, medium
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
-set statusbar-fg                "#fdf6e3"
-set statusbar-bg                "#002b36"
+set default-bg                  "#282828"
+set default-fg                  "#3c3836"
 
-set inputbar-bg                 "#002b36"
-set inputbar-fg                 "#fdf6e3"
+set statusbar-fg                "#bdae93"
+set statusbar-bg                "#504945"
 
-set notification-bg             "#002b36"
-set notification-fg             "#fdf6e3"
+set inputbar-bg                 "#282828"
+set inputbar-fg                 "#fbf1c7"
 
-set notification-error-bg       "#002b36"
-set notification-error-fg       "#dc322f"
+set notification-bg             "#282828"
+set notification-fg             "#fbf1c7"
 
-set notification-warning-bg     "#002b36"
-set notification-warning-fg     "#dc322f"
+set notification-error-bg       "#282828"
+set notification-error-fg       "#fb4934"
 
-set highlight-color             "#b58900"
-set highlight-active-color      "#268bd2"
+set notification-warning-bg     "#282828"
+set notification-warning-fg     "#fb4934"
 
-set completion-bg               "#073642"
-set completion-fg               "#268bd2"
+set highlight-color             "#fabd2f"
+set highlight-active-color      "#83a598"
 
-set completion-highlight-fg     "#fdf6e3"
-set completion-highlight-bg     "#268bd2"
+set completion-bg               "#3c3836"
+set completion-fg               "#83a598"
 
-set recolor-lightcolor          "#002b36"
-set recolor-darkcolor           "#eee8d5"
+set completion-highlight-fg     "#fbf1c7"
+set completion-highlight-bg     "#83a598"
 
-set recolor                     "true"
-set recolor-keephue             "true"
+set recolor-lightcolor          "#282828"
+set recolor-darkcolor           "#ebdbb2"
+
+set recolor                     "false"
+set recolor-keephue             "false"
