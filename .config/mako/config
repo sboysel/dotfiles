@@ -1,18 +1,19 @@
-font=Fira Code 14
+# general
+font=Fira Code 10
 format=<b>%s</b>\n%b
-default-timeout=0
-border-size=4
+default-timeout=10
+border-size=2
 margin=12
 padding=10
 text-alignment=left
 icon-path=/usr/share/icons/Arc
+layer=overlay
 
-# Rigel
-# Source: https://github.com/Rigellute/rigel
-background-color=#002635
-text-color=#e6e6dc
-border-color=#ffcc1b
+# colors (gruvbox dark medium)
+background-color=#282828
+text-color=#ebdbb2
+border-color=#ebdbb2
 
-[urgency=high]
-border-color=#ff5a67
+[urgency=critical]
+border-color=#cc241d
 
