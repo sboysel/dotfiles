@@ -6,44 +6,32 @@
 
 ### Variables
 #
-# Mod1 = Alt, Mod4 = Cmd
 set $mod Mod4
 set $term kitty
-set $web firefox
+set $web chromium
 set $lock ~/bin/swaylock-blur
 set $scrot swayshot display
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
-font pango: FiraCode Nerd Font 10
+set $left h
+set $down j
+set $up k
+set $right l
+font pango: FiraCode Nerd Font 8
 
 ### Output configuration
 #
-
-# output * bg ~/.wallpaper/thinkpad/expreso-2560x1440.jpg center
-# output * bg ~/.wallpaper/thinkpad/pexels-johannes-plenio-2259232.jpg center
-# output * bg ~/.wallpaper/thinkpad/pexels-artem-beliaikin-1485630.jpg center
-# output * bg ~/.wallpaper/thinkpad/pexels-aarti-vijay-2900315.jpg center
-# output * bg ~/.wallpaper/thinkpad/clark.jpg center
-# output * bg ~/.wallpaper/thinkpad/sigmund.jpg center
-# output * bg ~/.wallpaper/thinkpad/snowy.jpg center
-# output * bg ~/.wallpaper/thinkpad/hodaka-kato.jpg center
-# output * bg ~/.wallpaper/tiles/tile1.png tile
-# output * bg ~/.wallpaper/thinkpad/fluid.png center
-# output * bg ~/.wallpaper/thinkpad/desierto.png center
-# output * bg ~/.wallpaper/thinkpad/john-fowler2560x1752.jpg center
-# output * bg ~/.wallpaper/thinkpad/martins.jpg center
-# output * bg ~/.wallpaper/thinkpad/burns.jpg center
-# output * bg ~/.wallpaper/thinkpad/red-moon.jpg center
-# output * bg ~/.wallpaper/thinkpad/viktor.jpg center
-output * bg ~/.wallpaper/thinkpad/moebius-tree.png center
-# output * bg ~/.wallpaper/thinkpad/hakan-nural.jpg center
-# output * bg ~/.wallpaper/thinkpad/tokyo.jpg center
-# output * bg ~/.wallpaper/thinkpad/lotus.jpg center
-# output * bg ~/.wallpaper/thinkpad/agnis-leznins.jpg center
-# output * bg ~/.wallpaper/thinkpad/jake-noren.jpg center
-# output * bg ~/.wallpaper/thinkpad/nadine-shaabana.jpg center
-
-## random wallpaper
-# output * bg $(find ~/.wallpaper/thinkpad -type f | shuf -n 1) center
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg ~/.wallpaper/mba/saga1.jpg center
+# output * bg ~/.wallpaper/mba/meditate-wall-flipped.png center
+# output * bg ~/.wallpaper/mba/swirl3.jpg center
+# output * bg ~/.wallpaper/mba/tunnel.jpg center
+# output * bg ~/.wallpaper/mba/moebius-whales1440x900.png center
+# output * bg ~/.wallpaper/mba/sable1.png center
+output * bg ~/.wallpaper/mba/sable3.png center
+# output * bg ~/.wallpaper/mba/sable2.png center
+# output * bg ~/.wallpaper/mba/watchmen.png center
 
 #
 # Example configuration:
@@ -51,30 +39,38 @@ output * bg ~/.wallpaper/thinkpad/moebius-tree.png center
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-
-## >> thinkpad
-output eDP-1 resolution 2560x1440 position 0,0 scale 1
-output HDMI-A-2 resolution 1920x1080 position 2560,0 \
-    scale 0.75 \
-    scale_filter nearest \
-    subpixel rgb \
-    adaptive_sync on
+output $laptop resolution 1440x900 position 1440,0
 
 ## clamshell mode
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/bin/clamshell_preserve.sh
 
-### Autostart processes with sway 
-# gammastep
-exec_always --no-startup-id gammastep -l 34.420830:-119.698189
+# gtk settings
+exec_always import-gsettings
 
-# mako (notifications)
-exec --no-startup-id mako
+# # mako (notifications)
+# exec --no-startup-id mako
 
 # dbus
 exec dbus-update-activation-environment \
     --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# udiskie
+exec --no-startup-id udiskie --tray
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
 
 # swayidle (system idle behavior)
 exec swayidle -w \
@@ -82,21 +78,6 @@ exec swayidle -w \
     timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock-blur'
-
-## layouts
-# [1] main
-exec \
-    swaymsg 'workspace 1'; \
-    swaymsg 'exec $term ~/repos/jmp'; \
-    sleep 0.3s; \
-    swaymsg 'exec $term ranger ~/repos/jmp'; \
-    sleep 0.3s; \
-    swaymsg 'splitv'; \
-    swaymsg 'exec $term'
- 
-# This will lock your screen after 600 seconds of inactivity, then turn off your
-# displays after another 600 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 #
@@ -111,14 +92,6 @@ exec \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-
-# enable tap-to-click for touchpad
-# >> thinkpad
-input "1739:0:Synaptics_TM3072-003" {
-    tap enabled
-    natural_scroll enabled
-}
-
 # >> macbook air
 input "1452:657:bcm5974" {
     tap enabled
@@ -172,27 +145,12 @@ input "1452:657:bcm5974" {
     bindsym XF86AudioPrev exec 'playerctl -p ncspot previous'
     bindsym XF86AudioNext exec 'playerctl -p ncspot next'
 
-    ## >> install notes
-    ##
-    ## backlight
-    ## https://github.com/haikarainen/light#permissions
-    ## > yay --editmenu -S light-git
-    ## > gpasswd -a sam video
-    ## relogin
-    ## > mkdir -p .config/light/targets/sysfs/backlight/acpi_video0
-    ## > echo "0" >> .config/light/targets/sysfs/backlight/acpi_video0/minimum
-    
-    ## >> macbook air
-    # bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
-    # bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
-    # bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 10'
-    # bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 10'
-    
-    ## >> thinkpad
-    bindsym XF86MonBrightnessDown exec 'brightnessctl --device=intel_backlight set 10%-'
-    bindsym XF86MonBrightnessUp exec 'brightnessctl --device=intel_backlight set +10%'
-    bindsym Mod1+XF86MonBrightnessDown exec 'brightnessctl --device=tpacpi::kbd_backlight set 50%-'
-    bindsym Mod1+XF86MonBrightnessUp exec 'brightnessctl --device=tpacpi::kbd_backlight set 50%+'
+    # display brightness
+    bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
+    bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
+    # keyboard brightness
+    bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 20'
+    bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 20'
 
 #
 # Moving around:
@@ -215,12 +173,12 @@ input "1452:657:bcm5974" {
 #
 
     # workspace display output
-    workspace 1 output eDP1
-    workspace 2 output eDP1
-    workspace 3 output eDP1
-    workspace 4 output eDP1
-    workspace 5 output eDP1
-    workspace 6 output eDP1
+    workspace 1 output eDP-1
+    workspace 2 output eDP-1
+    workspace 3 output eDP-1
+    workspace 4 output eDP-1
+    workspace 5 output eDP-1
+    workspace 6 output eDP-1
     workspace 7 output HDMI-A-2
     # switch to workspace
     bindsym $mod+1 workspace 1
@@ -249,9 +207,9 @@ input "1452:657:bcm5974" {
 #
 # Clients
 #
-    default_border pixel 4
+    default_border pixel 2
     smart_gaps on
-    gaps inner 8
+    gaps inner 4
 
     # main
     assign [class="^code-oss$"] 1
@@ -344,7 +302,7 @@ bindsym $mod+r mode "resize"
 # Colors
 #
 
-include solarized-dark
+include gruvbox-dark-medium
 
 #                       Border  BG      Text    Ind     Child Border
 client.focused          $base0B $base0B $base00 $base09 $base0B
@@ -356,21 +314,33 @@ client.urgent           $base08 $base08 $base00 $base08 $base08
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    swaybar_command	waybar
-}
+# bar {
+#     position top
+
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+bar swaybar_command waybar
 
 #
 # Exit dialog:
 #
-set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+# set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+set $mode_system (l)ock, l(o)gout, (s)uspend, (r)eboot, (S)hutdown, (U)EFI
 mode "$mode_system" {
     bindsym l exec '$lock -f', mode "default"
-    bindsym e exit
+    bindsym o exit
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-    bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
+    bindsym Shift+u exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
 
     # return to default mode
     bindsym Return mode "default"
@@ -378,5 +348,4 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-### Auxillary config files
 include /etc/sway/config.d/*
