@@ -28,6 +28,13 @@ yadm commit
 yadm push
 ```
 
+## Misc
+
+List of explicitly installed packages
+```
+yay -Qe > .pkglist
+```
+
 ## License
 
 [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
