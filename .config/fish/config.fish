@@ -20,17 +20,18 @@ set -gx XDG_SESSION_TYPE wayland
 set -gx NOTES_REPO "$HOME/repos/notes"
 
 ### functions (aliases) ###
+# fish
+function fish_source
+    source $HOME/.config/fish/config.fish
+end
+
 # function fish_greeting
 #     fish_logo
 # end
 
-function m
-    /usr/bin/macchina
-end
-
 # working with files
-function exa
-    /usr/bin/exa --icons --group-directories-first -a $argv
+function exa --description "Alternative to `ls` (pretty, detailed, shows hidden)"
+    /usr/bin/exa --icons --group-directories-first -al $argv
 end
 
 function ls
@@ -38,40 +39,40 @@ function ls
 end
 
 # yay
-function yu
+function yu --description "Update system"
     yay -Syyu
 end
 
-function yo
+function yo --description "List orphaned packages"
     yay -Qtdq
 end
 
-function yc
+function yc --description "Clean yay package cache"
     yay -Scc
 end
 
-function yd
+function yd --description "Removed unneeded yay dependencies"
     yay -Yc
 end
 
-function ye
+function ye --description "Show explicitly installed packages"
     yay -Qe
 end
 
-function ym
+function ym --description "Show manually installed packages"
     yay -Qm
 end
 
 # maintenance
-function rmcache
-    rm -rf $HOME/.cache/*
+function rmcache --description "Clears $HOME/.cache"
+    sudo rm -rf $HOME/.cache/*
 end
 
-function rmorph
+function rmorph --description "Remove orphaned packages"
     sudo pacman -Rns (pacman -Qtdq)
 end
 
-function rmjourn
+function rmjourn --description "Vaccum systemd journal"
     sudo journalctl --vacuum-time=2weeks
 end
 
@@ -85,15 +86,23 @@ function zathura
 end
 
 function cmatrix
-    /usr/bin/cmatrix -asr 
+    /usr/bin/cmatrix -as 
+end
+
+function russ
+    $HOME/.cargo/bin/russ --database-path $HOME/.config/russ/russ.sqlite
+end
+
+function m --description "Alias for `macchina`"
+    /usr/bin/macchina
 end
 
 # utilities
-function note
+function note --description "Opens a new timestamped note for editing"
     vim $NOTES_REPO/(date +"%Y%M%d")_$argv.md
 end
 
-function lsnotes
+function lsnotes --description "List notes in $HOME/repos/notes "
     lf $NOTES_REPO
 end
 
@@ -102,6 +111,9 @@ end
 theme_gruvbox dark medium
 
 ### hooks ###
+# cod
+cod init $fish_pid fish | source
+
 # direnv
 set -gx DIRENV_LOG_FORMAT 
 direnv hook fish | source
