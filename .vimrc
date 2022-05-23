@@ -52,6 +52,7 @@ Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'jupyter-vim/jupyter-vim'
 Plug 'sillybun/vim-repl'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'vimwiki/vimwiki'
@@ -70,15 +71,7 @@ filetype plugin on
 set termguicolors
 set background=dark
 syntax enable
-" let g:everforest_transparent_background = 1
-" let g:everforest_background = 'hard'
-" let g:everforest_enable_italic = 1
-" let g:everforest_better_performance = 1
-" colorscheme everforest
-" colorscheme solarized8
 colorscheme gruvbox8
-" colorscheme base16-gruvbox_dark_hard
-" colorscheme base16-tomorrow-night
 
 let g:python_highlight_all=1
 
@@ -102,30 +95,16 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 smarttab expandtab
 " filetype.yaml
 autocmd FileType yaml setlocal textwidth=60 colorcolumn=60
 
-" chezmoi
-" Source: https://www.chezmoi.io/docs/how-to/#integrate-chezmoi-with-your-editor
-" autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
-
 """ plugin settings """"""""""""""""""""""""""""""
 " plugin.vim-gruvbox8
 let g:gruvbox_transp_bg = 1
 
 " plugin.vim-airline
-" let g:airline_theme='base16_gruvbox_dark_hard'
-" let g:airline_theme='everforest'
 let g:airline_theme = 'gruvbox8'
-" let g:airline_powerline_fonts = 1
 let g:airline_highlighting_cache = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-
-" plugin.python-mode
-" let g:pymode_lint_cwindow = 0
-" let g:pymode_virtualenv = 1
-
-" plugin.vim-markdown-preview
-let vim_markdown_preview_use_xdg_open=1
-let vim_markdown_preview_browser='Firefox'
+" let g:airline_powerline_fonts = 1
 
 " plugin.vim-repl
 let g:repl_program = {
@@ -149,11 +128,8 @@ let g:repl_python_auto_import = 0
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_format_enabled = 1
 
-" plugin.vim-slime
-let g:slime_target = 'kitty'
-
 " plugin.markdown-preview
-let g:mkdp_browser = 'luakit'
+let g:mkdp_browser = 'chromium'
 
 " plugin.ale
 let g:ale_linters = {
