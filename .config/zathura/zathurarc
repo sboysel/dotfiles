@@ -1,4 +1,4 @@
-set font "FiraCode Nerd Font 8"
+set font "FiraCode Nerd Font 10"
 # Open document in fit-width mode by default
 set adjust-open "width"
 
@@ -30,8 +30,10 @@ set sandbox none
 set default-bg                  "#282828"
 set default-fg                  "#3c3836"
 
-set statusbar-fg                "#bdae93"
-set statusbar-bg                "#504945"
+# set statusbar-fg                "#bdae93"
+# set statusbar-bg                "#504945"
+set statusbar-bg                "#282828"
+set statusbar-fg                "#ebdbb2"
 
 set inputbar-bg                 "#282828"
 set inputbar-fg                 "#fbf1c7"
