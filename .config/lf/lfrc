@@ -1,13 +1,13 @@
 # icons
 set icons
 
-# previewer
-set previewer ~/.config/lf/pv.sh
-map i $LESSOPEN='| ~/.config/lf/pv.sh %s' less -R $f
+# # previewer
+# set previewer ~/.config/lf/pv.sh
+# map i $LESSOPEN='| ~/.config/lf/pv.sh %s' less -R $f
 
-# # previewer (images)
-# set previewer ~/.config/lf/lf_kitty_preview.sh
-# set cleaner ~/.config/lf/lf_kitty_clean.sh
+# previewer (images)
+set previewer ~/.config/lf/pv_kitty.sh
+set cleaner ~/.config/lf/cleaner_kitty.sh
 
 # periodically check for directory changes
 set period 5

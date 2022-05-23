@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+if ! [ -f "$1" ]; then
+	exit 1
+fi
+
+cache="$HOME/.cache/pdfthumb"
+index="$cache/index.json"
+pdf="$(realpath "$1")"
+
+mkdir -p "$cache"
+
+if [ -f "$index" ]; then
+	thumbnail="$(jq -r ". \"$pdf\"" <"$index")"
+	if [[ "$thumbnail" != "null" ]]; then
+		if [[ ! -f "$cache/$thumbnail" ]]; then
+			exit 1
+		fi
+		echo "$cache/$thumbnail"
+		exit 0
+	fi
+fi
+
+thumbnail="$(uuidgen).jpg"
+
+# convert           \
+#    -verbose       \
+#    -density 150   \
+#    -trim          \
+#     test.pdf      \
+#    -quality 100   \
+#    -flatten       \
+#    -sharpen 0x1.0 \
+#     24-18.jpg
+
+if ! convert -density 150 "$pdf[0]" \
+    -quality 100 "$cache/$thumbnail" 2>/dev/null; then
+	exit 1
+fi
+
+if [[ ! -f "$index" ]]; then
+	echo "{\"$pdf\": \"$thumbnail\"}" >"$index"
+fi
+json="$(jq -r --arg "$pdf" "$thumbnail" ". + {\"$pdf\": \"$thumbnail\"}" <"$index")"
+echo "$json" >"$index"
+
+echo "$cache/$thumbnail"
