@@ -8,6 +8,7 @@ set icons
 # previewer (images)
 set previewer ~/.config/lf/pv_kitty.sh
 set cleaner ~/.config/lf/cleaner_kitty.sh
+map i $LESSOPEN='| ~/.config/lf/pv_kitty.sh %s' less -R $f
 
 # periodically check for directory changes
 set period 5
