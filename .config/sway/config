@@ -29,9 +29,10 @@ font pango: FiraCode Nerd Font 8
 # output * bg ~/.wallpaper/mba/tunnel.jpg center
 # output * bg ~/.wallpaper/mba/moebius-whales1440x900.png center
 # output * bg ~/.wallpaper/mba/sable1.png center
-output * bg ~/.wallpaper/mba/sable3.png center
 # output * bg ~/.wallpaper/mba/sable2.png center
+# output * bg ~/.wallpaper/mba/sable3.png center
 # output * bg ~/.wallpaper/mba/watchmen.png center
+output * bg ~/.wallpaper/mba/merchants.png center
 
 #
 # Example configuration:
@@ -48,6 +49,9 @@ exec_always ~/bin/clamshell_preserve.sh
 
 # gtk settings
 exec_always import-gsettings
+
+# autotiling
+exec_always autotiling -w 1
 
 # # mako (notifications)
 # exec --no-startup-id mako
