@@ -1,10 +1,10 @@
 #!/usr/bin/bash
-STATUS=$(mullvad status | awk '{ print $3 }') 
+STATUS=$(mullvad status -v) 
 
-if [ $STATUS = "Connected" ]; then
-    RETURN="{\"text\": \"\", \"class\": \"connected\"}" 
+if [ $(echo $STATUS | awk '{ print $1 }') = "Connected" ]; then
+    RETURN="{\"text\": \"\", \"tooltip\": \"$STATUS\", \"class\": \"connected\"}" 
 else
-    RETURN="{\"text\": \"\", \"class\": \"disconnected\"}"
+    RETURN="{\"text\": \"\", \"tooltip\": \"$STATUS\", \"class\": \"disconnected\"}"
 fi
 
 echo $RETURN | jq --unbuffered --compact-output 

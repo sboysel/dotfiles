@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-STATUS=$(mullvad status | awk '{ print $3 }') 
+STATUS=$(mullvad status | awk '{ print $1 }') 
 
 if [ $STATUS = "Connected" ]; then
     mullvad disconnect
