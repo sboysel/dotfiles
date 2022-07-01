@@ -99,7 +99,7 @@ end
 
 # utilities
 function n --description "Opens a new timestamped note for editing"
-    vim $NOTES_REPO/(date +"%Y%M%d")_$argv.md
+    vim $NOTES_REPO/(date +"%Y%m%d")_$argv.md
 end
 
 function cdn --description "List notes in $HOME/repos/notes "
@@ -139,7 +139,6 @@ function wifi --description "Combine nmcli with fzf to connect to wifi networks"
     nmcli device wifi connect $SSID password "$PASSWORD"
 end
 
-
 ### theme / colors ###
 # https://github.com/Jomik/fish-gruvbox
 theme_gruvbox dark medium
@@ -148,9 +147,6 @@ theme_gruvbox dark medium
 set fzf_fd_opts --hidden --exclude=.git --exclude=.cache
 
 ### hooks ###
-# cod
-cod init $fish_pid fish | source
-
 # direnv
 set -gx DIRENV_LOG_FORMAT 
 direnv hook fish | source
