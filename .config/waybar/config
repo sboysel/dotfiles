@@ -4,6 +4,7 @@
     "modules-left": [
         "sway/workspaces",
         /* "custom/arrow1", */
+        "custom/pomo",
         "sway/mode"
         /* "custom/ncspot", */
         /* "custom/arrow2" */
@@ -87,7 +88,8 @@
         "interval": 1,
         "exec": "$HOME/bin/mullvad-status.sh",
         "exec-if": "pgrep mullvad-daemon",
-        "on-click": "$HOME/bin/mullvad-toggle.sh"
+        "on-click": "$HOME/bin/mullvad-toggle.sh",
+        "tooltip": true
     },
 
     // NETWORK
@@ -95,6 +97,7 @@
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "  {essid}",
+        "tooltip-format-wifi": "  {ipaddr} // 爵 {gwaddr} \n   {signalStrength} ({signaldBm} dBm) // {frequency} Ghz \n  {bandwidthUpBits} mbps //  {bandwidthDownBits} mbps",
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "⚠ Disconnected"
     },
@@ -135,6 +138,16 @@
         "format-icons": ["", "", "", "", ""]
     },
 
+    // POMO
+
+    "custom/pomo": {
+        "format": "  {}",
+        "interval": 1,
+        "exec": "pomo status",
+        "exec-if": "pgrep pomo"
+    },
+
+
     // SYSTEM TRAY
 
     "tray": {
@@ -160,8 +173,8 @@
 
     "clock#2": {
 	"format": " {:%Y %B %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "firefox --new-tab 'https://www.google.com/calendar'"
+        "tooltip-format": "<big>{:%Y %B}</big>\n<small>{calendar}</small>",
+        "on-click": "chromium 'https://www.google.com/calendar'"
     },
 
     // SPACERS //
