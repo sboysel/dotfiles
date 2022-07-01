@@ -1,0 +1,46 @@
+#
+# Startup
+#
+
+# dbus
+exec dbus-update-activation-environment \
+    --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# clamshell mode
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/bin/clamshell_preserve.sh
+
+# gtk settings
+exec_always import-gsettings
+
+# autotiling
+exec_always autotiling -w 1 5
+
+# # mako (notifications)
+# exec --no-startup-id mako
+
+# # udiskie
+# exec --no-startup-id udiskie --tray
+
+# Idle configuration
+#
+# Example:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# swayidle (system idle behavior)
+exec swayidle -w \
+    timeout 600 'swaylock-blur' \
+    timeout 1200 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock-blur'
+
+# vim: set ft=i3config:

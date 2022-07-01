@@ -1,0 +1,37 @@
+#
+# Workspaces:
+#
+
+# workspace display output
+workspace 1 output $laptop
+workspace 2 output $laptop
+workspace 3 output $laptop
+workspace 4 output $laptop
+workspace 5 output $laptop
+workspace 6 output $laptop
+workspace 7 output $monitor
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+# cycle through active workspaces
+bindsym $mod+Mod1+Right workspace next
+bindsym $mod+Mod1+Left workspace prev
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym $mod+Control+Right move workspace to output right
+bindsym $mod+Control+Left move workspace to output left
+
+# vim: set ft=i3config:

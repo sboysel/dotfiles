@@ -1,0 +1,55 @@
+#
+# Basic keybindings:
+#
+
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Start a web browser
+bindsym $mod+q exec $web 
+
+# Kill focused window
+bindsym $mod+Shift+c kill
+
+# Start your launcher
+bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
+bindsym $mod+d exec 'wofi --show=drun --allow-images'
+
+# wofi web search
+# bindsym $mod+/ exec 'wofi'
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+# lock screen
+bindsym $mod+l exec $lock
+
+# screenshot
+bindsym $mod+Shift+s exec $scrot
+
+# volume
+bindsym XF86AudioMute exec 'pactl set-sink-mute 0 toggle' 
+bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume 0 -5%'
+bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume 0 +5%'
+
+# media keys
+# require ncspot and playerctl
+bindsym XF86AudioPlay exec 'playerctl -p ncspot play-pause' 
+bindsym XF86AudioPrev exec 'playerctl -p ncspot previous'
+bindsym XF86AudioNext exec 'playerctl -p ncspot next'
+
+# display brightness
+bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
+bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
+# keyboard brightness
+bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 20'
+bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 20'
+
+# vim: set ft=i3config:
