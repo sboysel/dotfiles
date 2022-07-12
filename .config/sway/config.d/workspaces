@@ -33,5 +33,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 # (effectively toggles when you only have two outputs)
 bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Up move workspace to output up
+bindsym $mod+Control+Down move workspace to output down
 
 # vim: set ft=i3config:
