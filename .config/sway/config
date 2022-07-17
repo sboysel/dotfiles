@@ -7,7 +7,7 @@ set $mod Mod4
 set $term kitty
 # set $web chromium
 set $web firefox
-set $lock ~/bin/swaylock-blur
+set $lock swaylock
 set $scrot swayshot display
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1

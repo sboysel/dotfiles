@@ -38,9 +38,9 @@ exec_always autotiling -w 1 5
 
 # swayidle (system idle behavior)
 exec swayidle -w \
-    timeout 600 'swaylock-blur' \
+    timeout 600 'swaylock -C ~/.config/swaylock/config' \
     timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock-blur'
+    before-sleep 'swaylock -C ~/.config/swaylock/config'
 
 # vim: set ft=i3config:

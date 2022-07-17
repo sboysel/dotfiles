@@ -41,8 +41,9 @@ output $monitor resolution 1920x1080 position 0,0
 # output $laptop bg ~/.wallpaper/mba/stars.jpg fill
 # output $laptop bg ~/.wallpaper/mba/escher_reptile.jpg tile
 # output $monitor bg ~/.wallpaper/mba/escher_reptile.jpg tile
+# output $laptop bg ~/.wallpaper/mba/elephant.jpg center
+output $laptop bg ~/.wallpaper/mba/gradienta.jpg center
 
-output $laptop bg ~/.wallpaper/mba/elephant.jpg center
 
 # output $monitor bg ~/.wallpaper/mba/merchants1920x1080.png center
 output $monitor bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill

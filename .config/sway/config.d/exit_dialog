@@ -4,7 +4,7 @@
 # set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
 set $mode_system (l)ock, l(o)gout, (s)uspend, (r)eboot, (S)hutdown, (U)EFI
 mode "$mode_system" {
-    bindsym l exec '$lock -f', mode "default"
+    bindsym l exec '$lock', mode "default"
     bindsym o exit
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
