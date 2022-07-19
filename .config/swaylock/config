@@ -1,5 +1,7 @@
 daemonize
-image=~/.wallpaper/mba/gradienta.jpg
+image=eDP-1:~/.wallpaper/mba/gradienta.jpg
+image=HDMI-A-1:~/.wallpaper/mba/gradienta-1920.jpg
 scaling=center
 indicator-caps-lock
 indicator-radius=100
+indicator-thickness=20
