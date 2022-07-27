@@ -4,9 +4,9 @@ end
 
 ### environment ###
 set -gx WLR_NO_HARDWARE_CURSORS 1
-set -gx EDITOR /usr/bin/vim
-set -gx VISUAL /usr/bin/vim
-set -gx SUDO_EDITOR /usr/bin/vim
+set -gx EDITOR /usr/bin/nvim
+set -gx VISUAL /usr/bin/nvim
+set -gx SUDO_EDITOR /usr/bin/nvim
 set -gx GPG_TTY $(tty)
 set -gx RANGER_LOAD_DEFAULT_RC FALSE
 set -gx GOHOME "$HOME/go"
@@ -89,6 +89,10 @@ function cmatrix
     /usr/bin/cmatrix -as 
 end
 
+function clock
+    /usr/bin/tty-clock -ct
+end
+
 function russ
     $HOME/.cargo/bin/russ --database-path $HOME/.config/russ/russ.sqlite
 end
@@ -108,6 +112,25 @@ end
 
 function lsn --description "List notes in $HOME/repos/notes "
     lf $NOTES_REPO
+end
+
+function todo --description "todo [edit|done] [n]"
+    if not set -q argv[1]
+        /usr/bin/mdcat $HOME/.todo
+    else if [ $argv[1] = "edit" ]
+        $EDITOR $HOME/.todo
+    else if [ $argv[1] = "done" ]
+        set N $argv[2]
+        /usr/bin/sed -i "s/$N\. \[ \]/$N\. \[x\]/g" $HOME/.todo
+        /usr/bin/mdcat $HOME/.todo
+    else
+        set N $argv[1]
+        set REGEX "$N s/$N. \[ \] //p"
+        set MSG (sed -n $REGEX $HOME/.todo)
+        $GOBIN/countdown 2s && /usr/bin/notify-send \
+                -i $HOME/.local/share/pomo/icon.png "pomodoro complete!" $MSG \
+            && /usr/bin/paplay /usr/share/sounds/freedesktop/stereo/message.oga
+    end
 end
 
 # connect to wifi
