@@ -102,16 +102,19 @@ function m --description "Alias for `macchina`"
 end
 
 # utilities
-function n --description "Opens a new timestamped note for editing"
-    vim $NOTES_REPO/(date +"%Y%m%d")_$argv.md
-end
-
-function cdn --description "List notes in $HOME/repos/notes "
-    cd $NOTES_REPO
-end
-
-function lsn --description "List notes in $HOME/repos/notes "
-    lf $NOTES_REPO
+function n --description "n [title]"
+    if not set -q argv[1]
+        nvim (printf %s\n (find $NOTES_REPO -type f) | fzf)
+    else
+        set REGEX "*$argv*.md"
+        set SEARCH_RESULTS (find $NOTES_REPO -type f -name $REGEX)
+        echo $SEARCH_RESULTS
+        if test (count $SEARCH_RESULTS) -gt 0
+            nvim (printf %s\n $SEARCH_RESULTS | fzf)  
+        else
+            nvim $NOTES_REPO/(date +"%Y%m%d")_$argv.md
+        end
+    end
 end
 
 function todo --description "todo [edit|done] [n]"
@@ -128,8 +131,10 @@ function todo --description "todo [edit|done] [n]"
         set REGEX "$N s/$N. \[ \] //p"
         set MSG (sed -n $REGEX $HOME/.todo)
         $GOBIN/countdown 2s && /usr/bin/notify-send \
-                -i $HOME/.local/share/pomo/icon.png "pomodoro complete!" $MSG \
+                -i $HOME/.local/share/pomo/icon.png \
+                "TODO $N // pomodoro complete" $MSG \
             && /usr/bin/paplay /usr/share/sounds/freedesktop/stereo/message.oga
+        echo "TODO $N // pomodoro complete // $MSG"
     end
 end
 
@@ -170,6 +175,9 @@ theme_gruvbox dark medium
 set fzf_fd_opts --hidden --exclude=.git --exclude=.cache
 
 ### hooks ###
+# pyenv
+pyenv init - | source
+
 # direnv
 set -gx DIRENV_LOG_FORMAT 
 direnv hook fish | source
