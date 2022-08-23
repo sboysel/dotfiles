@@ -4,7 +4,7 @@ Description=Runs python http.server in ~/repos/startpage
 [Service]
 Type=simple
 Restart=always
-ExecStart=python -m http.server --bind 127.0.0.1 --directory /home/sam/repos/startpage
+ExecStart=python -m http.server 8005 --bind 127.0.0.1 --directory /home/sam/repos/startpage
 ExecStop=kill `ps aux | grep http.server | grep -v grep | awk '{ print $2 }'`
 
 [Install]
