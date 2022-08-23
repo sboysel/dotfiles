@@ -38,13 +38,17 @@ output $monitor resolution 1920x1080 position 1440,0
 # output $laptop bg ~/.wallpaper/mba/escher_reptile.jpg tile
 # output $monitor bg ~/.wallpaper/mba/escher_reptile.jpg tile
 # output $laptop bg ~/.wallpaper/mba/elephant.jpg center
-output $laptop bg ~/.wallpaper/mba/gradienta.jpg center
+# output $laptop bg ~/.wallpaper/mba/ocean-1440.jpg center
+# output $laptop bg ~/.wallpaper/mba/gradienta.jpg center
+# output $laptop bg ~/.wallpaper/mba/2001a.png center
+# output $laptop bg ~/.wallpaper/mba/mediator1600.png center
+# output $laptop bg ~/.wallpaper/mba/desert-night1600.jpg center
+output $laptop bg ~/.wallpaper/mba/half-dome.png center
 
 
 # output $monitor bg ~/.wallpaper/mba/merchants1920x1080.png center
 # output $monitor bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output $monitor bg ~/.wallpaper/mba/gradienta-1920.jpg center
-
+output $monitor bg ~/.wallpaper/thinkpad/desert-night1920.jpg center
 
 # vim: set ft=i3config: 
 
