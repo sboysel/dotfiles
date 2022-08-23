@@ -1,7 +1,7 @@
 # general
 font=Fira Code 10
 format=<b>%s</b>\n%b
-default-timeout=10
+default-timeout=0
 border-size=2
 margin=12
 padding=10
@@ -10,10 +10,10 @@ icon-path=/usr/share/icons/Arc
 layer=overlay
 
 # colors (gruvbox dark medium)
-background-color=#282828
+background-color=#3c3836
 text-color=#ebdbb2
 border-color=#ebdbb2
 
 [urgency=critical]
-border-color=#cc241d
+border-color=#fb4934
 
