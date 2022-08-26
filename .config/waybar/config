@@ -3,23 +3,19 @@
     "position": "top",
     "modules-left": [
         "sway/workspaces",
-        /* "custom/arrow1", */
-        "custom/pomo",
-        "sway/mode"
-        /* "custom/ncspot", */
-        /* "custom/arrow2" */
-    ],
-    "modules-center": [
+        "custom/trileft",
         "clock#1",
         "clock#2"
     ],
+    "modules-center": [
+        "sway/mode"
+    ],
     "modules-right": [
         "idle_inhibitor",
-        /* "custom/arrow3", */
+        "custom/triright",
         "cpu",
         "memory",
         "temperature",
-        /* "custom/arrow4", */
         "pulseaudio",
         "network",
         "custom/mullvad",
@@ -174,22 +170,18 @@
     "clock#2": {
 	"format": " {:%Y %B %d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<small>{calendar}</small>",
-        "on-click": "chromium 'https://www.google.com/calendar'"
+        "on-click": "firefox 'https://www.google.com/calendar'"
     },
 
     // SPACERS //
 
-    "custom/arrow1": {
-            "format": ""
+    "custom/triright": {
+            "format": "",
+            "tooltip": false
     },
-    "custom/arrow2": {
-            "format": ""
-    },
-    "custom/arrow3": {
-            "format": ""
-    },
-    "custom/arrow4": {
-            "format": ""
+    "custom/trileft": {
+            "format": "",
+            "tooltip": false
     },
 }
 
