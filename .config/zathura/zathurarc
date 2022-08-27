@@ -1,4 +1,4 @@
-set font "FiraCode Nerd Font 9"
+set font "FiraCode Nerd Font 20"
 # Open document in fit-width mode by default
 set adjust-open "width"
 
