@@ -1,7 +1,8 @@
 # general
-font=FantasqueSansMono Nerd Font 12
+font=FiraCode Nerd Font 20
 format=<b>%s</b>\n%b
 default-timeout=0
+width=600
 border-size=2
 margin=4
 padding=10
