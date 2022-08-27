@@ -3,16 +3,18 @@
     "position": "top",
     "modules-left": [
         "sway/workspaces",
-        "custom/trileft",
+        "custom/tri1",
+        "custom/tri2",
+        "sway/mode"
+    ],
+    "modules-center": [
         "clock#1",
         "clock#2"
     ],
-    "modules-center": [
-        "sway/mode"
-    ],
     "modules-right": [
         "idle_inhibitor",
-        "custom/triright",
+        "custom/tri3",
+        "custom/tri4",
         "cpu",
         "memory",
         "temperature",
@@ -175,13 +177,23 @@
 
     // SPACERS //
 
-    "custom/triright": {
+    "custom/tri1": {
             "format": "",
             "tooltip": false
     },
-    "custom/trileft": {
+    "custom/tri2": {
+            "format": "",
+            "tooltip": false
+    },
+
+    "custom/tri3": {
             "format": "",
             "tooltip": false
     },
+    "custom/tri4": {
+            "format": "",
+            "tooltip": false
+    },
+
 }
 

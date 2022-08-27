@@ -35,9 +35,9 @@ bindsym $mod+l exec $lock
 bindsym $mod+Shift+s exec $scrot
 
 # volume
-bindsym XF86AudioMute exec 'pactl set-sink-mute 0 toggle' 
-bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume 0 -5%'
-bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume 0 +5%'
+bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle' 
+bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
+bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
 
 # media keys
 # require ncspot and playerctl
@@ -46,10 +46,19 @@ bindsym XF86AudioPrev exec 'playerctl -p ncspot previous'
 bindsym XF86AudioNext exec 'playerctl -p ncspot next'
 
 # display brightness
-bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
-bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
+# ## >> macbook air
+# bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
+# bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
+# # keyboard brightness
+# bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 20'
+# bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 20'
+
+## >> thinkpad x1 carbon
+bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/intel_backlight -U 10'
+bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/intel_backlight -A 10'
 # keyboard brightness
-bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 20'
-bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 20'
+bindsym $mod+XF86MonBrightnessDown exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 0'
+bindsym $mod+XF86MonBrightnessUp exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 100'
+
 
 # vim: set ft=i3config:

@@ -12,11 +12,11 @@ assign [class="^code-oss$"] 1
 assign [class="^Chromium$"] 2 
 assign [class="^Google-chrome$"] 2
 assign [class="^Navigator$"] 2
-assign [class="^firefox$"] 2
+assign [app_id="^firefox$"] 2
 assign [class="^qutebrowser$"] 2
 assign [class="Min"] 2
 # communication
-assign [class="Slack"] 3
+assign [app_id="Slack"] 3
 assign [class="Discord$"] 3
 assign [class="Ferdi$"] 3
 assign [class="^Rambox$"] 3

@@ -5,18 +5,18 @@
 #
 set $mod Mod4
 set $term kitty
-# set $web chromium
 set $web firefox
 set $lock swaylock
 set $scrot swayshot display
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
-set $monitor HDMI-A-1
+# set $monitor HDMI-A-1
+set $monitor HDMI-A-2
 set $left h
 set $down j
 set $up k
 set $right l
-font pango: FiraCode Nerd Font 8
+font pango: FiraCode Nerd Font 12
 
 include ~/.config/sway/config.d/output
 include ~/.config/sway/config.d/input

@@ -13,42 +13,13 @@
 # | laptop |  | monitor | 
 # |        |  |         |
 # ----------  -----------
-output $laptop resolution 1440x900 position 0,0
-output $monitor resolution 1920x1080 position 1440,0
+# output $laptop mode 2560x1440@60Hz position 0,1200 scale 2
+output $laptop mode 2560x1440@60Hz position 0,1200 scale 1
+output $monitor mode 1920x1080@60Hz position 1280,840 scale 1 subpixel rgb
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-
-# output * bg ~/.wallpaper/mba/saga1.jpg center
-# output * bg ~/.wallpaper/mba/meditate-wall-flipped.png center
-# output * bg ~/.wallpaper/mba/P6m-sample.svg tile #FFFFFF
-# output * bg ~/.wallpaper/mba/grammar_of_ornament.jpg tile
-# output * bg ~/.wallpaper/mba/swirl3.jpg center
-# output * bg ~/.wallpaper/mba/tunnel.jpg center
-# output * bg ~/.wallpaper/mba/moebius-whales1440x900.png center
-# output * bg ~/.wallpaper/mba/sable1.png center
-# output * bg ~/.wallpaper/mba/sable2.png center
-# output * bg ~/.wallpaper/mba/sable3.png center
-# output * bg ~/.wallpaper/mba/watchmen.png center
-# output $laptop bg ~/.wallpaper/mba/merchants.png center
-# output $laptop bg ~/.wallpaper/mba/obiwan.png center
-# output $laptop bg ~/.wallpaper/mba/frog.png center
-# output $laptop bg ~/.wallpaper/mba/blue-sky.png center
-# output $laptop bg ~/.wallpaper/mba/stars.jpg fill
-# output $laptop bg ~/.wallpaper/mba/escher_reptile.jpg tile
-# output $monitor bg ~/.wallpaper/mba/escher_reptile.jpg tile
-# output $laptop bg ~/.wallpaper/mba/elephant.jpg center
-# output $laptop bg ~/.wallpaper/mba/ocean-1440.jpg center
-# output $laptop bg ~/.wallpaper/mba/gradienta.jpg center
-# output $laptop bg ~/.wallpaper/mba/2001a.png center
-# output $laptop bg ~/.wallpaper/mba/mediator1600.png center
-# output $laptop bg ~/.wallpaper/mba/desert-night1600.jpg center
-output $laptop bg ~/.wallpaper/mba/half-dome.png center
-
-
-# output $monitor bg ~/.wallpaper/mba/merchants1920x1080.png center
-# output $monitor bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output $monitor bg ~/.wallpaper/thinkpad/desert-night1920.jpg center
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg ~/.wallpaper/thinkpad/wavy.png fit
 
 # vim: set ft=i3config: 
 

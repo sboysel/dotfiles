@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: FiraCode Nerd Font, FantasqueSansMono Nerd Font;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: bold;
     min-height: 0;
 }
@@ -22,7 +22,7 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 8px;
     color: #eee8d5;
 }
 
@@ -54,34 +54,34 @@ window#waybar {
     margin: 0 0px;
 }
 
-#idle_inhibitor, #clock.1, #clock.2 {
+#clock.1, #clock.2 {
     background-color: transparent;
-    padding: 0 4px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #idle_inhibitor {
     background-color: transparent;
-    padding: 0 6px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #cpu, #memory, #temperature {
     background-color: #83a598;
-    padding: 0 4px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #battery, #custom-mullvad, #network,
 #pulseaudio, #tray {
     background-color: #b8bb26; 
-    padding: 0 4px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #battery {
     background-color: #d65d0e;
-    padding: 0 4px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
@@ -98,14 +98,25 @@ window#waybar {
     background: #d65d0e;
 }
 
-#custom-triright {
-    color: #83a598;
-    background-color: #3c3836;
-    padding: 0 8px;
-}
-#custom-trileft {
-    color: #3c3836;
+#custom-tri1 {
     background-color: #83a598;
-    padding: 0 8px;
+    color: #fbf1c7;
+    padding: 0 12px;
 }
+#custom-tri2 {
+    background-color: #3c3836;
+    color: #fbf1c7;
+    padding: 0px 12px 0px 0px;
+}
+#custom-tri3 {
+    color: #fbf1c7;
+    background-color: #3c3836;
+    padding: 0 12px;
+}
+#custom-tri4 {
+    color: #fbf1c7;
+    background-color: #83a598;
+    padding: 0px 12px 0px 0px;
+}
+
 
