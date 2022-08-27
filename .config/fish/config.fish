@@ -3,11 +3,18 @@ if status is-interactive
 end
 
 ### environment ###
-set -gx WLR_NO_HARDWARE_CURSORS 1
 set -gx EDITOR /usr/bin/nvim
 set -gx VISUAL /usr/bin/nvim
 set -gx SUDO_EDITOR /usr/bin/nvim
+
+set -gx XDG_CURRENT_DESKTOP sway
+set -gx XDG_SESSION_TYPE wayland
+set -gx MOZ_ENABLE_WAYLAND 1
+set -gx WLR_NO_HARDWARE_CURSORS 1
+set -gx QT_QPA_PLATFORM wayland
+
 set -gx GPG_TTY $(tty)
+
 set -gx RANGER_LOAD_DEFAULT_RC FALSE
 set -gx GOHOME "$HOME/go"
 set -gx GOBIN "$HOME/go/bin"
@@ -15,8 +22,7 @@ set -gx JULIA_PROJECT '@.'
 set -gx JULIA_NUM_THREADS 4
 set -gx RUSTC_WRAPPER sccache
 set -gx npm_config_prefix "$HOME/.local"
-set -gx XDG_CURRENT_DESKTOP sway
-set -gx XDG_SESSION_TYPE wayland
+
 set -gx NOTES_REPO "$HOME/repos/notes"
 
 ### functions (aliases) ###
@@ -25,9 +31,7 @@ function fish_source
     source $HOME/.config/fish/config.fish
 end
 
-# function fish_greeting
-#     fish_logo
-# end
+set fish_greeting
 
 # working with files
 function exa --description "Alternative to `ls` (pretty, detailed, shows hidden)"
@@ -81,9 +85,9 @@ function R
     /usr/bin/R --no-save $argv
 end
 
-function zathura
-    GDK_BACKEND=x11 /usr/bin/zathura $argv
-end
+# function zathura
+#     GDK_BACKEND=x11 /usr/bin/zathura $argv
+# end
 
 function cmatrix
     /usr/bin/cmatrix -as 
