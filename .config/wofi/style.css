@@ -5,6 +5,12 @@
 window {
 	background-color: #282828;
 	color: #d5c4a1;
+        font-size: 30px;
+        font-family: FiraCode Nerd Font;
+}
+
+#entry {
+        padding: 8px;
 }
 
 #entry:nth-child(odd) {
@@ -23,8 +29,7 @@ window {
 	background-color: #3c3836;
 	color: #bdae93;
 	border-color: #504945; 
+        padding: 8px;
 }
 
 #input:focus {
-	border-color: #fabd2f; 
-}
