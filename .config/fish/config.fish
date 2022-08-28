@@ -80,6 +80,10 @@ function rmjourn --description "Vaccum systemd journal"
     sudo journalctl --vacuum-time=2weeks
 end
 
+function pkgdiff --description "changes in packages installed on system"
+    yay -Qe | diff $HOME/.pkglist -
+end
+
 # applications
 function R
     /usr/bin/R --no-save $argv
