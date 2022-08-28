@@ -11,14 +11,8 @@ bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/bin/clamshell_preserve.sh
 
-# gtk settings
-exec_always import-gsettings
-
 # autotiling
 exec_always autotiling -w 1 5
-
-# # mako (notifications)
-# exec --no-startup-id mako
 
 # # udiskie
 # exec --no-startup-id udiskie --tray
@@ -37,10 +31,10 @@ exec_always autotiling -w 1 5
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # swayidle (system idle behavior)
-exec swayidle -w \
-    timeout 60 'swaylock -C ~/.config/swaylock/config' \
+exec swayidle -d -w \
+    timeout 60 '$lock' \
     timeout 120 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -C ~/.config/swaylock/config'
+    before-sleep '$lock'
 
 # vim: set ft=i3config:

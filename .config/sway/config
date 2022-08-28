@@ -6,7 +6,6 @@
 set $mod Mod4
 set $term kitty
 set $web firefox
-set $lock swaylock
 set $scrot swayshot display
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
@@ -16,18 +15,10 @@ set $left h
 set $down j
 set $up k
 set $right l
+set $bg ~/.wallpaper/thinkpad/wavy2560x1440.png
+set $lock swaylock -f -s center --indicator-radius 250 --indicator-thickness 50 -i $bg
 font pango: FiraCode Nerd Font 12
 
-include ~/.config/sway/config.d/output
-include ~/.config/sway/config.d/input
-include ~/.config/sway/config.d/startup
-include ~/.config/sway/config.d/keybindings
-include ~/.config/sway/config.d/navigation
-include ~/.config/sway/config.d/workspaces
-include ~/.config/sway/config.d/clients
-include ~/.config/sway/config.d/layouts
-include ~/.config/sway/config.d/scratchpad
-include ~/.config/sway/config.d/resize
-include ~/.config/sway/config.d/exit_dialog
-include ~/.config/sway/config.d/colors
-include ~/.config/sway/config.d/status_bar
+include ~/.config/sway/config.d/*
+
+# vim: set ft=i3config: 

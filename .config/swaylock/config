@@ -1,8 +1,0 @@
-daemonize
-image=eDP-1:~/.wallpaper/thinkpad/wavy.png
-image=HDMI-A-1:~/.wallpaper/thinkpad/wavy.png
-image=HDMI-A-2:~/.wallpaper/thinkpad/wavy.png
-scaling=center
-indicator-caps-lock
-indicator-radius=250
-indicator-thickness=50

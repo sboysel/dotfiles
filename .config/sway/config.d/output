@@ -19,7 +19,6 @@ output $monitor mode 1920x1080@60Hz position 1280,840 scale 1 subpixel rgb
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg ~/.wallpaper/thinkpad/wavy.png fit
+output * bg $bg center
 
 # vim: set ft=i3config: 
-
