@@ -6,6 +6,7 @@ My dotfiles that I manage with [yadm](https://yadm.io/).
 
 ## Screenshot
 
+![](../.screenshots/thinkpad/screen0.png?raw=true)
 ![](../.screenshots/thinkpad/screen1.png?raw=true)
 ![](../.screenshots/thinkpad/screen2.png?raw=true)
 
