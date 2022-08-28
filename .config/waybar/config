@@ -3,8 +3,6 @@
     "position": "top",
     "modules-left": [
         "sway/workspaces",
-        "custom/tri1",
-        "custom/tri2",
         "sway/mode"
     ],
     "modules-center": [
@@ -13,8 +11,6 @@
     ],
     "modules-right": [
         "idle_inhibitor",
-        "custom/tri3",
-        "custom/tri4",
         "cpu",
         "memory",
         "temperature",
@@ -51,7 +47,7 @@
     // SWAY MODE 
 
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "{}"
     },
 
     // PLAYERCTL / NCSPOT
@@ -173,26 +169,6 @@
 	"format": " {:%Y %B %d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<small>{calendar}</small>",
         "on-click": "firefox 'https://www.google.com/calendar'"
-    },
-
-    // SPACERS //
-
-    "custom/tri1": {
-            "format": "",
-            "tooltip": false
-    },
-    "custom/tri2": {
-            "format": "",
-            "tooltip": false
-    },
-
-    "custom/tri3": {
-            "format": "",
-            "tooltip": false
-    },
-    "custom/tri4": {
-            "format": "",
-            "tooltip": false
     },
 
 }

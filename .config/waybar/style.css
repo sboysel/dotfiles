@@ -8,115 +8,75 @@
 }
 
 window#waybar {
-    background-color: #3c3836;
     color: #fbf1c7;
+    background-color: #3c3836;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
 
 #workspaces {
-    color: #fbf1c7;
-    background-color: #83a598;
     margin: 0 0px;
     padding: 0 0px;
 }
 
 #workspaces button {
-    padding: 0 8px;
-    color: #eee8d5;
+    color: #fbf1c7;
+    padding: 0 10px;
 }
 
 #workspaces button.focused {
-    background-color: #fabd2f;
-    color: #fbf1c7;
+    background-color: #83a598; /* blue */
 }
 
 #workspaces button.urgent {
-    background-color: #fb4934;
-    color: #fbf1c7;
+    background-color: #fb4934; /* red */
 }
 
 #workspaces button:hover {
-    color: #fbf1c7;
-    background: #d65d0e;
+    background: #fabd2f; /* yellow */
 }
 
 #mode {
-    font-size: 20px;
-    color: #dc322f;
-    padding: 0 0px;
+    font-style: italic;
+    color: #dc322f; /* red */
+    padding: 0 10px;
     margin: 0 0px;
 }
 
-#custom-ncspot {
-    background-color: #83a598;
-    padding: 0 4px;
-    margin: 0 0px;
-}
-
-#clock.1, #clock.2 {
-    background-color: transparent;
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#idle_inhibitor {
-    background-color: transparent;
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#cpu, #memory, #temperature {
-    background-color: #83a598;
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#battery, #custom-mullvad, #network,
-#pulseaudio, #tray {
-    background-color: #b8bb26; 
-    padding: 0 8px;
+#custom-ncspot,
+#clock.1,
+#clock.2,
+#idle_inhibitor,
+#cpu,
+#memory,
+#temperature,
+#custom-mullvad,
+#network,
+#pulseaudio,
+#tray {
+    padding: 0 10px;
     margin: 0 0px;
 }
 
 #battery {
     background-color: #d65d0e;
-    padding: 0 8px;
+    padding: 0 10px;
     margin: 0 0px;
 }
 
-#custom-mullvad.connected, #battery.charging, #battery.plugged {
+#custom-mullvad.connected,
+#battery.charging,
+#battery.plugged {
     color: #eee8d5;
-    background-color: #b8bb26;
+    background-color: #b8bb26; /* green */
+    padding: 0 10px;
+    margin: 0 0px;
 }
 
-#network.disconnected {
-    background: #d65d0e;
+#pulseaudio.muted, 
+#network.disconnected,
+#custom-mullvad.disconnected {
+    background: #d65d0e; /* red */
+    padding: 0 10px;
+    margin: 0 0px;
 }
-
-#custom-mullvad.disconnected, #pulseaudio.muted {
-    background: #d65d0e;
-}
-
-#custom-tri1 {
-    background-color: #83a598;
-    color: #fbf1c7;
-    padding: 0 12px;
-}
-#custom-tri2 {
-    background-color: #3c3836;
-    color: #fbf1c7;
-    padding: 0px 12px 0px 0px;
-}
-#custom-tri3 {
-    color: #fbf1c7;
-    background-color: #3c3836;
-    padding: 0 12px;
-}
-#custom-tri4 {
-    color: #fbf1c7;
-    background-color: #83a598;
-    padding: 0px 12px 0px 0px;
-}
-
-
