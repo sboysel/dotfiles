@@ -86,7 +86,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set textwidth=80	" width of text area limited to 80 char
-set colorcolumn=80
+" set colorcolumn=80
 set cursorline		" highlight cursor line
 set number 		" line numbers
 set noswapfile
