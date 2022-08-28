@@ -1,4 +1,4 @@
-set font "FiraCode Nerd Font 20"
+set font "FiraCode Nerd Font 16"
 # Open document in fit-width mode by default
 set adjust-open "width"
 
@@ -10,7 +10,6 @@ set first-page-column 2:3
 
 #stop at page boundries
 set scroll-page-aware "true"
-set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
