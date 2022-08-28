@@ -125,6 +125,17 @@ function dots --description "config management"
                 continue
         end
     end
+    if test (pkgdiff | wc -l) -ge 1
+        pkgdiff
+        read -l -P "==> update pkglist? [y/n]: " reply
+        switch $reply
+            case Y y
+                yay -Qe > $HOME/.pkglist
+                yadm add $HOME/.pkglist
+                yadm commit -m "[packages] bump"
+            case '' N n
+        end
+    end
     yadm status
     if test (yadm status -sb | grep 'ahead' | wc -l) -ge 1
         read -l -P "==> push? [y/n]: " reply
