@@ -4,20 +4,11 @@
 
 My dotfiles that I manage with [yadm](https://yadm.io/).
 
-## Screenshot
-
-![](../.screenshots/thinkpad/screen0.png?raw=true)
-![](../.screenshots/thinkpad/screen1.png?raw=true)
-![](../.screenshots/thinkpad/screen2.png?raw=true)
-
-More screenshots in [.screenshots](../.screenshots) directory.
-
 ## Installation
 
 ```
 yadm clone https://github.com/sboysel/dotfiles.git
 yadm status
-yadm bootstrap
 ```
 
 ## Workflow
@@ -28,6 +19,14 @@ yadm add ~/.vimrc
 yadm commit
 yadm push
 ```
+
+## Screenshots
+
+![](../.screenshots/thinkpad/screen0.png?raw=true)
+![](../.screenshots/thinkpad/screen1.png?raw=true)
+![](../.screenshots/thinkpad/screen2.png?raw=true)
+
+More screenshots in [.screenshots](../.screenshots) directory.
 
 ## Misc
 
