@@ -110,6 +110,34 @@ function m --description "Alias for `macchina`"
 end
 
 # utilities
+function dots --description "config management"
+    set CURRENT_DIR (pwd)
+    cd $HOME
+    for i in (yadm status --porcelain | awk '{print $2}')
+        yadm --no-pager diff $i
+        read -l -P "==> add and commit? [y/n]: " reply
+        switch $reply
+            case Y y
+                yadm add $i
+                read -l -P "==> message: " message
+                yadm commit -m $message
+            case '' N n
+                continue
+        end
+    end
+    yadm status
+    if test (yadm status -sb | grep 'ahead' | wc -l) -ge 1
+        read -l -P "==> push? [y/n]: " reply
+        switch $reply
+            case Y y
+                yadm push -u origin
+            case '' N n
+        end
+    end
+    cd $CURRENT_DIR
+end
+
+
 function n --description "n [title]"
     if not set -q argv[1]
         nvim (printf %s\n (find $NOTES_REPO -type f) | fzf)
