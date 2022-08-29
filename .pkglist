@@ -29,6 +29,7 @@ git 2.37.2-1
 github-cli 2.14.7-1
 gnome-themes-extra 3.28+r6+g45b1d457-1
 grub 2:2.06.r322.gd9b4638c5-1
+gtk2 2.24.33-2
 highlight 4.2-1
 htop 3.2.1-1
 imagemagick 7.1.0.47-1
@@ -47,12 +48,13 @@ man-db 2.10.2-1
 mdcat 0.28.0-1
 mullvad-vpn-cli 2022.4-1
 myrepos 1.20180726-6
+ncurses5-compat-libs 6.3-1
 neovim 0.7.2-3
-nerd-fonts-fantasque-sans-mono 2.2.1-1
-nerd-fonts-fira-code 2.1.0-2
+nerd-fonts-fira-code 2.2.1-2
 networkmanager 1.38.4-1
 nix 2.10.3-1
 nodejs 18.8.0-1
+noto-fonts-emoji 20211101-1
 npm 8.18.0-1
 openssh 9.0p1-1
 openvpn 2.5.7-1
@@ -62,6 +64,8 @@ pipewire-pulse 1:0.3.56-1
 pistol-git 0.3.2.r7.g4b834a9-1
 pkgconf 1.8.0-1
 pkgfile 21-2
+postgresql 14.5-1
+postgresql-old-upgrade 13.8-1
 pulseaudio-alsa 1:1.2.7.1-1
 pyenv 2.3.3-1
 python-pynvim 0.4.3-2
@@ -92,6 +96,7 @@ wofi 1.2.4-2
 xdg-desktop-portal-wlr 0.6.0-1
 xdg-utils 1.1.3+21+g1a58bc2-1
 xdotool 3.20211022.1-1
+xorg-xwayland 22.1.3-1
 yadm 3.2.1-1
 yarn 1.22.19-1
 yay 11.3.0-1
