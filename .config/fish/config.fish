@@ -26,14 +26,21 @@ set -gx npm_config_prefix "$HOME/.local"
 set -gx NOTES_REPO "$HOME/repos/notes"
 
 ### functions (aliases) ###
-# fish
+
+#
+# shell
+#
+
+set fish_greeting
+
 function fish_source
     source $HOME/.config/fish/config.fish
 end
 
-set fish_greeting
-
+#
 # working with files
+#
+
 function exa --description "Alternative to `ls` (pretty, detailed, shows hidden)"
     /usr/bin/exa --icons --group-directories-first -al $argv
 end
@@ -42,7 +49,10 @@ function ls
     /usr/bin/ls --color -hlX $argv
 end
 
-# yay
+#
+# package management
+#
+
 function yu --description "Update system"
     yay -Syyu
 end
@@ -67,7 +77,10 @@ function ym --description "Show manually installed packages"
     yay -Qm
 end
 
+#
 # maintenance
+#
+
 function rmcache --description "Clears $HOME/.cache"
     sudo rm -rf $HOME/.cache/*
 end
@@ -88,8 +101,10 @@ function nixpkgdiff --description "changes in Nix packages installed on system"
     nix-env -qa --installed "*" | diff $HOME/.nixpkglist -
 end
 
-
+#
 # applications
+#
+
 function R
     /usr/bin/R --no-save $argv
 end
@@ -99,11 +114,11 @@ end
 # end
 
 function cmatrix
-    /usr/bin/cmatrix -as 
+    $HOME/.nix-profile/bin/cmatrix -as 
 end
 
 function clock
-    /usr/bin/tty-clock -ct
+    $HOME/.nix-profile/bin/tty-clock -ct
 end
 
 function russ
@@ -111,10 +126,12 @@ function russ
 end
 
 function m --description "Alias for `macchina`"
-    /usr/bin/macchina
+    $HOME/.nix-profile/bin/macchina
 end
 
-# utilities
+## utilities
+
+# interactively commit changes to dotfiles
 function dots --description "config management"
     set CURRENT_DIR (pwd)
     set CURRENT_BRANCH (yadm branch --show-current)
@@ -126,6 +143,9 @@ function dots --description "config management"
         case '' N n
     end
     # iterate through uncommited changes, add, and commit
+    echo ""
+    echo "==> Unstaged changes"
+    echo ""
     for i in (yadm status --porcelain | awk '{print $2}')
         yadm --no-pager diff $i
         read -l -P "==> add and commit? [y/n]: " reply
@@ -183,6 +203,7 @@ function dots --description "config management"
     cd $CURRENT_DIR
 end
 
+# notes utility
 function n --description "n [title]"
     if not set -q argv[1]
         nvim (printf %s\n (find $NOTES_REPO -type f) | fzf)
@@ -198,6 +219,7 @@ function n --description "n [title]"
     end
 end
 
+# todo utility
 function todo --description "todo [edit|done] [n]"
     if not set -q argv[1]
         /usr/bin/mdcat $HOME/.todo
@@ -248,6 +270,7 @@ function wifi --description "Combine nmcli with fzf to connect to wifi networks"
     nmcli device wifi connect $SSID password "$PASSWORD"
 end
 
+# crop images for wallpaper
 function cropper
     set x_res (swaymsg -t get_outputs | jq '.[0].current_mode.width')
     set y_res (swaymsg -t get_outputs | jq '.[0].current_mode.height')
