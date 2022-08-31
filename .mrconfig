@@ -1,0 +1,9 @@
+
+[repos/jmp]
+checkout = git clone 'git@github.com:sboysel/jmp.git' 'jmp'
+
+[repos/services]
+checkout = git clone 'git@github.com:sboysel/services.git' 'services'
+
+[repos/startpage]
+checkout = git clone 'https://github.com/sboysel/startpage.git' 'startpage'
