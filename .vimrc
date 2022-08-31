@@ -45,6 +45,8 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'dag/vim-fish'
 Plug 'fatih/vim-go'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'quarto-dev/quarto-vim'
 " Plug 'mattn/vim-sqlfmt'
 
 """ productivity """""""""""""""""""""""""""""""""
