@@ -132,7 +132,7 @@ function dots --description "config management"
         end
     end
     # update list of arch linux packages (yay)
-    if test (pkgdiff | wc -l) -ge 1
+    if test (pkgdiff | wc -l) -gt 0
         pkgdiff
         read -l -P "==> update $HOME/.pkglist? [y/n]: " reply
         switch $reply
@@ -144,7 +144,7 @@ function dots --description "config management"
         end
     end
     # update list nix packages (nix-env)
-    if test (nixpkgdiff | wc -l) -gt 1
+    if test (nixpkgdiff | wc -l) -gt 0
         nixpkgdiff
         read -l -P "==> update $HOME/.nixpkglist? [y/n]: " reply
         switch $reply
@@ -155,9 +155,17 @@ function dots --description "config management"
             case '' N n
         end
     end
-    # yadm status
+    # push the commited changes
     if test (yadm status -sb | grep 'ahead' | wc -l) -ge 1
         yadm log origin/$CURRENT_BRANCH..$CURRENT_BRANCH
+        # TODO: rebase?
+        read -l -P "==> rebase? [y/n]: " reply
+        switch $reply
+            case Y y
+                set COMMITS_AHEAD (yadm rev-list origin/$CURRENT_BRANCH..$CURRENT_BRANCH | wc -l)
+                yadm rebase -i HEAD~$COMMITS_AHEAD
+            case '' N n
+        end
         read -l -P "==> push? [y/n]: " reply
         switch $reply
             case Y y
