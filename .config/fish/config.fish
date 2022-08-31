@@ -84,6 +84,11 @@ function pkgdiff --description "changes in packages installed on system"
     yay -Qe | diff $HOME/.pkglist -
 end
 
+function nixpkgdiff --description "changes in Nix packages installed on system"
+    nix-env -qa --installed "*" | diff $HOME/.nixpkglist -
+end
+
+
 # applications
 function R
     /usr/bin/R --no-save $argv
@@ -126,14 +131,27 @@ function dots --description "config management"
                 continue
         end
     end
+    # update list of arch linux packages (yay)
     if test (pkgdiff | wc -l) -ge 1
         pkgdiff
-        read -l -P "==> update pkglist? [y/n]: " reply
+        read -l -P "==> update $HOME/.pkglist? [y/n]: " reply
         switch $reply
             case Y y
                 yay -Qe > $HOME/.pkglist
                 yadm add $HOME/.pkglist
                 yadm commit -m "[packages] bump"
+            case '' N n
+        end
+    end
+    # update list nix packages (nix-env)
+    if test (nixpkgdiff | wc -l) -gt 1
+        nixpkgdiff
+        read -l -P "==> update $HOME/.nixpkglist? [y/n]: " reply
+        switch $reply
+            case Y y
+                nix-env -qa --installed "*" > $HOME/.nixpkglist
+                yadm add $HOME/.nixpkglist
+                yadm commit -m "[nix-packages] bump"
             case '' N n
         end
     end
@@ -149,7 +167,6 @@ function dots --description "config management"
     end
     cd $CURRENT_DIR
 end
-
 
 function n --description "n [title]"
     if not set -q argv[1]
