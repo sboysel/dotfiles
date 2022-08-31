@@ -119,6 +119,13 @@ function dots --description "config management"
     set CURRENT_DIR (pwd)
     set CURRENT_BRANCH (yadm branch --show-current)
     cd $HOME
+    read -l -P "==> show diff? [y/n]: " reply
+    switch $reply
+        case Y y
+            yadm --no-pager diff origin/$CURRENT_BRANCH
+        case '' N n
+    end
+    # iterate through uncommited changes, add, and commit
     for i in (yadm status --porcelain | awk '{print $2}')
         yadm --no-pager diff $i
         read -l -P "==> add and commit? [y/n]: " reply
