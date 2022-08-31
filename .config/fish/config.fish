@@ -112,6 +112,7 @@ end
 # utilities
 function dots --description "config management"
     set CURRENT_DIR (pwd)
+    set CURRENT_BRANCH (yadm branch --show-current)
     cd $HOME
     for i in (yadm status --porcelain | awk '{print $2}')
         yadm --no-pager diff $i
@@ -136,8 +137,9 @@ function dots --description "config management"
             case '' N n
         end
     end
-    yadm status
+    # yadm status
     if test (yadm status -sb | grep 'ahead' | wc -l) -ge 1
+        yadm log origin/$CURRENT_BRANCH..$CURRENT_BRANCH
         read -l -P "==> push? [y/n]: " reply
         switch $reply
             case Y y
