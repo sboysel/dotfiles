@@ -7,3 +7,6 @@ checkout = git clone 'git@github.com:sboysel/services.git' 'services'
 
 [repos/startpage]
 checkout = git clone 'https://github.com/sboysel/startpage.git' 'startpage'
+
+[repos/ultralist]
+checkout = git clone 'git@github.com:sboysel/ultralist.git' 'ultralist'
