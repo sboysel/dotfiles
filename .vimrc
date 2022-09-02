@@ -113,7 +113,7 @@ let g:airline_theme = 'gruvbox8'
 let g:airline_highlighting_cache = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " " plugin.vim-repl
 " let g:repl_program = {
