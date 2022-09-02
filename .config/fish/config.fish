@@ -15,13 +15,15 @@ set -gx QT_QPA_PLATFORM wayland
 
 set -gx GPG_TTY $(tty)
 
-set -gx RANGER_LOAD_DEFAULT_RC FALSE
-set -gx GOHOME "$HOME/go"
+set -gx GOPATH "$HOME/go"
 set -gx GOBIN "$HOME/go/bin"
+set -gx GOOS "linux"
+set -gx GOARCH "amd64" 
 set -gx JULIA_PROJECT '@.'
 set -gx JULIA_NUM_THREADS 4
-set -gx RUSTC_WRAPPER sccache
 set -gx npm_config_prefix "$HOME/.local"
+set -gx RANGER_LOAD_DEFAULT_RC FALSE
+set -gx RUSTC_WRAPPER sccache
 
 set -gx NOTES_REPO "$HOME/repos/notes"
 
@@ -82,7 +84,11 @@ end
 #
 
 function rmcache --description "Clears $HOME/.cache"
+    set BEFORE (sudo du -sh $HOME/.cache 2>/dev/null)
+    echo -e "before:\t$BEFORE"
     sudo rm -rf $HOME/.cache/*
+    set AFTER (sudo du -sh $HOME/.cache 2>/dev/null)
+    echo -e "after:\t$AFTER"
 end
 
 function rmorph --description "Remove orphaned packages"
