@@ -1,0 +1,4 @@
+format = "$all"
+
+[rlang]
+detect_files  = ["!.Rprofile"]
