@@ -3,6 +3,9 @@ if status is-interactive
 end
 
 ### environment ###
+set -gx LC_ALL en_US.UTF-8
+set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
+
 set -gx EDITOR /usr/bin/nvim
 set -gx VISUAL /usr/bin/nvim
 set -gx SUDO_EDITOR /usr/bin/nvim
