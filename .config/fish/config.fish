@@ -108,8 +108,12 @@ function nixpkgdiff --description "changes in Nix packages installed on system"
 end
 
 #
-# applications
+# aliases
 #
+
+function todo
+    $GOBIN/ultralist $argv
+end
 
 function R
     /usr/bin/R --no-save $argv
@@ -212,40 +216,43 @@ end
 # notes utility
 function n --description "n [title]"
     if not set -q argv[1]
-        nvim (printf %s\n (find $NOTES_REPO -type f) | fzf)
+        # search all notes for editing
+        nvim (printf %s\n (find $NOTES_REPO/notes -type f) | fzf)
     else
         set REGEX "*$argv*.md"
-        set SEARCH_RESULTS (find $NOTES_REPO -type f -name $REGEX)
+        set SEARCH_RESULTS (find $NOTES_REPO/notes -type f -name $REGEX)
         echo $SEARCH_RESULTS
         if test (count $SEARCH_RESULTS) -gt 0
+            # match title with existing notes
             nvim (printf %s\n $SEARCH_RESULTS | fzf)  
         else
-            nvim $NOTES_REPO/(date +"%Y%m%d")_$argv.md
+            # new notes
+            nvim $NOTES_REPO/notes/(date +"%Y%m%d")_$argv.md
         end
     end
 end
 
-# todo utility
-function todo --description "todo [edit|done] [n]"
-    if not set -q argv[1]
-        /usr/bin/mdcat $HOME/.todo
-    else if [ $argv[1] = "edit" ]
-        $EDITOR $HOME/.todo
-    else if [ $argv[1] = "done" ]
-        set N $argv[2]
-        /usr/bin/sed -i "s/$N\. \[ \]/$N\. \[x\]/g" $HOME/.todo
-        /usr/bin/mdcat $HOME/.todo
-    else
-        set N $argv[1]
-        set REGEX "$N s/$N. \[ \] //p"
-        set MSG (sed -n $REGEX $HOME/.todo)
-        $GOBIN/countdown 2s && /usr/bin/notify-send \
-                -i $HOME/.local/share/pomo/icon.png \
-                "TODO $N // pomodoro complete" $MSG \
-            && /usr/bin/paplay /usr/share/sounds/freedesktop/stereo/message.oga
-        echo "TODO $N // pomodoro complete // $MSG"
-    end
-end
+# # todo utility
+# function todo --description "todo [edit|done] [n]"
+#     if not set -q argv[1]
+#         /usr/bin/mdcat $HOME/.todo
+#     else if [ $argv[1] = "edit" ]
+#         $EDITOR $HOME/.todo
+#     else if [ $argv[1] = "done" ]
+#         set N $argv[2]
+#         /usr/bin/sed -i "s/$N\. \[ \]/$N\. \[x\]/g" $HOME/.todo
+#         /usr/bin/mdcat $HOME/.todo
+#     else
+#         set N $argv[1]
+#         set REGEX "$N s/$N. \[ \] //p"
+#         set MSG (sed -n $REGEX $HOME/.todo)
+#         $GOBIN/countdown 2s && /usr/bin/notify-send \
+#                 -i $HOME/.local/share/pomo/icon.png \
+#                 "TODO $N // pomodoro complete" $MSG \
+#             && /usr/bin/paplay /usr/share/sounds/freedesktop/stereo/message.oga
+#         echo "TODO $N // pomodoro complete // $MSG"
+#     end
+# end
 
 # connect to wifi
 # source: https://gist.github.com/guyzmo/146423d0cf7d3c0a46e10eeb66883905
