@@ -118,6 +118,14 @@ function todo
     $GOBIN/ultralist $argv
 end
 
+function tl --description "ultralist list"
+    todo l
+end
+
+function ta --description "ultralist add [args]"
+    todo add $argv
+end
+
 function R
     /usr/bin/R --no-save $argv
 end
