@@ -118,6 +118,7 @@
     // BATTERY
 
     "battery": {
+        "interval": 5,
         "states": {
             // "good": 95,
             "warning": 30,
