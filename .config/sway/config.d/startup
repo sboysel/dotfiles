@@ -31,7 +31,7 @@ exec_always autotiling -w 1 5
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # swayidle (system idle behavior)
-exec swayidle -d -w \
+exec_always swayidle -d -w \
     timeout 60 '$lock' \
     timeout 120 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
