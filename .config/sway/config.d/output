@@ -14,8 +14,28 @@
 # |        |  |         |
 # ----------  -----------
 # output $laptop mode 2560x1440@60Hz position 0,1200 scale 2
-output $laptop mode 2560x1440@60Hz position 0,1200 scale 1
-output $monitor mode 1920x1080@60Hz position 1280,840 scale 1 subpixel rgb
+
+# output $laptop mode 2560x1440@60Hz position 0,1200 scale 1
+# output $monitor mode 1920x1080@60Hz position 1280,840 scale 0.75 subpixel rgb
+
+output $laptop {
+    mode  2560x1440@60.004Hz
+    pos 0 0
+    transform normal
+    scale 1.0
+    scale_filter nearest
+    adaptive_sync off
+    dpms on
+}
+output $monitor {
+    mode  1920x1080@60.0Hz
+    pos 2560 0
+    transform normal
+    scale 0.75
+    scale_filter smart
+    adaptive_sync off
+    dpms on
+}
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
