@@ -1,5 +1,5 @@
 acpi 1.7-3
-acpid 2.0.33-1
+acpid 2.0.34-1
 adobe-source-sans-fonts 3.046-1
 adobe-source-serif-fonts 4.004-2
 aerc 0.12.0-1
@@ -14,13 +14,13 @@ blueman 2.3.2-1
 bluez 5.65-3
 bluez-utils 5.65-3
 btop 1.2.9-1
-code 1.71.1-1
+code 1.71.2-1
 cpupower 5.19-1
 cronie 1.6.1-1
 direnv 2.32.1-1
 dmenu 5.1-1
 docker 1:20.10.18-1
-docker-compose 2.10.2-1
+docker-compose 2.11.0-1
 efibootmgr 18-1
 exa 0.10.1-6
 fakeroot 1.29-1
@@ -47,7 +47,7 @@ kitty 0.26.2-1
 lf 27-1
 libtool 2.4.7-5
 light 1.2.2-3
-linux 5.19.8.arch1-1
+linux 5.19.9.arch1-1
 linux-firmware 20220815.8413c63-1
 m4 1.4.19-1
 make 4.3-3
@@ -60,9 +60,9 @@ ncurses5-compat-libs 6.3-1
 neovim 0.7.2-3
 nerd-fonts-fira-code 2.2.2-1
 networkmanager 1.40.0-1
-nix 2.11.0-1
+nix 2.11.1-1
 nodejs 18.9.0-1
-noto-fonts-emoji 20211101-1
+noto-fonts-emoji 20220906-1
 npm 8.19.2-1
 nwg-displays 0.1.4-1
 openssh 9.0p1-1
@@ -70,7 +70,7 @@ openvpn 2.5.7-1
 pandoc-bin 2.19.2-1
 patch 2.7.6-8
 pavucontrol 1:5.0+r61+gee77d86-2
-pipewire-pulse 1:0.3.57-1
+pipewire-pulse 1:0.3.58-1
 pistol-git 0.3.2.r7.g4b834a9-1
 pkgconf 1.8.0-1
 pkgfile 21-2
@@ -81,7 +81,7 @@ pulseaudio-alsa 1:1.2.7.1-1
 pyenv 2.3.4-1
 python-pipx 1.1.0-1
 python-pynvim 0.4.3-2
-quarto-cli-bin 1.1.245-1
+quarto-cli-bin 1.1.251-1
 r 4.2.1-2
 reflector 2021.11-5
 ruby 3.0.4-9
