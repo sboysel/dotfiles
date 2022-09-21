@@ -15,8 +15,10 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $bg ~/.wallpaper/thinkpad/sable2560x1440.png
-set $lock swaylock -f -s center --indicator-radius 250 --indicator-thickness 50 -i $bg
+# set $bg ~/.wallpaper/thinkpad/sable2560x1440.png
+set $bg ~/.wallpaper/thinkpad/giza.jpg
+# set $bg ~/.wallpaper/thinkpad/webb2560x1440.jpg
+set $lock swaylock -f -s fill --indicator-radius 250 --indicator-thickness 50 -i $bg
 font pango: FiraCode Nerd Font 12
 
 include ~/.config/sway/config.d/*

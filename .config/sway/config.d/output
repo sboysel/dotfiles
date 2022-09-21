@@ -39,6 +39,6 @@ output $monitor {
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
-output * bg $bg center
+output * bg $bg fill
 
 # vim: set ft=i3config: 
