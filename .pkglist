@@ -20,12 +20,12 @@ cronie 1.6.1-1
 direnv 2.32.1-1
 dmenu 5.1-1
 docker 1:20.10.18-1
-docker-compose 2.11.0-1
+docker-compose 2.11.1-1
 efibootmgr 18-1
 exa 0.10.1-6
 fakeroot 1.29-1
 ffmpegthumbnailer 2.2.2-4
-firefox 104.0.2-1
+firefox 105.0-2
 fish 3.5.1-1
 fisher 4.4.2-1
 flex 2.6.4-3
