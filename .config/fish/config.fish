@@ -130,6 +130,15 @@ function R
     /usr/bin/R --no-save $argv
 end
 
+function ptpython
+    # python -m venv $HOME/.venv/ptpython
+    # source $HOME/.venv/ptpython/bin/activate.fish
+    # pip install -U pip ptpython
+    source $HOME/.venv/ptpython/bin/activate.fish
+    $HOME/.venv/ptpython/bin/ptpython
+    deactivate
+end
+
 # function zathura
 #     GDK_BACKEND=x11 /usr/bin/zathura $argv
 # end
