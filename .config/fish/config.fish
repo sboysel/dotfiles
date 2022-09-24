@@ -148,7 +148,8 @@ function cmatrix
 end
 
 function clock
-    $HOME/.nix-profile/bin/tty-clock -ct
+    # $HOME/.nix-profile/bin/tty-clock -ct
+    tock -c
 end
 
 function russ
