@@ -40,14 +40,14 @@ grub 2:2.06.r322.gd9b4638c5-4
 gtk2 2.24.33-2
 highlight 4.2-1
 htop 3.2.1-1
-imagemagick 7.1.0.48-1
+imagemagick 7.1.0.48-2
 intel-ucode 20220809-1
 julia 2:1.8.1-1
-kitty 0.26.2-1
-lf 27-1
+kitty 0.26.3-1
+lf 27-2
 libtool 2.4.7-5
 light 1.2.2-3
-linux 5.19.9.arch1-1
+linux 5.19.10.arch1-1
 linux-firmware 20220815.8413c63-1
 m4 1.4.19-1
 make 4.3-3
@@ -61,7 +61,7 @@ neovim 0.7.2-3
 nerd-fonts-fira-code 2.2.2-1
 networkmanager 1.40.0-1
 nix 2.11.1-1
-nodejs 18.9.0-1
+nodejs 18.9.1-1
 noto-fonts-emoji 20220906-1
 npm 8.19.2-1
 nwg-displays 0.1.4-1
@@ -76,7 +76,7 @@ pkgconf 1.8.0-1
 pkgfile 21-2
 postgresql 14.5-1
 postgresql-old-upgrade 13.8-1
-powerline-fonts 2.8.2-4
+powerline-fonts 2.8.3-1
 pulseaudio-alsa 1:1.2.7.1-1
 pyenv 2.3.4-1
 python-pipx 1.1.0-1
@@ -85,6 +85,7 @@ quarto-cli-bin 1.1.251-1
 r 4.2.1-2
 reflector 2021.11-5
 ruby 3.0.4-9
+rust 1:1.63.0-1
 sccache 0.3.0-1
 slack-desktop 4.28.171-1
 sqlitebrowser 3.12.2-2
