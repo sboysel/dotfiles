@@ -33,3 +33,5 @@ window {
 }
 
 #input:focus {
+	border-color: #fabd2f; 
+}
