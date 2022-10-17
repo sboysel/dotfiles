@@ -44,8 +44,7 @@ window#waybar {
 }
 
 #custom-ncspot,
-#clock.1,
-#clock.2,
+#clock,
 #idle_inhibitor,
 #cpu,
 #memory,
