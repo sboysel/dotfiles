@@ -15,7 +15,9 @@ set scroll-step 100
 
 #zoom settings
 set zoom-min 10
-# set guioptions ""
+
+# hide status bar
+map b toggle_statusbar
 
 # clipboard
 set selection-clipboard clipboard
