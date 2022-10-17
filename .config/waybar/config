@@ -3,14 +3,11 @@
     "position": "top",
     "modules-left": [
         "sway/workspaces",
+        "idle_inhibitor",
         "sway/mode"
     ],
-    "modules-center": [
-        "clock#1",
-        "clock#2"
-    ],
     "modules-right": [
-        "idle_inhibitor",
+        "clock",
         "cpu",
         "memory",
         "temperature",
@@ -158,18 +155,13 @@
         }
     },
 
-    // TIME
+    // CLOCK
 
-    "clock#1": {
-        "format": " {:%I:%M %p}"
-    },
-
-    // DATE
-
-    "clock#2": {
-	"format": " {:%Y %B %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<small>{calendar}</small>",
+    "clock": {
+        "format": " {:%b %d %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{calendar}</small>",
         "on-click": "firefox 'https://www.google.com/calendar'"
+
     },
 
 }
