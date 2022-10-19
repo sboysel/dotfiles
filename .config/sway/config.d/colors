@@ -5,9 +5,9 @@
 include ~/.config/sway/gruvbox-dark-medium
 
 #                       Border  BG      Text    Ind     Child Border
-client.focused          $base0B $base0B $base00 $base09 $base0B
-client.focused_inactive $base01 $base01 $base06 $base09 $base01
+client.focused          $base0A $base0A $base00 $base0E $base0A
+client.focused_inactive $base01 $base01 $base06 $base0E $base01
 client.unfocused        $base01 $base01 $base06 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
+client.urgent           $base08 $base08 $base00 $base0E $base08
 
 # vim: set ft=i3config:

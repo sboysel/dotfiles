@@ -41,7 +41,7 @@ output $monitor {
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 
 # output * bg $bg fill #89CFF0
-output * bg #daecdc solid_color
+output * bg #83a598 solid_color
 
 
 # vim: set ft=i3config: 
