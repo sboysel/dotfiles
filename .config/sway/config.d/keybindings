@@ -16,7 +16,7 @@ bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
 bindsym $mod+d exec 'wofi --show=drun --allow-images'
 
 # wofi web search
-# bindsym $mod+/ exec 'wofi'
+bindsym $mod+slash exec wofi -d | sed 's/\s/+/g'| awk '{print "https://www.google.com/search?q="$1}' | xargs -- firefox --new-tab
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -29,7 +29,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+r reload
 
 # lock screen
-bindsym $mod+l exec $lock
+bindsym $mod+Control+l exec $lock
 
 # screenshot
 bindsym $mod+Shift+s exec $scrot
