@@ -1,12 +1,13 @@
 /* base16-wofi (https://sr.ht/~knezi/base16-wofi)
  * Base16 wofi template by knezi
  * Gruvbox dark, medium scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox) */
+@import "themes/macchiato.css";
 
 window {
-	background-color: #282828;
-	color: #d5c4a1;
+	background-color: #24273a; /* @base; */
+	color: #cad3f5; /* @text; */
         font-size: 30px;
-        font-family: FiraCode Nerd Font;
+        font-family: JetBrainsMono Nerd Font;
 }
 
 #entry {
@@ -14,24 +15,26 @@ window {
 }
 
 #entry:nth-child(odd) {
-	background-color: #282828;
+	background-color: #363a4f; /* @base; */
+
 }
 
 #entry:nth-child(even) {
-	background-color: #3c3836;
+	background-color: #494d64; /* @base; */
+
 }
 
 #entry:selected {
-	background-color: #504945;
+	background-color: #5b6078; /* @base; */
 }
 
 #input {
-	background-color: #3c3836;
-	color: #bdae93;
-	border-color: #504945; 
+	background-color: #24273a; /* @base; */
+	color: #cad3f5; /* @text; */
+	border-color: #cad3f5; /* @text; */
         padding: 8px;
 }
 
 #input:focus {
-	border-color: #fabd2f; 
+	border-color: #a6da95; /* @green; */
 }
