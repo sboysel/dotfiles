@@ -2,12 +2,12 @@
 # Colors
 #
 
-include ~/.config/sway/gruvbox-dark-medium
+include ~/.config/sway/catppuccin-macchiato
 
-#                       Border  BG      Text    Ind     Child Border
-client.focused          $base0A $base0A $base00 $base0E $base0A
-client.focused_inactive $base01 $base01 $base06 $base0E $base01
-client.unfocused        $base01 $base01 $base06 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base0E $base08
+#                       Border      BG          Text        Ind         Child Border
+client.focused          $teal       $teal       $base       $peach      $teal
+client.focused_inactive $surface0   $surface0   $text       $pink       $surface0
+client.unfocused        $base       $base       $subtext0   $pink       $base
+client.urgent           $red        $red        $base       $peach      $red
 
 # vim: set ft=i3config:
