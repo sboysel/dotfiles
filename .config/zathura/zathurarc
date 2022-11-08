@@ -1,4 +1,6 @@
-set font "FiraCode Nerd Font 16"
+# set font "FiraCode Nerd Font 16"
+set font "JetBrainsMono Nerd Font Mono 16"
+
 # Open document in fit-width mode by default
 set adjust-open "width"
 
@@ -19,46 +21,51 @@ set zoom-min 10
 # hide status bar
 map b toggle_statusbar
 
+# presentation mode
+# map presentation Left 
+
 # clipboard
 set selection-clipboard clipboard
 
 # disable sandbox
 set sandbox none
 
-# Base16 Gruvbox dark, medium
-# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# catppuccin zathura
+set default-fg                "#CAD3F5"
+set default-bg 			          "#24273A"
 
-set default-bg                  "#282828"
-set default-fg                  "#3c3836"
+set completion-bg		          "#363A4F"
+set completion-fg		          "#CAD3F5"
+set completion-highlight-bg	  "#575268"
+set completion-highlight-fg	  "#CAD3F5"
+set completion-group-bg		    "#363A4F"
+set completion-group-fg		    "#8AADF4"
 
-# set statusbar-fg                "#bdae93"
-# set statusbar-bg                "#504945"
-set statusbar-bg                "#282828"
-set statusbar-fg                "#ebdbb2"
+set statusbar-fg		          "#CAD3F5"
+set statusbar-bg		          "#363A4F"
 
-set inputbar-bg                 "#282828"
-set inputbar-fg                 "#fbf1c7"
+set notification-bg		        "#363A4F"
+set notification-fg		        "#CAD3F5"
+set notification-error-bg	    "#363A4F"
+set notification-error-fg	    "#ED8796"
+set notification-warning-bg	  "#363A4F"
+set notification-warning-fg	  "#FAE3B0"
 
-set notification-bg             "#282828"
-set notification-fg             "#fbf1c7"
+set inputbar-fg			          "#CAD3F5"
+set inputbar-bg 		          "#363A4F"
 
-set notification-error-bg       "#282828"
-set notification-error-fg       "#fb4934"
+set recolor-lightcolor		    "#24273A"
+set recolor-darkcolor		      "#CAD3F5"
 
-set notification-warning-bg     "#282828"
-set notification-warning-fg     "#fb4934"
+set index-fg			            "#CAD3F5"
+set index-bg			            "#24273A"
+set index-active-fg		        "#CAD3F5"
+set index-active-bg		        "#363A4F"
 
-set highlight-color             "#fabd2f"
-set highlight-active-color      "#83a598"
+set render-loading-bg		      "#24273A"
+set render-loading-fg		      "#CAD3F5"
 
-set completion-bg               "#3c3836"
-set completion-fg               "#83a598"
+set highlight-color		        "#575268"
+set highlight-fg              "#F5BDE6"
+set highlight-active-color	  "#F5BDE6"
 
-set completion-highlight-fg     "#fbf1c7"
-set completion-highlight-bg     "#83a598"
-
-set recolor-lightcolor          "#282828"
-set recolor-darkcolor           "#ebdbb2"
-
-set recolor                     "false"
-set recolor-keephue             "false"
