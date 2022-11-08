@@ -4,8 +4,8 @@
 
 # You can "split" the current object of your focus with $mod+h or $mod+v, for
 # horizontal and vertical splits respectively.
-bindsym $mod+h splith
-bindsym $mod+v splitv
+bindsym $mod+Control+h splith
+bindsym $mod+Control+v splitv
 
 # Switch the current container between different layout styles
 bindsym $mod+s layout stacking
