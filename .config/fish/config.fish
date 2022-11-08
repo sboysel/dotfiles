@@ -317,7 +317,7 @@ end
 
 ### theme / colors ###
 # https://github.com/Jomik/fish-gruvbox
-theme_gruvbox dark medium
+#theme_gruvbox dark medium
 
 ### plugins ###
 set fzf_fd_opts --hidden --exclude=.git --exclude=.cache
