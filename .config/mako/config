@@ -1,21 +1,22 @@
 # general
-font=FiraCode Nerd Font 20
+font=JetBrainsMono Nerd Font 20
 format=<b>%s</b>\n%b
 default-timeout=0
-width=300
+width=400
 border-size=4
-margin=12
+border-radius=1
+margin=4
 padding=10
 text-alignment=left
 icon-path=/usr/share/icons/Arc
 layer=overlay
 
-# colors (gruvbox dark medium)
-background-color=#3c3836
-text-color=#fbf1c7
-border-color=#98971a
+# colors (catppuccin macchiato)
+# background-color=#24273a
+background-color=#363a4f
+text-color=#cad3f5
+border-color=#8aadf4
+progress-color=over #363a4f
 
 [urgency=critical]
-# text-color=#cc241d
-border-color=#cc241d
-
+border-color=#f5a97f
