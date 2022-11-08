@@ -5,7 +5,7 @@
 include ~/.config/sway/catppuccin-macchiato
 
 #                       Border      BG          Text        Ind         Child Border
-client.focused          $teal       $teal       $base       $peach      $teal
+client.focused          $green      $green       $base       $peach      $green
 client.focused_inactive $surface0   $surface0   $text       $pink       $surface0
 client.unfocused        $base       $base       $subtext0   $pink       $base
 client.urgent           $red        $red        $base       $peach      $red
