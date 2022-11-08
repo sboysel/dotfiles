@@ -28,7 +28,7 @@ window#waybar {
 
 #workspaces button.focused {
     color: @surface0;
-    background-color: @teal; /* blue */
+    background-color: @green; /* blue */
 }
 
 #workspaces button.urgent {
@@ -38,7 +38,7 @@ window#waybar {
 
 #workspaces button:hover {
     color: @surface0;
-    background: @mauve; /* purple */
+    background: @flamingo; /* purple */
 }
 
 #mode {
@@ -59,14 +59,14 @@ window#waybar {
 #pulseaudio,
 #tray {
     color: @text;
-    background-color: @base;
+    background: @base;
     padding: 0 10px;
     margin: 0 0px;
 }
 
 #battery {
     color: @surface0;
-    background-color: @red;
+    background: @red;
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -75,7 +75,7 @@ window#waybar {
 #battery.charging,
 #battery.plugged {
     color: @surface0;
-    background-color: @green; /* green */
+    background: @green; /* green */
     padding: 0 10px;
     margin: 0 0px;
 }
