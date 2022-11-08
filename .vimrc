@@ -30,8 +30,9 @@ endif
 call plug#begin('~/.vim/plugged')
 
 """ colorschemes """""""""""""""""""""""""""""""""
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'vim-airline/vim-airline-themes' 
+" Plug 'lifepillar/vim-gruvbox8'
+" Plug 'vim-airline/vim-airline-themes' 
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 " Plug 'chriskempson/base16-vim'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'sainnhe/everforest'
@@ -50,20 +51,26 @@ Plug 'quarto-dev/quarto-vim'
 " Plug 'mattn/vim-sqlfmt'
 
 """ productivity """""""""""""""""""""""""""""""""
-Plug 'vim-airline/vim-airline' 
+" Plug 'vim-airline/vim-airline' 
+" Plug 'nvim-lualine/lualine.nvim'
+Plug 'itchyny/lightline.vim'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
-Plug 'jmcantrell/vim-virtualenv'
+" Plug 'jmcantrell/vim-virtualenv'
 Plug 'vim-autoformat/vim-autoformat'
+" Plug 'rhysd/vim-grammarous'
 " Plug 'vimwiki/vimwiki'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'jupyter-vim/jupyter-vim'
 " Plug 'sillybun/vim-repl'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+" Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+" Plug 'nvim-tree/nvim-tree.lua'
 
 """ other """"""""""""""""""""""""""""""""""""""""
-Plug 'lukas-reineke/virt-column.nvim'
+" Plug 'lukas-reineke/virt-column.nvim'
 " Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -77,7 +84,8 @@ filetype plugin on
 set termguicolors
 set background=dark
 syntax enable
-colorscheme gruvbox8
+" colorscheme gruvbox8
+colorscheme catppuccin-macchiato
 
 " settings.syntax
 let g:python_highlight_all=1
@@ -88,12 +96,13 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set textwidth=80	" width of text area limited to 80 char
-" set colorcolumn=80
+set colorcolumn=80
 set cursorline		" highlight cursor line
 set number 		" line numbers
 set noswapfile
 set foldmethod=indent	" enable code folding
 set foldlevel=99
+set showtabline=2
 " set list
 " set listchars=tab:›\ ,eol:¬,trail:⋅
 
@@ -109,11 +118,15 @@ autocmd FileType yaml setlocal textwidth=60 colorcolumn=60
 let g:gruvbox_transp_bg = 1
 
 " plugin.vim-airline
-let g:airline_theme = 'gruvbox8'
+" let g:airline_theme = 'gruvbox8'
 let g:airline_highlighting_cache = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" plugin.lightline.vim
+set noshowmode
+let g:lightline = {'colorscheme': 'catppuccin'}
 
 " " plugin.vim-repl
 " let g:repl_program = {
@@ -136,7 +149,10 @@ let g:airline_powerline_fonts = 1
 " plugin.vimtex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_format_enabled = 1
-
+let g:vimtex_grammar_textidote = {
+    \ 'jar': '/usr/share/java/textidote.jar',
+    \ 'args': '',
+    \}
 " " plugin.markdown-preview
 " let g:mkdp_browser = 'chromium'
 
