@@ -1,15 +1,17 @@
+@import "themes/macchiato.css";
+
 * {
     border: none;
     border-radius: 0;
-    font-family: FiraCode Nerd Font, FantasqueSansMono Nerd Font;
-    font-size: 20px;
+    font-family: JetBrainsMono Nerd Font, FiraCode Nerd Font, FantasqueSansMono Nerd Font;
+    font-size: 22px;
     font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    color: #fbf1c7;
-    background-color: #3c3836;
+    color: @text;
+    background-color: @base;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -20,25 +22,28 @@ window#waybar {
 }
 
 #workspaces button {
-    color: #fbf1c7;
+    color: @text;
     padding: 0 10px;
 }
 
 #workspaces button.focused {
-    background-color: #83a598; /* blue */
+    color: @surface0;
+    background-color: @teal; /* blue */
 }
 
 #workspaces button.urgent {
-    background-color: #fb4934; /* red */
+    color: @surface0;
+    background-color: @red; /* red */
 }
 
 #workspaces button:hover {
-    background: #fabd2f; /* yellow */
+    color: @surface0;
+    background: @mauve; /* purple */
 }
 
 #mode {
     font-style: italic;
-    color: #dc322f; /* red */
+    color: @red; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -53,12 +58,15 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray {
+    color: @text;
+    background-color: @base;
     padding: 0 10px;
     margin: 0 0px;
 }
 
 #battery {
-    background-color: #d65d0e;
+    color: @surface0;
+    background-color: @red;
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -66,8 +74,8 @@ window#waybar {
 #custom-mullvad.connected,
 #battery.charging,
 #battery.plugged {
-    color: #eee8d5;
-    background-color: #b8bb26; /* green */
+    color: @surface0;
+    background-color: @green; /* green */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -75,7 +83,8 @@ window#waybar {
 #pulseaudio.muted, 
 #network.disconnected,
 #custom-mullvad.disconnected {
-    background: #d65d0e; /* red */
+    color: @surface0;
+    background: @red; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
