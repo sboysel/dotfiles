@@ -24,10 +24,13 @@ set $right l
 # set $bg ~/.wallpaper/thinkpad/pinkwall.jpg
 # set $bg ~/.wallpaper/thinkpad/meditate-wall.png
 # set $bg ~/.wallpaper/thinkpad/moebius-archer-wall.png
+set $bgimage ~/.wallpaper/thinkpad/half-dome.jpg
 
 # set $lock swaylock -f -i $bg -s fill --indicator-radius 250 --indicator-thickness 50
-set $bg "#5b6078"
-set $lock swaylock -f -c $bg -s solid_color --indicator-radius 250 --indicator-thickness 50
+set $bgcolor "#5b6078"
+# set $lock swaylock -f -i $bg -s solid_color --indicator-radius 250 --indicator-thickness 50
+set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
+
 # font pango: FiraCode Nerd Font 12
 font pango:JetBrains Mono Nerd Font 12
 
