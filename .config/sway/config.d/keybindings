@@ -1,6 +1,13 @@
 #
-# Basic keybindings:
+# keybindings (basic)
 #
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
 # Start a terminal
 bindsym $mod+Return exec $term
@@ -10,6 +17,16 @@ bindsym $mod+q exec $web
 
 # Kill focused window
 bindsym $mod+Shift+c kill
+bindsym $mod+Shift+x kill
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+# lock screen
+bindsym $mod+Control+d exec $lock
+
+# screenshot
+bindsym $mod+Shift+s exec $scrot
 
 # Start your launcher
 bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
@@ -18,21 +35,105 @@ bindsym $mod+d exec 'wofi --show=drun --allow-images'
 # wofi web search
 bindsym $mod+slash exec wofi -d | sed 's/\s/+/g'| awk '{print "https://www.google.com/search?q="$1}' | xargs -- firefox --new-tab
 
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
-floating_modifier $mod normal
+#
+# keybindings (navigation)
+#
 
-# Reload the configuration file
-bindsym $mod+Shift+r reload
+# Move your focus around
+# $mod+[up|down|left|right]
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
-# lock screen
-bindsym $mod+Control+l exec $lock
+# Move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# screenshot
-bindsym $mod+Shift+s exec $scrot
+#
+# keybindings (workspaces)
+#
+
+# workspace display output
+workspace 1 output $laptop
+workspace 2 output $laptop
+workspace 3 output $laptop
+workspace 4 output $laptop
+workspace 5 output $laptop
+workspace 6 output $laptop
+workspace 7 output $monitor
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+# cycle through active workspaces
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+l workspace next
+bindsym $mod+Control+h workspace prev
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym Control+$mod+Mod1+Right move workspace to output right
+bindsym Control+$mod+Mod1+Left move workspace to output left
+bindsym Control+$mod+Mod1+Up move workspace to output up
+bindsym Control+$mod+Mod1+Down move workspace to output down
+bindsym Control+$mod+Mod1+l move workspace to output right
+bindsym Control+$mod+Mod1+h move workspace to output left
+bindsym Control+$mod+Mod1+k move workspace to output up
+bindsym Control+$mod+Mod1+j move workspace to output down
+
+#
+# keybindings (layouts)
+#
+
+# You can "split" the current object of your focus with $mod+h or $mod+v, for
+# horizontal and vertical splits respectively.
+bindsym $mod+Mod1+h splith
+bindsym $mod+Mod1+v splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+Mod1+s layout stacking
+bindsym $mod+Mod1+w layout tabbed
+bindsym $mod+Mod1+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+Mod1+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Mod1+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+
+#
+# keybindings (hardware and media)
+#
 
 # volume
 bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle' 
@@ -59,6 +160,20 @@ bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/intel_backlight -A 10
 # keyboard brightness
 bindsym $mod+XF86MonBrightnessDown exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 0'
 bindsym $mod+XF86MonBrightnessUp exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 100'
+
+#
+# Scratchpad:
+#
+
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+grave move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.  If
+# there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+grave scratchpad show
 
 
 # vim: set ft=i3config:
