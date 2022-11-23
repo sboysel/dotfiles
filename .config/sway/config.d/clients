@@ -34,4 +34,17 @@ assign [class="^Zotero$"] 5
 # zoom
 assign [app_id="^zoom$"] 6
 
+#
+# Colors
+#
+
+include ~/.config/sway/catppuccin-macchiato
+
+#                       Border      BG          Text        Ind         Child Border
+client.focused          $green      $green       $base       $peach      $green
+client.focused_inactive $surface0   $surface0   $text       $pink       $surface0
+client.unfocused        $base       $base       $subtext0   $pink       $base
+client.urgent           $red        $red        $base       $peach      $red
+
+
 # vim: set ft=i3config:
