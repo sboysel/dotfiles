@@ -72,6 +72,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """ other """"""""""""""""""""""""""""""""""""""""
 " Plug 'lukas-reineke/virt-column.nvim'
 " Plug 'ryanoasis/vim-devicons'
+Plug 'thanthese/Tortoise-Typing'
 
 call plug#end()
 """ end vim-plug
