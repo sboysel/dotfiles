@@ -21,6 +21,8 @@ bindsym $mod+7 workspace 7
 # cycle through active workspaces
 bindsym $mod+Mod1+Right workspace next
 bindsym $mod+Mod1+Left workspace prev
+bindsym $mod+Mod1+l workspace next
+bindsym $mod+Mod1+h workspace prev
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -35,5 +37,10 @@ bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Down move workspace to output down
+bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+j move workspace to output down
+
 
 # vim: set ft=i3config:
