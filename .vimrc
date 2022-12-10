@@ -163,6 +163,9 @@ let g:ale_linters = {
 \   'r': ['lintr'],
 \}
 
+" plugin.coc-ltex
+let g:coc_filetype_map = {'tex': 'latex'}
+
 " " plugin.vimwiki
 " let g:vimwiki_list = [{'path': '~/.vimwiki/',
 "                       \ 'syntax': 'markdown', 'ext': '.md'}]
