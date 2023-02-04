@@ -8,14 +8,17 @@
 vim.g.mapleader = ","
 vim.g.localleader = "\\"
 
--- IMPORTS
+-- [[ imports ]]
 require('vars')      -- Variables
 require('opts')      -- Options
--- require('keys')   -- Keymaps
+require('keys')      -- Keymaps
 require('plugins')   -- Plugins
+require('lsp')
+
+-- [[ imports // plugin config ]]
+-- [[ imports // plugin config // lualine ]]
 require('lualine').setup {
     options = {
         theme = "catppuccin"
     }
 }
-
