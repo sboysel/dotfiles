@@ -1,4 +1,4 @@
-@import "themes/macchiato.css";
+@import "themes/kanagawa.css";
 
 * {
     border: none;
@@ -10,8 +10,8 @@
 }
 
 window#waybar {
-    color: @text;
-    background-color: @base;
+    color: @fujiWhite;
+    background-color: @waveBlue1;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -22,28 +22,28 @@ window#waybar {
 }
 
 #workspaces button {
-    color: @text;
+    color: @fujiWhite;
     padding: 0 10px;
 }
 
 #workspaces button.focused {
-    color: @surface0;
-    background-color: @green; /* blue */
+    color: @sumiInk2;
+    background-color: @autumnGreen; /* blue */
 }
 
 #workspaces button.urgent {
-    color: @surface0;
-    background-color: @red; /* red */
+    color: @sumiInk2;
+    background-color: @samuraiRed; /* red */
 }
 
 #workspaces button:hover {
-    color: @surface0;
-    background: @flamingo; /* purple */
+    color: @sumiInk2;
+    background: @waveRed; /* purple */
 }
 
 #mode {
     font-style: italic;
-    color: @red; /* red */
+    color: @samuraiRed; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -58,15 +58,15 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray {
-    color: @text;
-    background: @base;
+    color: @fujiWhite;
+    background: @waveBlue1;
     padding: 0 10px;
     margin: 0 0px;
 }
 
 #battery {
-    color: @surface0;
-    background: @red;
+    color: @sumiInk2;
+    background: @waveRed;
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -74,8 +74,8 @@ window#waybar {
 #custom-mullvad.connected,
 #battery.charging,
 #battery.plugged {
-    color: @surface0;
-    background: @green; /* green */
+    color: @sumiInk2;
+    background: @autumnGreen; /* green */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -83,8 +83,8 @@ window#waybar {
 #pulseaudio.muted, 
 #network.disconnected,
 #custom-mullvad.disconnected {
-    color: @surface0;
-    background: @red; /* red */
+    color: @sumiInk2;
+    background: @waveRed; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }

@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 
   -- colorschemes
   use { 'catppuccin/nvim', as = 'catppuccin' }
+  use { 'rebelot/kanagawa.nvim' }
 
   -- language support
   use { 'lervag/vimtex' }
@@ -40,6 +41,14 @@ return require('packer').startup(function(use)
   -- use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'godlygeek/tabular' }
   use { 'preservim/vim-markdown' }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    -- or                            , branch = '0.1.x',
+    requires = { 
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim'
+    }
+  }
 
 end)
 

@@ -19,6 +19,6 @@ require('lsp')
 -- [[ imports // plugin config // lualine ]]
 require('lualine').setup {
     options = {
-        theme = "catppuccin"
+        theme = "kanagawa"
     }
 }

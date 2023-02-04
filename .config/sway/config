@@ -5,7 +5,7 @@
 #
 set $mod Mod4
 set $term kitty
-set $web firefox
+set $web google-chrome-stable 
 set $scrot swayshot display
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
@@ -24,7 +24,7 @@ set $right l
 # set $bg ~/.wallpaper/thinkpad/pinkwall.jpg
 # set $bg ~/.wallpaper/thinkpad/meditate-wall.png
 # set $bg ~/.wallpaper/thinkpad/moebius-archer-wall.png
-set $bgimage ~/.wallpaper/thinkpad/half-dome.jpg
+set $bgimage ~/.wallpaper/thinkpad/agnis-leznins.jpg
 
 # set $lock swaylock -f -i $bg -s fill --indicator-radius 250 --indicator-thickness 50
 set $bgcolor "#5b6078"

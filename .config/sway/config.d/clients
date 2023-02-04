@@ -39,12 +39,14 @@ assign [app_id="^zoom$"] 6
 #
 
 include ~/.config/sway/catppuccin-macchiato
+include ~/.config/sway/kanagawa
 
-#                       Border      BG          Text        Ind         Child Border
-client.focused          $green      $green       $base       $peach      $green
-client.focused_inactive $surface0   $surface0   $text       $pink       $surface0
-client.unfocused        $base       $base       $subtext0   $pink       $base
-client.urgent           $red        $red        $base       $peach      $red
+
+#                       Border        BG            Text        Ind           Child Border
+client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
+client.focused_inactive $waveBlue2    $waveBlue2    $fujiWhite  $sakuraPink   $waveBlue2
+client.unfocused        $waveBlue1    $waveBlue1    $fujiWhite  $sakuraPink   $waveBlue1
+client.urgent           $autumnRed    $autumnRed    $sumiInk1   $waveRed      $autumnRed
 
 
 # vim: set ft=i3config:

@@ -1,6 +1,13 @@
+--[[ cmd.lua ]]
+local cmd = vim.cmd
+
+-- [[ colorscheme ]]
+-- cmd 'colorscheme catppuccin-macchiato'
+cmd 'colorscheme kanagawa'
+
+
 --[[ opts.lua ]]
 local opt = vim.opt
-
 -- [[ Context ]]
 opt.colorcolumn = '80'           -- str:  Show col for max line length
 opt.number = true                -- bool: Show line numbers
@@ -32,8 +39,4 @@ opt.tabstop = 2                  -- num:  Number of spaces tabs count for
 opt.splitright = true            -- bool: Place new window to right of current one
 opt.splitbelow = true            -- bool: Place new window below the current on
 
---[[ cmd.lua ]]
-local cmd = vim.cmd
 
--- [[ colorscheme ]]
-cmd 'colorscheme catppuccin-macchiato'
