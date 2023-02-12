@@ -3,7 +3,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrainsMono Nerd Font, FiraCode Nerd Font, FantasqueSansMono Nerd Font;
+    font-family: JetBrainsMono Nerd Font;
     font-size: 22px;
     font-weight: bold;
     min-height: 0;
@@ -27,23 +27,23 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: @sumiInk2;
+    color: @waveBlue1;
     background-color: @autumnGreen; /* blue */
 }
 
 #workspaces button.urgent {
-    color: @sumiInk2;
-    background-color: @samuraiRed; /* red */
+    color: @waveBlue1;
+    background-color: @waveRed; /* red */
 }
 
 #workspaces button:hover {
-    color: @sumiInk2;
-    background: @waveRed; /* purple */
+    color: @waveBlue1;
+    background: @fujiWhite; /* purple */
 }
 
 #mode {
     font-style: italic;
-    color: @samuraiRed; /* red */
+    color: @waveRed; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -65,7 +65,7 @@ window#waybar {
 }
 
 #battery {
-    color: @sumiInk2;
+    color: @waveBlue1;
     background: @waveRed;
     padding: 0 10px;
     margin: 0 0px;
@@ -74,7 +74,7 @@ window#waybar {
 #custom-mullvad.connected,
 #battery.charging,
 #battery.plugged {
-    color: @sumiInk2;
+    color: @waveBlue1;
     background: @autumnGreen; /* green */
     padding: 0 10px;
     margin: 0 0px;
@@ -83,7 +83,7 @@ window#waybar {
 #pulseaudio.muted, 
 #network.disconnected,
 #custom-mullvad.disconnected {
-    color: @sumiInk2;
+    color: @waveBlue1;
     background: @waveRed; /* red */
     padding: 0 10px;
     margin: 0 0px;
