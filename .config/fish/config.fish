@@ -47,7 +47,7 @@ end
 #
 
 function exa --description "Alternative to `ls` (pretty, detailed, shows hidden)"
-    /usr/bin/exa --icons --group-directories-first -al $argv
+    /usr/bin/exa --icons --group-directories-first --time-style long-iso -alg $argv
 end
 
 function ls
