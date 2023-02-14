@@ -6,33 +6,31 @@ default_border pixel 4
 smart_gaps on
 gaps inner 12
 
-# main
-assign [class="^code-oss$"] 1
+# alpha
+
+# beta
+
+# delta
+assign [class="^code-oss$"] 3
+assign [class="Gimp"] 3
+assign [class="^libreoffice$"] 3
 # web
-assign [class="^Chromium$"] 2 
-assign [class="^Google-chrome$"] 2
-assign [class="^Navigator$"] 2
-assign [app_id="^firefox$"] 2
-assign [class="^qutebrowser$"] 2
-assign [class="Min"] 2
+assign [class="^Chromium$"] 4 
+assign [class="^Google-chrome$"] 4
+assign [class="^Navigator$"] 4
+assign [app_id="^firefox$"] 4
+assign [class="^qutebrowser$"] 4
+assign [class="Min"] 4
 # communication
-assign [app_id="Slack"] 3
-assign [class="Discord$"] 3
-assign [class="Ferdi$"] 3
-assign [class="^Rambox$"] 3
+assign [app_id="Slack"] 5
+assign [class="Discord$"] 5
+assign [class="Ferdi$"] 5
+assign [class="^Rambox$"] 5
 # doc
-assign [class="Zathura"] 4
-assign [class="zathura"] 4
-assign [class="org.pwmt.zathura"] 4
-# misc
-assign [class="^libreoffice$"] 5
-assign [class="Gimp"] 5
-assign [class="Spotify"] 5
-for_window [class="Spotify"] move to workspace 5
-assign [class="BpyTOP"] 5
-assign [class="^Zotero$"] 5
-# zoom
-assign [app_id="^zoom$"] 6
+assign [class="Zathura"] 6
+assign [class="zathura"] 6
+assign [class="org.pwmt.zathura"] 6
+assign [class="^Zotero$"] 6
 
 #
 # Colors

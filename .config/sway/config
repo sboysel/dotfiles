@@ -9,31 +9,17 @@ set $web google-chrome-stable
 set $scrot swayshot display
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
-# set $monitor HDMI-A-1
 set $monitor HDMI-A-2
+# set $bgimage ~/.wallpaper/thinkpad/vortex-2560x1440.jpg
+set $bgimage ~/.wallpaper/thinkpad/guggenheim2560.jpg
+set $bgcolor "#7FB4CA"
+set $lock swaylock -f -i $bg -s solid_color --indicator-radius 250 --indicator-thickness 50
+# set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
 set $left h
 set $down j
 set $up k
 set $right l
-# set $bg ~/.wallpaper/thinkpad/sable2560x1440.png
-# set $bg ~/.wallpaper/thinkpad/giza.jpg
-# set $bg ~/.wallpaper/thinkpad/webb2560x1440.jpg
-# set $bg ~/.wallpaper/thinkpad/fiber.jpg
-# set $bg ~/.wallpaper/thinkpad/pinkwaves2560x1440.jpg
-# set $bg ~/.wallpaper/thinkpad/pinkstaircase.jpg
-# set $bg ~/.wallpaper/thinkpad/pinkwall.jpg
-# set $bg ~/.wallpaper/thinkpad/meditate-wall.png
-# set $bg ~/.wallpaper/thinkpad/moebius-archer-wall.png
-# set $bgimage ~/.wallpaper/thinkpad/google-material-2560x1440.jpg
-set $bgimage ~/.wallpaper/thinkpad/vortex-2560x1440.jpg
 
-
-# set $lock swaylock -f -i $bg -s fill --indicator-radius 250 --indicator-thickness 50
-set $bgcolor "#C8C093"
-set $lock swaylock -f -i $bg -s solid_color --indicator-radius 250 --indicator-thickness 50
-# set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
-
-# font pango: FiraCode Nerd Font 12
 font pango:JetBrains Mono Nerd Font 12
 
 include ~/.config/sway/config.d/*
