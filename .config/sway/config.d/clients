@@ -38,7 +38,6 @@ assign [app_id="^zoom$"] 6
 # Colors
 #
 
-include ~/.config/sway/catppuccin-macchiato
 include ~/.config/sway/kanagawa
 
 
@@ -46,7 +45,7 @@ include ~/.config/sway/kanagawa
 client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
 client.focused_inactive $waveBlue2    $waveBlue2    $fujiWhite  $sakuraPink   $waveBlue2
 client.unfocused        $waveBlue1    $waveBlue1    $fujiWhite  $sakuraPink   $waveBlue1
-client.urgent           $autumnRed    $autumnRed    $sumiInk1   $waveRed      $autumnRed
+client.urgent           $waveRed      $waveRed      $sumiInk1   $roninYellow  $waveRed
 
 
 # vim: set ft=i3config:
