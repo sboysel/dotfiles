@@ -28,13 +28,12 @@
         "numeric-first": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "󰀫 one",
-            "2": "󰂡 two",
-            "3": "󱃮 three",
-            "4": " web",
+            "1": "󰀫 wrk1",
+            "2": "󰂡 wrk2",
+            "3": " web",
+            "4": " comm",
             "5": " doc",
-            "6": " comm",
-            "7": " ext",
+            "6": " ext",
             "urgent": "",
             "focused": "",
             "default": ""
