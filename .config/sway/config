@@ -11,8 +11,8 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
 set $monitor HDMI-A-2
 # set $bgimage ~/.wallpaper/thinkpad/vortex-2560x1440.jpg
-set $bgimage ~/.wallpaper/thinkpad/guggenheim2560.jpg
-set $bgcolor "#7FB4CA"
+# set $bgimage ~/.wallpaper/thinkpad/guggenheim2560.jpg
+set $bgcolor "#49443C"
 set $lock swaylock -f -i $bg -s solid_color --indicator-radius 250 --indicator-thickness 50
 # set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
 set $left h
