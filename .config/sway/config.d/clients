@@ -6,31 +6,27 @@ default_border pixel 4
 smart_gaps on
 gaps inner 12
 
-# alpha
 
-# beta
+# (1) alpha
 
-# delta
-assign [class="^code-oss$"] 3
-assign [class="Gimp"] 3
-assign [class="^libreoffice$"] 3
-# web
-assign [class="^Chromium$"] 4 
-assign [class="^Google-chrome$"] 4
-assign [class="^Navigator$"] 4
-assign [app_id="^firefox$"] 4
-assign [class="^qutebrowser$"] 4
-assign [class="Min"] 4
-# communication
-assign [app_id="Slack"] 5
-assign [class="Discord$"] 5
-assign [class="Ferdi$"] 5
-assign [class="^Rambox$"] 5
-# doc
-assign [class="Zathura"] 6
-assign [class="zathura"] 6
-assign [class="org.pwmt.zathura"] 6
-assign [class="^Zotero$"] 6
+# (2) beta
+
+# (3) web
+assign [class="^Chromium$"] 3 
+assign [class="^Google-chrome$"] 3
+assign [app_id="^firefox$"] 3
+# (4) communication
+assign [app_id="Slack"] 4
+assign [class="discord"] 4
+# (5) doc
+assign [class="Zathura"] 5
+assign [class="zathura"] 5
+assign [class="org.pwmt.zathura"] 5
+assign [class="^Zotero$"] 5
+# (6) ext
+assign [class="^code-oss$"] 6
+assign [class="Gimp"] 6
+assign [class="^libreoffice$"] 6
 
 #
 # Colors
