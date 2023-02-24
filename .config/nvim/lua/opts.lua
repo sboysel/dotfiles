@@ -35,8 +35,14 @@ opt.shiftwidth = 2               -- num:  Size of an indent
 opt.softtabstop = 2              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 2                  -- num:  Number of spaces tabs count for
 
+-- [[ Wrapping ]]
+opt.wrap = false                 -- bool: disable word wrap
+
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one
 opt.splitbelow = true            -- bool: Place new window below the current on
 
+-- [[ plugins ]]
+-- [[ vim-markdown ]]
+vim.g.vim_markdown_folding_disabled = 1
 
