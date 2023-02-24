@@ -162,6 +162,69 @@ end
 
 ## utilities
 
+# initialize empty project
+function proj-init
+  set WD (pwd)
+  set PROJ_NAME $argv
+  set PROJ_PATH "$WD/$PROJ_NAME"
+  echo $PROJ_PATH
+  mkdir -p $PROJ_PATH
+  # source code
+  mkdir -p $PROJ_PATH/src
+  touch $PROJ_PATH/src/.gitignore
+  # input
+  mkdir -p $PROJ_PATH/input
+  touch $PROJ_PATH/input/.gitignore
+  # outputs
+  mkdir -p $PROJ_PATH/output
+  mkdir -p $PROJ_PATH/output/plots
+  touch $PROJ_PATH/output/.gitignore
+  touch $PROJ_PATH/output/plots/.gitignore
+  # temp
+  mkdir -p $PROJ_PATH/temp
+  touch $PROJ_PATH/temp/.gitignore
+  # doc
+  mkdir -p $PROJ_PATH/doc
+  mkdir -p $PROJ_PATH/doc/notebooks
+  touch $PROJ_PATH/doc/.gitignore
+  touch $PROJ_PATH/doc/notebooks/.gitignore
+  # README
+  echo "# $PROJ_NAME" >> $PROJ_PATH/README.md
+  # venv
+  python -m venv ~/.venv/$PROJ_NAME
+  # envrc
+  echo "source ~/.venv/$PROJ_NAME/bin/activate" >> $PROJ_PATH/.envrc 
+  direnv allow $PROJ_PATH
+  # git
+  git init $PROJ_PATH
+  gh repo create $PROJ_NAME --private
+  cd $PROJ_PATH
+  git remote add origin git@github.com:sboysel/$PROJ_NAME.git
+  cd $WD
+  # jupyter
+  cd $PROJ_PATH
+  pip install -U pip jupyterlab
+  pip freeze | grep "jupyterlab==" >> requirements.txt
+  # R
+  echo ".Rproj.user/" >> $PROJ_PATH/.gitignore
+  echo "renv/library" >> $PROJ_PATH/.gitignore
+  echo "renv/sandbox" >> $PROJ_PATH/.gitignore
+  echo ".Rhistory" >> $PROJ_PATH/.gitignore
+  Rscript -e "install.packages('renv')"
+  Rscript -e "renv::init()"
+  Rscript -e "install.packages(c('here', 'fixest', 'gt', 'IRkernel', 'modelsummary', 'tidyverse'))"
+  Rscript -e "renv::snapshot()"
+  Rscript -e "IRkernel::installspec()"
+  echo "# https://stackoverflow.com/a/71257658" >> $PROJ_PATH/doc/notebooks/.Rprofile
+  echo "owd <- setwd('$PROJ_PATH')" >> $PROJ_PATH/doc/notebooks/.Rprofile
+  echo "source('renv/activate.R')" >> $PROJ_PATH/doc/notebooks/.Rprofile
+  echo "setwd(owd)" >> $PROJ_PATH/doc/notebooks/.Rprofile
+  echo ".ipynb_checkpoints" >> $PROJ_PATH/doc/notebooks/.gitignore
+  jupyter labextension install @techrah/text-shortcuts
+  # print tree
+  tree -L 2 $PROJ_PATH
+end
+
 # interactively commit changes to dotfiles
 function dots --description "config management"
     set CURRENT_DIR (pwd)
