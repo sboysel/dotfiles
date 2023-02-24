@@ -1,5 +1,7 @@
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>q', '<cmd>quit<cr>')
+vim.keymap.set('n', '<leader>l', '<cmd>luafile %<cr>')
+vim.keymap.set('n', '<leader>t', '<cmd>tabedit<Space>')
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
