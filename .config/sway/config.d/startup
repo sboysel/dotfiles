@@ -12,7 +12,7 @@ bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/bin/clamshell_preserve.sh
 
 # autotiling
-exec_always autotiling -w 1 2 6
+exec_always autotiling -w 1 2 3 7
 
 # # udiskie
 # exec --no-startup-id udiskie --tray
