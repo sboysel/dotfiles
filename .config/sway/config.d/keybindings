@@ -45,32 +45,25 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
 
 # Move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
 
 #
 # keybindings (workspaces)
 #
 
 # workspace display output
-workspace 1 output $monitor
+workspace 1 output $laptop
 workspace 2 output $monitor
-workspace 3 output $laptop
+workspace 3 output $monitor
 workspace 4 output $laptop
 workspace 5 output $laptop
-workspace 6 output $monitor
+workspace 6 output $laptop
+workspace 7 output $monitor
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -78,11 +71,10 @@ bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
 # cycle through active workspaces
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
-bindsym $mod+Control+l workspace next
-bindsym $mod+Control+h workspace prev
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -90,16 +82,13 @@ bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
-bindsym Control+$mod+Mod1+Right move workspace to output right
-bindsym Control+$mod+Mod1+Left move workspace to output left
-bindsym Control+$mod+Mod1+Up move workspace to output up
-bindsym Control+$mod+Mod1+Down move workspace to output down
-bindsym Control+$mod+Mod1+l move workspace to output right
-bindsym Control+$mod+Mod1+h move workspace to output left
-bindsym Control+$mod+Mod1+k move workspace to output up
-bindsym Control+$mod+Mod1+j move workspace to output down
+bindsym $mod+Shift+Control+Right move workspace to output right
+bindsym $mod+Shift+Control+Left move workspace to output left
+bindsym $mod+Shift+Control+Up move workspace to output up
+bindsym $mod+Shift+Control+Down move workspace to output down
 
 #
 # keybindings (layouts)
