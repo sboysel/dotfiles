@@ -2,31 +2,33 @@
 # Clients
 #
 
-default_border pixel 4
+default_border pixel 6
 smart_gaps on
 gaps inner 12
 
 
-# (1) alpha
+# (1) uno
 
-# (2) beta
+# (2) dos
 
-# (3) web
-assign [class="^Chromium$"] 3 
-assign [class="^Google-chrome$"] 3
-assign [app_id="^firefox$"] 3
-# (4) communication
-assign [app_id="Slack"] 4
-assign [class="discord"] 4
-# (5) doc
-assign [class="Zathura"] 5
-assign [class="zathura"] 5
-assign [class="org.pwmt.zathura"] 5
-assign [class="^Zotero$"] 5
-# (6) ext
-assign [class="^code-oss$"] 6
-assign [class="Gimp"] 6
-assign [class="^libreoffice$"] 6
+# (3) tres
+
+# (4) web
+assign [class="^Chromium$"] 4 
+assign [class="^Google-chrome$"] 4
+assign [app_id="^firefox$"] 4
+# (5) communication
+assign [app_id="Slack"] 5
+assign [class="discord"] 5
+# (6) doc
+assign [class="Zathura"] 6
+assign [class="zathura"] 6
+assign [class="org.pwmt.zathura"] 6
+assign [class="^Zotero$"] 6
+# (7) ext
+assign [class="^code-oss$"] 7
+assign [class="Gimp"] 7
+assign [class="^libreoffice$"] 7
 
 #
 # Colors
@@ -36,7 +38,7 @@ include ~/.config/sway/kanagawa
 
 
 #                       Border        BG            Text        Ind           Child Border
-client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
+client.focused          $autumnYellow $autumnYellow $sumiInk1   $waveRed      $autumnYellow
 client.focused_inactive $waveBlue2    $waveBlue2    $fujiWhite  $sakuraPink   $waveBlue2
 client.unfocused        $waveBlue1    $waveBlue1    $fujiWhite  $sakuraPink   $waveBlue1
 client.urgent           $waveRed      $waveRed      $sumiInk1   $roninYellow  $waveRed
