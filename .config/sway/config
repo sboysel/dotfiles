@@ -12,13 +12,13 @@ set $laptop eDP-1
 set $monitor HDMI-A-2
 # set $bgimage ~/.wallpaper/thinkpad/vortex-2560x1440.jpg
 # set $bgimage ~/.wallpaper/thinkpad/guggenheim2560.jpg
-set $bgcolor "#49443C"
-set $lock swaylock -f -i $bg -s solid_color --indicator-radius 250 --indicator-thickness 50
+set $bgcolor "#16161D"
+set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
 # set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
-set $left h
-set $down j
-set $up k
-set $right l
+# set $left h
+# set $down j
+# set $up k
+# set $right l
 
 font pango:JetBrains Mono Nerd Font 12
 
