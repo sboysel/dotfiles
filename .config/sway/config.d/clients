@@ -2,7 +2,7 @@
 # Clients
 #
 
-default_border pixel 6
+default_border pixel 4
 smart_gaps on
 gaps inner 12
 
@@ -38,10 +38,10 @@ include ~/.config/sway/kanagawa
 
 
 #                       Border        BG            Text        Ind           Child Border
-client.focused          $autumnYellow $autumnYellow $sumiInk1   $waveRed      $autumnYellow
+client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
 client.focused_inactive $waveBlue2    $waveBlue2    $fujiWhite  $sakuraPink   $waveBlue2
 client.unfocused        $waveBlue1    $waveBlue1    $fujiWhite  $sakuraPink   $waveBlue1
-client.urgent           $waveRed      $waveRed      $sumiInk1   $roninYellow  $waveRed
+client.urgent           $waveRed      $waveRed      $sumiInk1   $fujiWhite    $waveRed
 
 
 # vim: set ft=i3config:
