@@ -28,8 +28,7 @@ assign [class="^libreoffice$"] 5
 # Colors
 #
 
-include ~/.config/sway/kanagawa
-
+include ~/.config/sway/themes/kanagawa
 
 #                       Border        BG            Text        Ind           Child Border
 client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
