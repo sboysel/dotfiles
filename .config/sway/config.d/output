@@ -10,29 +10,25 @@
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # __________  ___________
-# | laptop |  | monitor | 
+# | monitor|  | laptop  | 
 # |        |  |         |
 # ----------  -----------
-# output $laptop mode 2560x1440@60Hz position 0,1200 scale 2
 
-# output $laptop mode 2560x1440@60Hz position 0,1200 scale 1
-# output $monitor mode 1920x1080@60Hz position 1280,840 scale 0.75 subpixel rgb
-
-output $laptop {
-    mode  2560x1440@60.004Hz
+output $monitor {
+    mode  1920x1080@60.0Hz
     pos 0 0
     transform normal
-    scale 1.0
-    scale_filter nearest
+    scale 0.75
+    scale_filter linear
     adaptive_sync off
     dpms on
 }
-output $monitor {
-    mode  1920x1080@60.0Hz
+output $laptop {
+    mode  2560x1440@60.004Hz
     pos 2560 0
     transform normal
-    scale 0.75
-    scale_filter smart
+    scale 1.0
+    scale_filter nearest
     adaptive_sync off
     dpms on
 }
@@ -40,8 +36,7 @@ output $monitor {
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 
-# output * bg $bg fill #89CFF0
-output * bg $bgcolor solid_color
-# output * bg $bgimage fill
+output * bg $bgimage fill $bgcolor
+# output * bg $bgcolor solid_color
 
 # vim: set ft=i3config: 
