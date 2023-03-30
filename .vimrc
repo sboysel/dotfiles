@@ -56,7 +56,7 @@ Plug 'quarto-dev/quarto-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 " Plug 'jmcantrell/vim-virtualenv'
 Plug 'vim-autoformat/vim-autoformat'
@@ -68,6 +68,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 " Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 " Plug 'nvim-tree/nvim-tree.lua'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 
 """ other """"""""""""""""""""""""""""""""""""""""
 " Plug 'lukas-reineke/virt-column.nvim'
