@@ -1,7 +1,7 @@
 # general
 font=JetBrainsMono Nerd Font 20
 format=<b>%s</b>\n%b
-default-timeout=0
+default-timeout=60000
 width=400
 border-size=4
 border-radius=1
