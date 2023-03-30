@@ -9,13 +9,13 @@ exec dbus-update-activation-environment \
 # clamshell mode
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
-exec_always ~/bin/clamshell_preserve.sh
+exec --no-startup-id ~/bin/clamshell_preserve.sh
 
 # autotiling
-exec_always autotiling -w 1 2 3 7
+exec --no-startup-id autotiling
 
-# # udiskie
-# exec --no-startup-id udiskie --tray
+# udiskie
+exec --no-startup-id udiskie -t -n -a
 
 # Idle configuration
 #
