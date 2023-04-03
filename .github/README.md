@@ -11,14 +11,38 @@ yadm clone https://github.com/sboysel/dotfiles.git
 yadm status
 ```
 
-
 ## Workflow
 
+Keep configs common to all machines in `main`, make branches for different 
+systems (e.g. `mba`, `thinkpad`).
+
+Common config change (i.e. `main`)
+
 ```
-vim ~/.vimrc
-yadm add ~/.vimrc
-yadm commit
-yadm push
+yadm checkout main
+yadm pull main
+yadm add path/to/file
+yadm commit -m "[app] change"
+yadm push -u origin main
+```
+
+System-specific config change (e.g. `mba`)
+
+```
+yadm checkout mba
+yadm fetch
+yadm rebase main
+yadm add path/to/file
+yadm commit -m "[app] change"
+yadm push -u origin mba
+```
+
+**(important)** Revert back to `main` and apply the changes from the system specific branch
+
+```
+yadm checkout main
+yadm merge --no-ff mba
+yadm reset HEAD~1
 ```
 
 ## Screenshots
