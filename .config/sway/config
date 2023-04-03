@@ -13,18 +13,12 @@ set $scrot swayshot display
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
 set $monitor HDMI-A-2
-# set $bgimage ~/.wallpaper/thinkpad/vortex-2560x1440.jpg
-set $bgimage ~/.wallpaper/thinkpad/patrick-ryan.jpg
+set $bgimage ~/.wallpaper/mba/moebius.png
 set $bgcolor "#16161D"
-set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
-# set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
-# set $left h
-# set $down j
-# set $up k
-# set $right l
+# set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
+set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
 
-font pango:JetBrains Mono Nerd Font 12
-
+# subconfigs
 include ~/.config/sway/config.d/*
 
 # vim: set ft=i3config: 
