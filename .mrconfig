@@ -1,12 +1,17 @@
-
-[repos/jmp]
-checkout = git clone 'git@github.com:sboysel/jmp.git' 'jmp'
-
 [repos/services]
 checkout = git clone 'git@github.com:sboysel/services.git' 'services'
 
-[repos/startpage]
-checkout = git clone 'https://github.com/sboysel/startpage.git' 'startpage'
+[repos/atma]
+checkout = git clone 'git@github.com:sboysel/atma.git' 'atma'
 
-[repos/ultralist]
-checkout = git clone 'git@github.com:sboysel/ultralist.git' 'ultralist'
+[repos/ergogen]
+checkout = git clone 'git@github.com:sboysel/ergogen.git' 'ergogen'
+
+[repos/oss-automation]
+checkout = git clone 'git@github.com:sboysel/oss-automation.git' 'oss-automation'
+
+[repos/tariffs]
+checkout = git clone 'git@github.com:sboysel/tariffs.git' 'tariffs'
+
+[repos/awesome-oss-research-data]
+checkout = git clone 'git@github.com:sboysel/awesome-oss-research-data.git' 'awesome-oss-research-data'
