@@ -22,10 +22,10 @@ return require('packer').startup(function(use)
 
   -- productivity
   use { 'neovim/nvim-lspconfig' }
+  use { 'neovim/cmp-buffer', after = 'nvim-cmp' }
   use ({ 'hrsh7th/nvim-cmp',
     config = [[require('config.cmp')]], -- may very based on config
     requires = {
-      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
@@ -48,6 +48,13 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-fzf-native.nvim'
     }
+  }
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
   }
 
 end)
