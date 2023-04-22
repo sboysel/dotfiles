@@ -45,12 +45,20 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # Move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 #
 # keybindings (workspaces)
@@ -79,8 +87,10 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 
 # cycle through active workspaces
-bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+h workspace prev
+bindsym $mod+Control+l workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -95,10 +105,15 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
-bindsym $mod+Shift+Control+Right move workspace to output right
 bindsym $mod+Shift+Control+Left move workspace to output left
-bindsym $mod+Shift+Control+Up move workspace to output up
 bindsym $mod+Shift+Control+Down move workspace to output down
+bindsym $mod+Shift+Control+Up move workspace to output up
+bindsym $mod+Shift+Control+Right move workspace to output right
+bindsym $mod+Shift+Control+h move workspace to output left
+bindsym $mod+Shift+Control+j move workspace to output down
+bindsym $mod+Shift+Control+k move workspace to output up
+bindsym $mod+Shift+Control+l move workspace to output right
+
 
 #
 # keybindings (layouts)
