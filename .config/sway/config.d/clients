@@ -9,7 +9,7 @@ gaps inner 12
 
 # (1) web
 assign [class="^Chromium$"] 1 
-assign [class="^Google-chrome$"] 1
+assign [app_id="^google-chrome$"] 1
 assign [app_id="^firefox$"] 1
 # (3) communication
 assign [app_id="Slack"] 3
