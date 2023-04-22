@@ -1,35 +1,12 @@
------------------------------------------------------------
--- Define keymaps of Neovim and installed plugins.
--- source: https://github.com/brainfucksec/neovim-lua
------------------------------------------------------------
+local keymap = vim.api.nvim_set_keymap
+local default_opts = { noremap = true, silent = true }
+local expr_opts = { noremap = true, expr = true, silent = true }
 
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap=true, silent=true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
------------------------------------------------------------
--- Neovim shortcuts
------------------------------------------------------------
-
--- Map Esc to kk
-map('i', 'kk', '<Esc>')
-
--- Reload configuration without restart nvim
-map('n', '<leader>r', ':so %<CR>')
-
--- Fast saving with <leader> and s
-map('n', '<leader>s', ':w<CR>')
-
--- Close all windows and exit from Neovim with <leader> and q
-map('n', '<leader>q', ':qa!<CR>')
-
------------------------------------------------------------
--- Applications and Plugins shortcuts
------------------------------------------------------------
-
--- packer.nvim
-map('n', '<leader>p', ':PackerSync<CR>')  -- open
+keymap("n", "<Leader>w", ":w<CR>", default_opts)
+keymap("n", "<Leader>q", ":q<CR>", default_opts)
+keymap("n", "<Leader>wq", ":wq<CR>", default_opts)
+keymap("n", "<Leader>ps", ":PackerSync<CR>", default_opts)
+keymap("n", "<Leader>e", ":tabedit<CR>", default_opts)
+keymap("n", "<Leader>t", ":NvimTreeToggle<CR>", default_opts)
+keymap("n", "<Leader>ff", ":Telescope find_files<CR>", default_opts)
+keymap("n", "<Leader>-", "80A-<Esc>d80|", default_opts)

@@ -22,9 +22,9 @@ return require('packer').startup(function(use)
 
   -- productivity
   use { 'neovim/nvim-lspconfig' }
-  use { 'neovim/cmp-buffer', after = 'nvim-cmp' }
+  use { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }
   use ({ 'hrsh7th/nvim-cmp',
-    config = [[require('config.cmp')]], -- may very based on config
+    -- config = [[require('config.cmp')]], -- may very based on config
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
   })
   use { 'nvim-lualine/lualine.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
+  use { 'nvim-tree/nvim-tree.lua' }
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-fugitive' }
   -- use { 'dense-analysis/ale' }

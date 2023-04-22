@@ -5,8 +5,8 @@
 -- LEADER
 -- These keybindings need to be defined before the first /
 -- is called; otherwise, it will default to "\"
-vim.g.mapleader = ","
--- vim.g.localleader = "\\"
+vim.g.mapleader = "'"
+vim.g.localleader = "\\"
 
 -- [[ imports ]]
 require('vars')      -- Variables
@@ -22,3 +22,6 @@ require('lualine').setup {
         theme = "kanagawa"
     }
 }
+
+-- [[ imports // plugin config // nvim-tree ]]
+require("nvim-tree").setup()
