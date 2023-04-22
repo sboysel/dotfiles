@@ -23,7 +23,7 @@ bindsym $mod+Shift+x kill
 bindsym $mod+Shift+r reload
 
 # lock screen
-bindsym $mod+Control+Shift+l exec $lock
+bindsym $mod+s+l exec $lock
 
 # screenshot
 bindsym $mod+Shift+s exec $scrot
