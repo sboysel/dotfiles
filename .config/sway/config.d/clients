@@ -2,6 +2,7 @@
 # Clients
 #
 
+default_orientation auto
 default_border pixel 4
 smart_gaps on
 gaps inner 12
