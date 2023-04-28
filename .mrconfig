@@ -15,3 +15,6 @@ checkout = git clone 'git@github.com:sboysel/tariffs.git' 'tariffs'
 
 [repos/awesome-oss-research-data]
 checkout = git clone 'git@github.com:sboysel/awesome-oss-research-data.git' 'awesome-oss-research-data'
+
+[repos/quadrate]
+checkout = git clone 'git@github.com:sboysel/quadrate.git' 'quadrate'
