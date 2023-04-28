@@ -40,7 +40,6 @@ bindsym $mod+slash exec wofi -d | sed 's/\s/+/g'| awk '{print "https://www.googl
 #
 
 # Move your focus around
-# $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -49,6 +48,7 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+period focus next
 
 # Move focused window
 bindsym $mod+Shift+Left move left
@@ -91,6 +91,8 @@ bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+h workspace prev
 bindsym $mod+Control+l workspace next
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -114,10 +116,12 @@ bindsym $mod+Shift+Control+j move workspace to output down
 bindsym $mod+Shift+Control+k move workspace to output up
 bindsym $mod+Shift+Control+l move workspace to output right
 
-
 #
 # keybindings (layouts)
 #
+
+# cycle through layouts
+bindsym $mod+Mod1+l layout toggle all
 
 # horizontal and vertical splits respectively.
 bindsym $mod+Mod1+h splith
@@ -137,9 +141,12 @@ bindsym $mod+Mod1+space floating toggle
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
+# sticky floating window
+bindsym $mod+Mod1+s sticky toggle
+
 # Move focus to the parent/child container
-bindsym $mod+a focus parent
-# bindsym $mod+Tab focus child
+bindsym $mod+Mod1+comma focus parent
+bindsym $mod+Mod1+period focus child
 
 #
 # keybindings (hardware and media)
