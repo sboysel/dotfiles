@@ -26,7 +26,8 @@ bindsym $mod+Shift+r reload
 bindsym $mod+s+l exec $lock
 
 # screenshot
-bindsym $mod+Shift+s exec $scrot
+bindsym $mod+Control+s exec swayshot display
+bindsym $mod+Control+r exec swayshot region
 
 # Start your launcher
 bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
