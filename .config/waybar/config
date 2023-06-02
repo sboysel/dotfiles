@@ -161,9 +161,9 @@
     // CLOCK
 
     "clock": {
-        "format": " {:%b %d %I:%M %p}",
+        "format": "󰃰 {:%b %d %I:%M %p}",
         "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{calendar}</small>",
-        "on-click": "firefox 'https://www.google.com/calendar'"
+        "on-click": "google-chrome-stable 'https://www.google.com/calendar'"
 
     },
 
