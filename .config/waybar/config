@@ -28,15 +28,15 @@
         "numeric-first": true,
         "format": "{icon}",
         "format-icons": {
-            "1": " web",
-            "2": " work",
-            "3": " comm",
-            "4": "󰈙 doc",
-            "5": "󰫃 ext1",
-            "6": "󰫄 ext2",
-            "7": "󰫅 ext3",
-            "8": "󰫆 ext4",
-            "9": "󰫇 ext5",
+            "1": " web:1",
+            "2": " local:2",
+            "3": "󰒍 ssh:3",
+            "4": " comm:4",
+            "5": "󰈙 doc:5",
+            "6": "󰫃 ext:6",
+            "7": "󰫄 ext:7",
+            "8": "󰫅 ext:8",
+            "9": "󰫆 ext:9",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -129,7 +129,8 @@
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "full-at": 66
     },
 
     // POMO

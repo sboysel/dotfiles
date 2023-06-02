@@ -12,18 +12,18 @@ gaps inner 12
 assign [class="^Chromium$"] 1 
 assign [app_id="^google-chrome$"] 1
 assign [app_id="^firefox$"] 1
-# (3) communication
-assign [app_id="Slack"] 3
-assign [class="discord"] 3
-# (4) doc
-assign [class="Zathura"] 4
-assign [class="zathura"] 4
-assign [class="org.pwmt.zathura"] 4
-assign [class="^Zotero$"] 4
-# (5) ext1
-assign [class="^code-oss$"] 5
-assign [class="Gimp"] 5
-assign [class="^libreoffice$"] 5
+# (4) communication
+assign [app_id="Slack"] 4
+assign [class="discord"] 4
+# (5) doc
+assign [class="Zathura"] 5
+assign [class="zathura"] 5
+assign [class="org.pwmt.zathura"] 5
+assign [class="^Zotero$"] 5
+# (6) ext:6
+assign [class="^code-oss$"] 6
+assign [class="Gimp"] 6
+assign [class="^libreoffice$"] 6
 
 #
 # Colors
