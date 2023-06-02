@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
   use { 'fatih/vim-go' }
   use { 'vim-pandoc/vim-pandoc-syntax' }
   use { 'quarto-dev/quarto-vim' }
-  use { 'jalvesaq/Nvim-R' }
 
   -- productivity
   use { 'neovim/nvim-lspconfig' }
