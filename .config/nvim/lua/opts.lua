@@ -46,3 +46,7 @@ opt.splitbelow = true            -- bool: Place new window below the current on
 -- [[ vim-markdown ]]
 vim.g.vim_markdown_folding_disabled = 1
 
+-- [[ vim-slime ]]
+vim.g.slime_target = "tmux"
+vim.g.slime_default_config = {socket_name="default", target_pane=":.1"}
+

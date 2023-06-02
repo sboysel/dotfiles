@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   use { 'fatih/vim-go' }
   use { 'vim-pandoc/vim-pandoc-syntax' }
   use { 'quarto-dev/quarto-vim' }
+  use { 'jalvesaq/Nvim-R' }
 
   -- productivity
   use { 'neovim/nvim-lspconfig' }
@@ -38,6 +39,7 @@ return require('packer').startup(function(use)
   use { 'nvim-tree/nvim-tree.lua' }
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-fugitive' }
+  use { 'jpalardy/vim-slime' }
   -- use { 'dense-analysis/ale' }
   -- use { 'neoclide/coc.nvim', branch = 'release' }
   use { 'godlygeek/tabular' }
@@ -57,6 +59,8 @@ return require('packer').startup(function(use)
           ts_update()
       end,
   }
+  use { 'folke/zen-mode.nvim' }
+  use { 'preservim/vim-pencil' }
 
 end)
 
