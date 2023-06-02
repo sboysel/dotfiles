@@ -1,0 +1,21 @@
+session_name: default
+windows:
+  - window_name: main
+    layout: tiled
+    shell_command_before:
+      - cd ~
+      - clear
+  - window_name: btop
+    layout: tiled
+    shell_command_before:
+      - cd ~
+      - btop
+  - window_name: tariffs
+    layout: even-horizontal
+    shell_command_before:
+      - cd ~/repos/tariffs # run as a first command in all panes
+    panes:
+    - shell_command:
+      - cmd: ranger
+    - shell_command:
+      - cmd: clear
