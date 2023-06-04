@@ -5,17 +5,26 @@ windows:
     shell_command_before:
       - cd ~
       - clear
-  - window_name: btop
-    layout: tiled
-    shell_command_before:
-      - cd ~
-      - btop
   - window_name: tariffs
     layout: even-horizontal
     shell_command_before:
-      - cd ~/repos/tariffs # run as a first command in all panes
+      - cd ~/repos/tariffs
     panes:
     - shell_command:
       - cmd: ranger
     - shell_command:
       - cmd: clear
+  - window_name: oss-automation
+    layout: even-horizontal
+    shell_command_before:
+      - cd ~/repos/oss-automation
+    panes:
+    - shell_command:
+      - cmd: ranger
+    - shell_command:
+      - cmd: clear
+  - window_name: btop
+    layout: tiled
+    shell_command_before:
+      - cd ~
+      - btop
