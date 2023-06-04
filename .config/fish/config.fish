@@ -22,6 +22,7 @@ set -gx GOPATH "$HOME/go"
 set -gx GOBIN "$HOME/go/bin"
 set -gx GOOS "linux"
 set -gx GOARCH "amd64" 
+# set -gx R_LIBS_USER "$HOME/.r"
 set -gx JULIA_PROJECT '@.'
 set -gx JULIA_NUM_THREADS 4
 set -gx npm_config_prefix "$HOME/.local"
@@ -67,8 +68,24 @@ end
 #
 
 function yu --description "Update system"
-    yay -Syyu
+    yay -Syyu $argv
 end
+
+function yss --description "Search packages"
+    yay -Ss $argv
+end
+
+function ys --description "Install packages"
+    yay -S $argv
+end
+
+function yqi --description "Information about installed package"
+    yay -Si $argv
+end 
+
+function yql --description "Query files owned by installed package"
+    yay -Ql $argv
+end 
 
 function yo --description "List orphaned packages"
     yay -Qtdq
