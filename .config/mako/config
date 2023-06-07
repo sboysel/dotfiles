@@ -1,22 +1,20 @@
 # general
-font=JetBrainsMono Nerd Font 20
+font=JetBrainsMono Nerd Font 12
 format=<b>%s</b>\n%b
 default-timeout=60000
 width=400
 border-size=4
-border-radius=4
 margin=4
 padding=10
 text-alignment=left
 icon-path=/usr/share/icons/Arc
 layer=overlay
 
-# colors (catppuccin macchiato)
-# background-color=#24273a
-background-color=#363a4f
-text-color=#cad3f5
-border-color=#8aadf4
-progress-color=over #363a4f
+# colors (kanagawa)
+background-color=#223249
+border-color=#C8C093
+text-color=#C8C093
 
 [urgency=critical]
-border-color=#f5a97f
+border-color=#E46876
+text-color=#E46876
