@@ -26,8 +26,14 @@ bindsym $mod+Shift+r reload
 bindsym $mod+s+l exec $lock
 
 # screenshot
-bindsym $mod+Control+s exec swayshot display
-bindsym $mod+Control+r exec swayshot region
+bindsym $mod+Control+s exec grimshot --notify save screen
+bindsym $mod+Control+o exec grimshot --notify save output
+bindsym $mod+Control+w exec grimshot --notify save window
+bindsym $mod+Control+a exec grimshot --notify save area
+bindsym $mod+Control+Shift+s exec grimshot --notify copy screen
+bindsym $mod+Control+Shift+o exec grimshot --notify copy output
+bindsym $mod+Control+Shift+w exec grimshot --notify copy window
+bindsym $mod+Control+Shift+a exec grimshot --notify copy area
 
 # Start your launcher
 bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
