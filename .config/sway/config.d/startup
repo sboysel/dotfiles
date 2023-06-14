@@ -2,9 +2,9 @@
 # Startup
 #
 
-# # dbus
-# exec dbus-update-activation-environment \
-#     --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# dbus
+exec --no-startup-id dbus-update-activation-environment \
+    --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # clamshell mode
 bindswitch --reload --locked lid:on output $laptop disable

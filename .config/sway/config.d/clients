@@ -33,9 +33,9 @@ include ~/.config/sway/themes/kanagawa
 
 #                       Border        BG            Text        Ind           Child Border
 client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
-client.focused_inactive $waveBlue2    $waveBlue2    $fujiWhite  $sakuraPink   $waveBlue2
-client.unfocused        $waveBlue1    $waveBlue1    $fujiWhite  $sakuraPink   $waveBlue1
-client.urgent           $waveRed      $waveRed      $sumiInk1   $fujiWhite    $waveRed
+client.focused_inactive $sumiInk4     $sumiInk4     $oldWhite   $sakuraPink   $sumiInk4
+client.unfocused        $sumiInk4     $sumiInk4     $oldWhite   $sakuraPink   $sumiInk4
+client.urgent           $waveRed      $waveRed      $sumiInk1   $oldWhite     $waveRed
 
 
 # vim: set ft=i3config:

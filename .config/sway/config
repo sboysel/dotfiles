@@ -16,10 +16,9 @@ set $web google-chrome-stable --enable-features=UseOzonePlatform --ozone-platfor
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
 set $monitor HDMI-A-2
-set $bgimage ~/.wallpaper/mba/pxfuel.jpg
-set $bgcolor "#16161D"
-# set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
-set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
+set $bgcolor "#363646"
+set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
+# set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
 
 # subconfigs
 include ~/.config/sway/config.d/*
