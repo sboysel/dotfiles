@@ -1,36 +1,33 @@
 @import ".config/wofi/themes/kanagawa.css";
 
 window {
+	color: @oldWhite;
 	background-color: @sumiInk1;
-	color: @fujiWhite;
-  font-size: 30px;
+  font-size: 16px;
   font-family: JetBrainsMono Nerd Font;
 }
 
-#entry {
-  padding: 8px;
-}
-
-#entry:nth-child(odd) {
-	background-color: @sumiInk2; 
-
-}
-
-#entry:nth-child(even) {
-	background-color: @sumiInk1; 
-}
-
-#entry:selected {
-	background-color: @sumiInk1; 
-}
-
 #input {
+	color: @oldWhite;
 	background-color: @sumiInk1;
-	color: @fujiWhite;
-	border-color: @fujiWhite;
-  padding: 8px;
+	border-color: @oldWhite;
+  padding: 4px;
 }
 
 #input:focus {
-	border-color: @fujiWhite;
+	background-color: @sumiInk2; 
+}
+
+#entry {
+  color: @oldWhite;
+	background-color: @sumiInk1; 
+  padding: 4px;
+}
+
+#entry:selected {
+	background-color: @sumiInk2; 
+}
+
+#entry image {
+    padding-right: 8px;
 }
