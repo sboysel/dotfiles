@@ -5,7 +5,7 @@
 default_orientation auto
 default_border pixel 4
 smart_gaps on
-gaps inner 12
+gaps inner 4
 
 
 # (1) web
@@ -32,10 +32,10 @@ assign [class="^libreoffice$"] 6
 include ~/.config/sway/themes/kanagawa
 
 #                       Border        BG            Text        Ind           Child Border
-client.focused          $autumnGreen  $autumnGreen  $sumiInk1   $waveRed      $autumnGreen
-client.focused_inactive $sumiInk4     $sumiInk4     $oldWhite   $sakuraPink   $sumiInk4
-client.unfocused        $sumiInk4     $sumiInk4     $oldWhite   $sakuraPink   $sumiInk4
-client.urgent           $waveRed      $waveRed      $sumiInk1   $oldWhite     $waveRed
+client.focused          $springGreen  $springGreen  $sumiInk1   $autumnRed    $springGreen
+client.focused_inactive $winterBlue   $winterBlue   $fujiWhite  $waveRed      $winterBlue
+client.unfocused        $winterBlue   $winterBlue   $fujiWhite  $waveRed      $winterBlue
+client.urgent           $autumnRed    $autumnRed    $fujiWhite  $fujiWhite    $autumnRed
 
 
 # vim: set ft=i3config:
