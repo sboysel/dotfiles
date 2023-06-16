@@ -31,6 +31,7 @@ set -gx RUSTC_WRAPPER sccache
 
 set -gx NOTES_REPO "$HOME/repos/notes"
 set -gx OBSIDIAN_REPO "$HOME/doc/obsidian"
+set -gx XDG_SCREENSHOTS_DIR "$HOME/img/screenshots"
 
 # pdm
 if test -n "$PYTHONPATH"
