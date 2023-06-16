@@ -4,14 +4,14 @@
     border: none;
     border-radius: 0;
     font-family: JetBrainsMono Nerd Font;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 16px;
+    /* font-weight: bold; */
     min-height: 0;
 }
 
 window#waybar {
     color: @fujiWhite;
-    background-color: @waveBlue1;
+    background-color: @winterBlue;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -27,23 +27,23 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: @waveBlue1;
-    background-color: @autumnGreen; /* blue */
+    color: @winterBlue;
+    background-color: @springGreen; /* blue */
 }
 
 #workspaces button.urgent {
-    color: @waveBlue1;
-    background-color: @waveRed; /* red */
+    color: @winterBlue;
+    background-color: @peachRed; /* red */
 }
 
 #workspaces button:hover {
-    color: @waveBlue1;
+    color: @winterBlue;
     background: @fujiWhite; /* purple */
 }
 
 #mode {
     font-style: italic;
-    color: @waveRed; /* red */
+    color: @peachRed; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -58,15 +58,39 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray {
-    color: @fujiWhite;
-    background: @waveBlue1;
+    color: @fuijWhite;
+    background: @winterBlue;
     padding: 0 10px;
     margin: 0 0px;
 }
 
+#clock {
+    color: @oniViolet;
+}
+
+#cpu {
+    color: @crystalBlue;
+}
+
+#memory {
+    color: @waveAqua2;
+}
+
+#temperature {
+    color: @springGreen;
+}
+
+#pulseaudio {
+    color: @carpYellow;
+}
+
+#network {
+    color: @surimiOrange;
+}
+
 #battery {
-    color: @waveBlue1;
-    background: @waveRed;
+    color: @winterBlue;
+    background: @peachRed;
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -74,8 +98,8 @@ window#waybar {
 #custom-mullvad.connected,
 #battery.charging,
 #battery.plugged {
-    color: @waveBlue1;
-    background: @autumnGreen; /* green */
+    color: @winterBlue;
+    background: @springGreen; /* green */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -83,8 +107,8 @@ window#waybar {
 #pulseaudio.muted, 
 #network.disconnected,
 #custom-mullvad.disconnected {
-    color: @waveBlue1;
-    background: @waveRed; /* red */
+    color: @winterBlue;
+    background: @peachRed; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
