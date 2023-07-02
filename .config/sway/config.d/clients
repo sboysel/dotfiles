@@ -29,13 +29,13 @@ assign [class="^libreoffice$"] 6
 # Colors
 #
 
-include ~/.config/sway/themes/kanagawa
-
-#                       Border        BG            Text        Ind           Child Border
-client.focused          $springGreen  $springGreen  $sumiInk1   $autumnRed    $springGreen
-client.focused_inactive $winterBlue   $winterBlue   $fujiWhite  $waveRed      $winterBlue
-client.unfocused        $winterBlue   $winterBlue   $fujiWhite  $waveRed      $winterBlue
-client.urgent           $autumnRed    $autumnRed    $fujiWhite  $fujiWhite    $autumnRed
-
+# everforest dark medium
+# class                 border  bground text    indicator child_border
+client.focused          #A7C080 #A7C080 #2D353B #DBBC7F   #A7C080
+client.focused_inactive #3D484D #2D353B #859289 #2D353B   #3D484D
+client.unfocused        #3D484D #2D353B #859289 #2D353B   #3D484D
+client.urgent           #E67E80 #E67E80 #2D353B #D3C6AA   #E67E80
+client.placeholder      #2D353B #2D353B #859289 #2D353B   #2D353B
+client.background       #2D353B
 
 # vim: set ft=i3config:
