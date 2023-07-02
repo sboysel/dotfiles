@@ -1,5 +1,3 @@
-@import "themes/kanagawa.css";
-
 * {
     border: none;
     border-radius: 0;
@@ -10,8 +8,8 @@
 }
 
 window#waybar {
-    color: @fujiWhite;
-    background-color: @winterBlue;
+    color: #D3C6AA; /* default fg */
+    background-color: #2D353B; /* default bg */
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -22,28 +20,28 @@ window#waybar {
 }
 
 #workspaces button {
-    color: @fujiWhite;
+    color: #D3C6AA; /* default fg */
     padding: 0 10px;
 }
 
 #workspaces button.focused {
-    color: @winterBlue;
-    background-color: @springGreen; /* blue */
+    color: #2D353B; /* default bg */
+    background-color: #A7C080; /* green */
 }
 
 #workspaces button.urgent {
-    color: @winterBlue;
-    background-color: @peachRed; /* red */
+    color: #2D353B; /* default bg */
+    background-color: #E67E80; /* red */
 }
 
 #workspaces button:hover {
-    color: @winterBlue;
-    background: @fujiWhite; /* purple */
+    color: #2D353B; /* default bg */
+    background: #D3C6AA; /* default fg */
 }
 
 #mode {
     font-style: italic;
-    color: @peachRed; /* red */
+    color: #E67E80; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -58,39 +56,39 @@ window#waybar {
 #network,
 #pulseaudio,
 #tray {
-    color: @fuijWhite;
-    background: @winterBlue;
+    color: #D3C6AA; /* default fg */
+    background: #2D353B; /* default bg */
     padding: 0 10px;
     margin: 0 0px;
 }
 
 #clock {
-    color: @oniViolet;
+    color: #D699B6; /* purple */
 }
 
 #cpu {
-    color: @crystalBlue;
+    color: #7FBBB3; /* blue */
 }
 
 #memory {
-    color: @waveAqua2;
+    color: #83C092; /* aqua */
 }
 
 #temperature {
-    color: @springGreen;
-}
-
-#pulseaudio {
-    color: @carpYellow;
+    color: #A7C080; /* green */
 }
 
 #network {
-    color: @surimiOrange;
+    color: #DBBC7F; /* yellow */
+}
+
+#pulseaudio {
+    color: #E69875; /* orange */
 }
 
 #battery {
-    color: @winterBlue;
-    background: @peachRed;
+    color: #2D353B; /* default bg */
+    background: #E67E80; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -98,8 +96,8 @@ window#waybar {
 #custom-mullvad.connected,
 #battery.charging,
 #battery.plugged {
-    color: @winterBlue;
-    background: @springGreen; /* green */
+    color: #2D353B; /* default bg */
+    background: #A7C080; /* green */
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -107,8 +105,8 @@ window#waybar {
 #pulseaudio.muted, 
 #network.disconnected,
 #custom-mullvad.disconnected {
-    color: @winterBlue;
-    background: @peachRed; /* red */
+    color: #2D353B; /* default bg */
+    background: #E67E80; /* red */
     padding: 0 10px;
     margin: 0 0px;
 }
