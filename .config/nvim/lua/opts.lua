@@ -2,8 +2,8 @@
 local cmd = vim.cmd
 
 -- [[ colorscheme ]]
--- cmd 'colorscheme catppuccin-macchiato'
-cmd 'colorscheme kanagawa'
+-- cmd 'colorscheme catppuccin-frappe'
+cmd 'colorscheme everforest'
 
 
 --[[ opts.lua ]]

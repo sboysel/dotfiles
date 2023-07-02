@@ -16,12 +16,17 @@ require('plugins')   -- Plugins
 require('lsp')
 
 -- [[ imports // plugin config ]]
+
+-- [[ imports // plugin config // everforest ]]
+require('everforest').load()
+
 -- [[ imports // plugin config // lualine ]]
-require('lualine').setup {
-    options = {
-        theme = "kanagawa"
-    }
-}
+-- require('lualine').setup({
+--     options = {
+--         theme = 'everforest'
+--     }
+-- })
+require('lualine').setup()
 
 -- [[ imports // plugin config // nvim-tree ]]
 require("nvim-tree").setup()
