@@ -1,5 +1,5 @@
 # set font "FiraCode Nerd Font 16"
-set font "JetBrainsMono Nerd Font Mono 16"
+set font "JetBrainsMono Nerd Font Mono 12"
 
 # Open document in fit-width mode by default
 set adjust-open "width"
@@ -30,42 +30,36 @@ set selection-clipboard clipboard
 # disable sandbox
 set sandbox none
 
-# kanagawa
-# #223249
-set notification-error-bg       "#223249"
-set notification-error-fg       "#FF5D62"
-set notification-warning-bg     "#223249"
-set notification-warning-fg     "#FFA066"
-set notification-bg             "#223249"
-set notification-fg             "#DCD7BA"
+# everforest
+set default-bg                  "#4b565c"
+set default-fg                  "#d3c6aa"
 
-set completion-bg               "#223249"
-set completion-fg               "#C8C093"
-set completion-group-bg         "#2A2A37"
-set completion-group-fg         "#C8C093"
-set completion-highlight-bg     "#957FB8"
-set completion-highlight-fg     "#223249"
+set statusbar-fg                "#d3c6aa"
+set statusbar-bg                "#2b3339"
 
-set index-bg                    "#223249"
-set index-fg                    "#957FB8"
-set index-active-bg             "#957FB8"
-set index-active-fg             "#223249"
+set inputbar-bg                 "#2b3339"
+set inputbar-fg                 "#d3c6aa"
 
-set inputbar-bg                 "#223249"
-set inputbar-fg                 "#C8C093"
+set notification-bg             "#2b3339"
+set notification-fg             "#d3c6aa"
 
-set statusbar-bg                "#223249"
-set statusbar-fg                "#C8C093"
+set notification-error-bg       "#2b3339"
+set notification-error-fg       "#d3c6aa"
 
-set highlight-color             "#FFA066"
-set highlight-active-color      "#FF5D62"
+set notification-warning-bg     "#2b3339"
+set notification-warning-fg     "#d3c6aa"
 
-set default-bg                  "#223249"
-set default-fg                  "#C8C093"
-set render-loading              "true"
-set render-loading-bg           "#223249"
-set render-loading-fg           "#C8C093"
+set highlight-color             "#4b565c"
+set highlight-active-color      "#e67e80"
 
-set recolor-lightcolor          "#223249"
-set recolor-darkcolor           "#C8C093"
-set recolor                     "false"
+set completion-bg               "#2b3339"
+set completion-fg               "#d3c6aa"
+
+set completion-highlight-fg     "#4b565c"
+set completion-highlight-bg     "#2b3339"
+
+set recolor-lightcolor          "#2b3339"
+set recolor-darkcolor           "#d3c6aa"
+
+set recolor                     "true"
+set recolor-keephue             "false"
