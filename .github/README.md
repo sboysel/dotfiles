@@ -4,6 +4,13 @@
 
 My dotfiles that I manage with [yadm](https://yadm.io/).
 
+## Screenshots
+
+![](../.screenshots/mba/screen0.png?raw=true)
+![](../.screenshots/mba/screen1.png?raw=true)
+
+More screenshots in [.screenshots](../.screenshots) directory.
+
 ## Installation
 
 ```
@@ -44,14 +51,6 @@ yadm checkout main
 yadm merge --no-ff mba
 yadm reset HEAD~1
 ```
-
-## Screenshots
-
-![](../.screenshots/mba/screen0.png?raw=true)
-![](../.screenshots/mba/screen1.png?raw=true)
-![](../.screenshots/mba/screen2.png?raw=true)
-
-More screenshots in [.screenshots](../.screenshots) directory.
 
 ## Misc
 
