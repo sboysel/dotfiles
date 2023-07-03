@@ -10,8 +10,6 @@
 window#waybar {
     color: #D3C6AA; /* default fg */
     background-color: #2D353B; /* default bg */
-    /* transition-property: font-weight; */
-    /* transition-duration: 0.1s; */
 }
 
 #workspaces {
@@ -37,8 +35,10 @@ window#waybar {
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
+    transition-duration: inherit;
+    color: #DBBC7F; /* yellow */
     background: #2D353B; /* default bg */
-    border-bottom: 2px solid #D3C6AA; /* default fg */
+    border-bottom: 2px solid #DBBC7F; /* yellow */
 }
 
 #mode {
