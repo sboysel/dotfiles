@@ -10,8 +10,8 @@
 window#waybar {
     color: #D3C6AA; /* default fg */
     background-color: #2D353B; /* default bg */
-    transition-property: background-color;
-    transition-duration: 0.5s;
+    /* transition-property: font-weight; */
+    /* transition-duration: 0.1s; */
 }
 
 #workspaces {
@@ -21,28 +21,30 @@ window#waybar {
 
 #workspaces button {
     color: #D3C6AA; /* default fg */
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #workspaces button.focused {
-    color: #2D353B; /* default bg */
-    background-color: #A7C080; /* green */
+    color: #A7C080; /* green */
+    border-bottom: 2px solid #A7C080; /* green */
 }
 
 #workspaces button.urgent {
-    color: #2D353B; /* default bg */
-    background-color: #E67E80; /* red */
+    color: #E67E80; /* ;red */
+    border-bottom: 2px solid #E67E80; /* red */
 }
 
 #workspaces button:hover {
-    color: #2D353B; /* default bg */
-    background: #D3C6AA; /* default fg */
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: #2D353B; /* default bg */
+    border-bottom: 2px solid #D3C6AA; /* default fg */
 }
 
 #mode {
     font-style: italic;
     color: #E67E80; /* red */
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
@@ -58,38 +60,44 @@ window#waybar {
 #tray {
     color: #D3C6AA; /* default fg */
     background: #2D353B; /* default bg */
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
 #clock {
     color: #D699B6; /* purple */
+    border-top: 2px solid #D699B6; /* purple */
 }
 
 #cpu {
     color: #7FBBB3; /* blue */
+    border-top: 2px solid #7FBBB3; /* blue */
 }
 
 #memory {
     color: #83C092; /* aqua */
+    border-top: 2px solid #83C092; /* aqua */
 }
 
 #temperature {
     color: #A7C080; /* green */
+    border-top: 2px solid #A7C080; /* green */
 }
 
 #network {
     color: #DBBC7F; /* yellow */
+    border-top: 2px solid #DBBC7F; /* yellow */
 }
 
 #pulseaudio {
     color: #E69875; /* orange */
+    border-top: 2px solid #E69875; /* orange */
 }
 
 #battery {
     color: #2D353B; /* default bg */
     background: #E67E80; /* red */
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
@@ -98,7 +106,7 @@ window#waybar {
 #battery.plugged {
     color: #2D353B; /* default bg */
     background: #A7C080; /* green */
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
@@ -107,6 +115,10 @@ window#waybar {
 #custom-mullvad.disconnected {
     color: #2D353B; /* default bg */
     background: #E67E80; /* red */
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 0px;
+}
+
+#tray {
+    border-top: 2px solid #D3C6AA; /* default fg */
 }

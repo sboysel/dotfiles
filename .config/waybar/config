@@ -12,10 +12,10 @@
         "memory",
         "temperature",
         "network",
-        "custom/mullvad",
         "pulseaudio",
-        "battery",
-        "tray"
+        "tray",
+        "custom/mullvad",
+        "battery"
     ],
 
     // MODULES //
