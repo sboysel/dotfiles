@@ -3,7 +3,6 @@
     "position": "top",
     "modules-left": [
         "sway/workspaces",
-        "idle_inhibitor",
         "sway/mode"
     ],
     "modules-right": [
@@ -14,8 +13,9 @@
         "network",
         "pulseaudio",
         "tray",
+        "idle_inhibitor",
         "custom/mullvad",
-        "battery"
+        "battery",
     ],
 
     // MODULES //
@@ -28,15 +28,15 @@
         "numeric-first": true,
         "format": "{icon}",
         "format-icons": {
-            "1": " web:1",
-            "2": " local:2",
-            "3": "󰒍 ssh:3",
-            "4": " comm:4",
-            "5": "󰈙 doc:5",
-            "6": "󰫃 ext:6",
-            "7": "󰫄 ext:7",
-            "8": "󰫅 ext:8",
-            "9": "󰫆 ext:9",
+            "1": " ",
+            "2": " ",
+            "3": "󰒍 ",
+            "4": " ",
+            "5": "󰈙 ",
+            "6": "󰫃 ",
+            "7": "󰫄 ",
+            "8": "󰫅 ",
+            "9": "󰫆 ",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -88,18 +88,19 @@
     // NETWORK
 
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "  {essid}",
-        "tooltip-format-wifi": "  {ipaddr} // 爵 {gwaddr} \n   {signalStrength} ({signaldBm} dBm) // {frequency} Ghz \n  {bandwidthUpBits} mbps //  {bandwidthDownBits} mbps",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        "format-disconnected": "⚠ Disconnected"
+        "format-wifi": " ",
+        "tooltip-format-wifi": "ssid\t{essid} \ninterf\t{ifname} \nip\t{ipaddr} \ngateway\t{gwaddr} \nsignal\t{signalStrength} ({signaldBm} dBm) \nfreq \t{frequency} Ghz \n {bandwidthUpBits} mbps //  {bandwidthDownBits} mbps",
+        "format-ethernet": " ",
+        "tooltip-format-ethernet": "{ifname}\t{ipaddr}/{cidr} \ngateway\t{gwaddr} \n {bandwidthUpBits} mbps //  {bandwidthDownBits} mbps",
+        "format-disconnected": "⚠"
     },
 
     // VOLUME
 
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{icon} {volume}%",
+        "format": "{icon}",
+        "tooltip-format": "volume\t{volume}% \ndesc\t{desc}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
         "format-icons": {
@@ -117,20 +118,27 @@
     // BATTERY
 
     "battery": {
+        "bat": "BAT0",
+        "adapter": "AC",
         "interval": 5,
         "states": {
-            // "good": 95,
+            "full": 100,
+            "normal": 99,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
-        "full-at": 66
+        "format": "󰁹 {capacity}%",
+        "format-full": "󰚥󰁹 {capacity}%",
+        "tooltip-format-full": "Battery full",
+        "format-discharging": "{icon} {capacity}%",
+        "tooltip-format-discharging": "Discharging\t{capacity}% \nTime\t\t{time}",
+        "format-charging": "󰚥{icon} {capacity}%",
+        "tooltip-format-charging": "Charging\t{capacity}% \nTime\t\t{time}",
+        "format-icons": {
+          "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+          "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+        },
+        // "full-at": 66
     },
 
     // POMO
@@ -153,15 +161,15 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
     },
 
     // CLOCK
 
     "clock": {
-        "format": "󰃰 {:%b %d %I:%M %p}",
+        "format": "󰃰 {:%H:%M}",
         "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{calendar}</small>",
         "on-click": "google-chrome-stable 'https://www.google.com/calendar'"
 
