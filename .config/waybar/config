@@ -1,6 +1,9 @@
 {
     "layer": "top", // Waybar in front of windows
     "position": "top",
+
+    // MODULES //
+
     "modules-left": [
         "sway/workspaces",
         "sway/mode"
@@ -17,8 +20,6 @@
         "custom/mullvad",
         "battery",
     ],
-
-    // MODULES //
 
     // WORKSPACES
 
