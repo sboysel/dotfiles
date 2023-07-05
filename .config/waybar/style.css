@@ -24,12 +24,12 @@ window#waybar {
 
 #workspaces button.focused {
     color: #A7C080; /* green */
-    border-bottom: 2px solid #A7C080; /* green */
+    border-bottom: 4px solid #A7C080; /* green */
 }
 
 #workspaces button.urgent {
     color: #E67E80; /* ;red */
-    border-bottom: 2px solid #E67E80; /* red */
+    border-bottom: 4px solid #E67E80; /* red */
 }
 
 #workspaces button:hover {
@@ -38,13 +38,13 @@ window#waybar {
     transition-duration: inherit;
     color: #DBBC7F; /* yellow */
     background: #2D353B; /* default bg */
-    border-bottom: 2px solid #DBBC7F; /* yellow */
+    border-bottom: 4px solid #DBBC7F; /* yellow */
 }
 
 #mode {
     font-style: italic;
     color: #E67E80; /* red */
-    padding: 0 8px;
+    padding: 0 12px;
     margin: 0 0px;
 }
 
@@ -60,38 +60,38 @@ window#waybar {
 #tray {
     color: #D3C6AA; /* default fg */
     background: #2D353B; /* default bg */
-    padding: 0 8px;
+    padding: 0 12px;
     margin: 0 0px;
 }
 
 #clock {
     color: #D699B6; /* purple */
-    border-top: 2px solid #D699B6; /* purple */
+    border-bottom: 4px solid #D699B6; /* purple */
 }
 
 #cpu {
     color: #7FBBB3; /* blue */
-    border-top: 2px solid #7FBBB3; /* blue */
+    border-bottom: 4px solid #7FBBB3; /* blue */
 }
 
 #memory {
     color: #83C092; /* aqua */
-    border-top: 2px solid #83C092; /* aqua */
+    border-bottom: 4px solid #83C092; /* aqua */
 }
 
 #temperature {
     color: #A7C080; /* green */
-    border-top: 2px solid #A7C080; /* green */
+    border-bottom: 4px solid #A7C080; /* green */
 }
 
 #network {
     color: #DBBC7F; /* yellow */
-    border-top: 2px solid #DBBC7F; /* yellow */
+    border-bottom: 4px solid #DBBC7F; /* yellow */
 }
 
 #pulseaudio {
     color: #E69875; /* orange */
-    border-top: 2px solid #E69875; /* orange */
+    border-bottom: 4px solid #E69875; /* orange */
 }
 
 #battery,
@@ -102,7 +102,7 @@ window#waybar {
 #idle_inhibitor.activated {
     color: #2D353B; /* default bg */
     background: #A7C080; /* green */
-    padding: 0 8px;
+    padding: 0 12px;
     margin: 0 0px;
 }
 
@@ -113,10 +113,10 @@ window#waybar {
 #idle_inhibitor.deactivated {
     color: #2D353B; /* default bg */
     background: #E67E80; /* red */
-    padding: 0 8px;
+    padding: 0 12px;
     margin: 0 0px;
 }
 
 #tray {
-    border-top: 2px solid #D3C6AA; /* default fg */
+    border-bottom: 4px solid #E67E80; /* red */
 }

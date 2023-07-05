@@ -6,7 +6,8 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode"
+        "sway/mode",
+        "mpris"
     ],
     "modules-right": [
         "clock",
@@ -59,6 +60,16 @@
         "interval": 1,
         "exec": "$HOME/.config/waybar/mediaplayer.sh",
         "on-click": "playerctl play-pause --player ncspot",
+    },
+
+    // mpris
+    "mpris": {
+      "format": "{status_icon} {title} - {artist}",
+      "status-icons": {
+        "playing": "󰐊",
+        "paused": "",
+        "stopped": ""
+      },
     },
 
     // CPU
@@ -160,6 +171,7 @@
 
     // IDLE INHIBITOR
     "idle_inhibitor": {
+        "start-activated": true,
         "format": "{icon}",
         "format-icons": {
             "activated": " ",
