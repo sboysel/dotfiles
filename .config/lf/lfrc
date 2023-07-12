@@ -1,14 +1,15 @@
+# $XDG_CONFIG/lf/lfrc
+
+# === settings
 # icons
 set icons
 
-# # previewer
-# set previewer ~/.config/lf/pv.sh
-# map i $LESSOPEN='| ~/.config/lf/pv.sh %s' less -R $f
+# previewer
+set previewer ~/.config/lf/preview.sh
+set cleaner ~/.config/lf/cleaner.sh
 
-# previewer (images)
-set previewer ~/.config/lf/pv_kitty.sh
-set cleaner ~/.config/lf/cleaner_kitty.sh
-map i $LESSOPEN='| ~/.config/lf/pv_kitty.sh %s' less -R $f
+# mouse support
+set mouse
 
 # periodically check for directory changes
 set period 5
@@ -35,17 +36,9 @@ set ifs "\n"
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
 
-# use enter for shell commands
-map <enter> shell
 
-# execute current file (must be executable)
-map x $$f
-map X !$f
 
-# dedicated keys for file opener actions
-map o &mimeopen $f
-map O $mimeopen --ask $f
-
+# === custom commands
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
@@ -53,34 +46,20 @@ map O $mimeopen --ask $f
 cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type $f -b) in
+        # text
         text/*) $EDITOR $fx;;
+        # images
+        image/png) imv $fx;;
+        image/jpeg) imv $fx;;
+        image/svg+xml) display $fx;;
+        image/x-xcf) gimp $fx;;
+        # pdf
+        application/pdf) zathura $fx;;
+        # video
+        video/x-msvideo) mpv $fx;;
         *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
-
-# define a custom 'rename' command without prompt for overwrite
-# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-# map r push :rename<space>
-
-# make sure trash folder exists
-# %mkdir -p ~/.trash
-
-# move current file or selected files to trash folder
-# (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx ~/.trash
-
-# define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete?[y/n]"
-#     read ans
-#     [ $ans = "y" ] && rm -rf $fx
-# }}
-
-# use '<delete>' key for either 'trash' or 'delete' command
-# map <delete> trash
-# map <delete> delete
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
@@ -113,3 +92,27 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+# edit config and reload
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+# === mappings
+# edit and reload lf config 
+map C edit-config
+
+# use enter for shell commands
+map <enter> shell
+
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+# dedicated keys for file opener actions
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+# less for preview
+map i $LESSOPEN='| ~/.config/lf/preview.sh %s' less -R $f
