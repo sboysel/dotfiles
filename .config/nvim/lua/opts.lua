@@ -1,15 +1,12 @@
 --[[ cmd.lua ]]
 local cmd = vim.cmd
 
--- [[ colorscheme ]]
--- cmd 'colorscheme catppuccin-frappe'
-cmd 'colorscheme everforest'
 
 
 --[[ opts.lua ]]
 local opt = vim.opt
 -- [[ Context ]]
-opt.colorcolumn = '80'           -- str:  Show col for max line length
+-- opt.colorcolumn = '80'           -- str:  Show col for max line length
 opt.number = true                -- bool: Show line numbers
 opt.relativenumber = false       -- bool: Show relative line numbers
 opt.scrolloff = 4                -- int:  Min num lines of context
@@ -50,3 +47,8 @@ vim.g.vim_markdown_folding_disabled = 1
 vim.g.slime_target = "tmux"
 vim.g.slime_default_config = {socket_name="default", target_pane=":.1"}
 
+-- [[ everforest ]]
+vim.g.everforest_background = 'hard'
+
+-- [[ colorscheme ]]
+cmd 'colorscheme everforest'
