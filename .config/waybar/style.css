@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: JetBrainsMono Nerd Font;
-    font-size: 16px;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -43,7 +43,7 @@ window#waybar {
 #mode {
     font-style: italic;
     color: #E67E80; /* red */
-    padding: 0 12px;
+    padding: 0 8px;
     margin: 0 0px;
 }
 
