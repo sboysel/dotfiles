@@ -36,7 +36,7 @@ output $laptop {
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
 
-# output * bg $bgimage fill $bgcolor
-output * bg $bgcolor solid_color
+output * bg $bgimage fill $bgcolor
+# output * bg $bgcolor solid_color
 
 # vim: set ft=i3config: 

@@ -166,9 +166,9 @@ bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
 
 # media keys
 # require ncspot and playerctl
-bindsym XF86AudioPlay exec 'playerctl -p ncspot play-pause' 
-bindsym XF86AudioPrev exec 'playerctl -p ncspot previous'
-bindsym XF86AudioNext exec 'playerctl -p ncspot next'
+bindsym XF86AudioPlay exec 'playerctl play-pause' 
+bindsym XF86AudioPrev exec 'playerctl previous'
+bindsym XF86AudioNext exec 'playerctl next'
 
 # display brightness
 # ## >> macbook air

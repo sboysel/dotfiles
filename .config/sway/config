@@ -5,9 +5,11 @@
 #
 
 # options
+default_orientation auto
+workspace_layout default
 xwayland enable
 focus_wrapping workspace
-font pango:JetBrains Mono Nerd Font 10
+font pango:JetBrains Mono Nerd Font 8
 
 # variables
 set $mod Mod4
@@ -16,10 +18,12 @@ set $web google-chrome-stable --enable-features=UseOzonePlatform --ozone-platfor
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
 set $monitor HDMI-A-2
-# set $bgimage ~/.wallpaper/mba/central-square.png
-# set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
+
+set $bgimage ~/.wallpaper/mba/arch-retro.png
 set $bgcolor "#56635f"
-set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
+
+set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
+# set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
 
 # subconfigs
 include ~/.config/sway/config.d/*
