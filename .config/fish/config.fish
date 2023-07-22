@@ -9,6 +9,7 @@ set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 set -gx EDITOR /usr/bin/nvim
 set -gx VISUAL /usr/bin/nvim
 set -gx SUDO_EDITOR /usr/bin/nvim
+set -gx SYSTEMD_EDITOR /usr/bin/nvim
 
 set -gx XDG_CURRENT_DESKTOP sway
 set -gx XDG_SESSION_TYPE wayland
