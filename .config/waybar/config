@@ -6,20 +6,15 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode",
-        "mpris"
+        "sway/mode"
     ],
     "modules-right": [
         "clock",
-        "cpu",
-        "memory",
-        "temperature",
         "network",
-        "tray",
-        "custom/mullvad",
-        "idle_inhibitor",
         "pulseaudio",
-        "battery"
+        "idle_inhibitor",
+        "battery",
+        "tray"
     ],
 
     // WORKSPACES
@@ -30,15 +25,12 @@
         "numeric-first": true,
         "format": "{icon}",
         "format-icons": {
-            "1": " ",
-            "2": " ",
-            "3": "󰒍 ",
-            "4": " ",
-            "5": "󰈙 ",
-            "6": "󰎴 ",
-            "7": "󰎷 ",
-            "8": "󰎺 ",
-            "9": "󰎽 "
+            "1": "󰇊",
+            "2": "󰇋",
+            "3": "󰇌",
+            "4": "󰇍",
+            "5": "󰇎",
+            "6": "󰇏"
         }
      },
 
@@ -111,15 +103,8 @@
         "scroll-step": 5,
         "format": "{icon}",
         "tooltip-format": "volume\t{volume}% \ndesc\t{desc}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": "󰝟",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
@@ -137,12 +122,12 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "󰁹 {capacity}%",
-        "format-full": "󰚥󰁹 {capacity}%",
+        "format": "󰁹",
+        "format-full": "󰚥󰁹",
         "tooltip-format-full": "Battery full",
-        "format-discharging": "{icon} {capacity}%",
+        "format-discharging": "{icon}",
         "tooltip-format-discharging": "Discharging\t{capacity}% \nTime\t\t{time}",
-        "format-charging": "󰚥{icon} {capacity}%",
+        "format-charging": "󰚥{icon}",
         "tooltip-format-charging": "Charging\t{capacity}% \nTime\t\t{time}",
         "format-icons": {
           "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
@@ -180,7 +165,7 @@
     // CLOCK
 
     "clock": {
-        "format": "󰃰 {:%H:%M}",
+        "format": "󰃰 {:%I:%M%p}",
         "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{calendar}</small>",
         "on-click": "google-chrome-stable 'https://www.google.com/calendar'"
 

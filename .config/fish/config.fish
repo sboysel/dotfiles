@@ -1,5 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    fish_config theme choose catppuccin_mocha
 end
 
 ### environment ###
@@ -173,15 +174,6 @@ end
 # function zathura
 #     GDK_BACKEND=x11 /usr/bin/zathura $argv
 # end
-
-function cmatrix
-    $HOME/.nix-profile/bin/cmatrix -as 
-end
-
-function clock
-    # $HOME/.nix-profile/bin/tty-clock -ct
-    tock -c
-end
 
 function russ
     $HOME/.cargo/bin/russ --database-path $HOME/.config/russ/russ.sqlite

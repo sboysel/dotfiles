@@ -18,14 +18,14 @@ output $monitor {
     mode  1920x1080@60.0Hz
     pos 0 0
     transform normal
-    scale 0.75
+    scale 1.0
     scale_filter linear
     adaptive_sync off
     dpms on
 }
 output $laptop {
-    mode  2560x1440@60.004Hz
-    pos 2560 0
+    mode  1440x900@60.004Hz
+    pos 1440 0
     transform normal
     scale 1.0
     scale_filter nearest

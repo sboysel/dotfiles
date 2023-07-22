@@ -1,29 +1,29 @@
 window {
-  color: #D3C6AA; /* default fg */
-  background-color: #2D353B; /* default bg */
+  color: #cdd6f4; /* text */
+  background-color: #1e1e2e; /* base */
   font-size: 16px;
   font-family: JetBrainsMono Nerd Font;
 }
 
 #input {
-  color: #D3C6AA; /* default fg */
-  background-color: #2D353B; /* default bg */
-  border-color: #D3C6AA; /* default fg */
+  color: #cdd6f4; /* text */
+  background-color: #1e1e2e; /* base */
+  border-color: #b4befe; /* lavender */
   padding: 4px;
 }
 
 #input:focus {
-	background-color: #343F44; 
+	background-color: #313244; /* surface0 */
 }
 
 #entry {
-  color: #D3C6AA; /* default fg */
-  background-color: #2D353B; /* default bg */
+  color: #cdd6f4; /* text */
+  background-color: #1e1e2e; /* base */
   padding: 4px;
 }
 
 #entry:selected {
-	background-color: #343F44; 
+	background-color: #313244; /* surface0 */ 
 }
 
 #entry image {

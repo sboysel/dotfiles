@@ -2,13 +2,13 @@
     border: none;
     border-radius: 0;
     font-family: JetBrainsMono Nerd Font;
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
 }
 
 window#waybar {
-    color: #D3C6AA; /* default fg */
-    background-color: #2D353B; /* default bg */
+    color: #cdd6f4; /* text */
+    background-color: #1e1e2e; /* base */
 }
 
 #workspaces {
@@ -17,131 +17,65 @@ window#waybar {
 }
 
 #workspaces button {
-    color: #D3C6AA; /* default fg */
-    padding: 0 8px;
+    color: #cdd6f4; /* text */
+    padding: 0 4px;
 }
 
 #workspaces button.focused {
-    color: #A7C080; /* green */
-    border-bottom: 3px solid #A7C080; /* green */
+    color: #b4befe; /* lavender */
+    border-bottom: 3px solid #b4befe; /* lavender */
 }
 
 #workspaces button.urgent {
-    color: #E67E80; /* ;red */
-    border-bottom: 3px solid #E67E80; /* red */
+    color: #fab387; /* peach */
+    border-bottom: 3px solid #fab387; /* peach */
 }
 
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
     transition-duration: inherit;
-    color: #DBBC7F; /* yellow */
-    background: #2D353B; /* default bg */
-    border-bottom: 3px solid #DBBC7F; /* yellow */
+    color: #f5e0dc; /* rosewater */
+    background: #1e1e2e; /* base */
+    border-bottom: 3px solid #f5e0dc; /* rosewater */
+}
+
+#mode,
+#clock,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 0 0px;
 }
 
 #mode {
     font-style: italic;
-    color: #E67E80; /* red */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#mpris {
-    color: #d3c6aa; /* default fg */
-}
-
-#custom-ncspot {
-    color: #d3c6aa; /* default fg */
+    color: #f38ba8; /* red */
 }
 
 #clock {
-    color: #D699B6; /* purple */
-    border-bottom: 3px solid #D699B6; /* purple */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#cpu {
-    color: #7FBBB3; /* blue */
-    border-bottom: 3px solid #7FBBB3; /* blue */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#memory {
-    color: #83C092; /* aqua */
-    border-bottom: 3px solid #83C092; /* aqua */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#temperature {
-    color: #A7C080; /* green */
-    border-bottom: 3px solid #A7C080; /* green */
-    padding: 0 8px;
-    margin: 0 0px;
+    border-bottom: 3px solid #cba6f7; /* mauve */
 }
 
 #network {
-    color: #DBBC7F; /* yellow */
-    border-bottom: 3px solid #DBBC7F; /* yellow */
-    padding: 0 8px;
-    margin: 0 0px;
+    border-bottom: 3px solid #eba0ac; /* maroon */
 }
 
-#network.disconnected {
-    color: #E67E80; /* red */
+#pulseaudio {
+    border-bottom: 3px solid #fab387; /* peach */
+}
+
+#idle_inhibitor {
+    border-bottom: 3px solid #f9e2af; /* yellow */
+}
+
+#battery {
+    border-bottom: 3px solid #a6e3a1; /* green */
 }
 
 #tray {
-    border-bottom: 3px solid #E69875; /* orange */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#custom-mullvad,
-#idle_inhibitor,
-#pulseaudio,
-#battery {
-    color: #D3C6AA; /* default fg */
-    border-bottom: 3px solid #D3C6AA; /* default fg */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#custom-mullvad.connected {
-    color: #A7C080; /* green */
-}
-
-#custom-mullvad.disconnected {
-    color: #E67E80; /* red */
-}
-
-#idle_inhibitor.activated {
-    color: #A7C080; /* green */
-}
-
-#idle_inhibitor.deactivated {
-    color: #E67E80; /* red */
-}
-
-#pulseaudio.muted {
-    color: #E67E80; /* red */
-}
-
-#battery {
-    border-bottom: 3px solid #D3C6AA; /* default fg */
-    padding: 0 8px;
-    margin: 0 0px;
-}
-
-#battery.charging,
-#battery.plugged,
-#battery.full {
-    color: #A7C080; /* green */
-}
-
-#battery.discharging {
-    color: #E67E80; /* red */
+    border-bottom: 3px solid #94e2d5; /* teal */
 }

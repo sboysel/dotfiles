@@ -15,6 +15,8 @@ bindsym $mod+Return exec $term
 # Start a web browser
 bindsym $mod+q exec $web 
 
+bindsym $mod+i exec ~/bin/launcher 
+
 # Kill focused window
 bindsym $mod+Shift+c kill
 bindsym $mod+Shift+x kill
@@ -40,8 +42,7 @@ bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
 bindsym $mod+d exec 'wofi --show=drun --allow-images'
 
 # wofi web search
-bindsym $mod+slash exec wofi -d | sed 's/\s/+/g'| awk '{print "https://www.google.com/search?q="$1}' | xargs -- $web
-
+bindsym $mod+slash exec python ~/bin/wofi-search-engine.py 
 #
 # keybindings (navigation)
 #
@@ -171,19 +172,19 @@ bindsym XF86AudioPrev exec 'playerctl previous'
 bindsym XF86AudioNext exec 'playerctl next'
 
 # display brightness
-# ## >> macbook air
-# bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
-# bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
-# # keyboard brightness
-# bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 20'
-# bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 20'
-
-## >> thinkpad x1 carbon
-bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/intel_backlight -U 10'
-bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/intel_backlight -A 10'
+## >> macbook air
+bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/acpi_video0 -U 10'
+bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/acpi_video0 -A 10'
 # keyboard brightness
-bindsym $mod+XF86MonBrightnessDown exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 0'
-bindsym $mod+XF86MonBrightnessUp exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 100'
+bindsym XF86KbdBrightnessDown exec 'light -s sysfs/leds/smc::kbd_backlight -U 20'
+bindsym XF86KbdBrightnessUp exec 'light -s sysfs/leds/smc::kbd_backlight -A 20'
+
+# ## >> thinkpad x1 carbon
+# bindsym XF86MonBrightnessDown exec 'light -s sysfs/backlight/intel_backlight -U 10'
+# bindsym XF86MonBrightnessUp exec 'light -s sysfs/backlight/intel_backlight -A 10'
+# # keyboard brightness
+# bindsym $mod+XF86MonBrightnessDown exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 0'
+# bindsym $mod+XF86MonBrightnessUp exec 'light -s sysfs/leds/tpacpi::kbd_backlight -S 100'
 
 #
 # Scratchpad:

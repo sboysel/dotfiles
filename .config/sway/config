@@ -19,13 +19,13 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
 set $monitor HDMI-A-2
 
-set $bgimage ~/.wallpaper/mba/arch-retro.png
+set $bgimage ~/.wallpaper/mba/roger-dean.jpeg
 set $bgcolor "#56635f"
 
 set $lock swaylock -f -i $bgimage -s fill --indicator-radius 250 --indicator-thickness 50
 # set $lock swaylock -f -c $bgcolor -s solid_color --indicator-radius 250 --indicator-thickness 50
 
 # subconfigs
-include ~/.config/sway/config.d/*
+include ~/.config/sway/conf.d/*
 
 # vim: set ft=i3config: 

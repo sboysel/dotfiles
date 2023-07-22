@@ -1,8 +1,6 @@
 --[[ cmd.lua ]]
 local cmd = vim.cmd
 
-
-
 --[[ opts.lua ]]
 local opt = vim.opt
 -- [[ Context ]]
@@ -51,4 +49,4 @@ vim.g.slime_default_config = {socket_name="default", target_pane=":.1"}
 vim.g.everforest_background = 'hard'
 
 -- [[ colorscheme ]]
-cmd 'colorscheme everforest'
+cmd 'colorscheme catppuccin'

@@ -9,9 +9,6 @@ return require('packer').startup(function(use)
 
   -- colorschemes
   use { 'catppuccin/nvim', as = 'catppuccin' }
-  use { 'rebelot/kanagawa.nvim' }
-  use { 'neanias/everforest-nvim' }
-  use { 'xiyaowong/transparent.nvim' }
 
   -- language support
   use { 'lervag/vimtex' }
