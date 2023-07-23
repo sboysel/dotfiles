@@ -62,10 +62,10 @@ set $crust     #11111b
 
 # target                    border    background  text   indicator  child_border
 client.focused              $lavender $lavender   $base  $rosewater $lavender
-client.focused_inactive     $base     $base       $text  $rosewater $base
-client.focused_tab_title    $base     $base       $text  $rosewater $base
-client.unfocused            $base     $base       $text  $rosewater $base
-client.urgent               $peach    $peach      $base  $rosewater $peach
+client.focused_inactive     $base     $base       $text  $base      $base
+client.focused_tab_title    $base     $base       $text  $base      $base
+client.unfocused            $base     $base       $text  $base      $base
+client.urgent               $peach    $peach      $base  $base      $peach
 client.background           $base
 
 # vim: set ft=i3config:
