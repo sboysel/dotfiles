@@ -175,14 +175,6 @@ end
 #     GDK_BACKEND=x11 /usr/bin/zathura $argv
 # end
 
-function russ
-    $HOME/.cargo/bin/russ --database-path $HOME/.config/russ/russ.sqlite
-end
-
-function m --description "Alias for `macchina`"
-    $HOME/.nix-profile/bin/macchina
-end
-
 ## utilities
 
 # initialize empty project
