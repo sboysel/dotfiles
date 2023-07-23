@@ -7,6 +7,10 @@ default_border pixel 3
 # smart_gaps on
 gaps inner 9
 
+# flaoting windows
+for_window [app_id="^floating"] floating enable 
+for_window [app_id="^floating"] resize set 1000 800
+for_window [app_id="floating-zerotier"] resize set 500 100
 
 # (1) web
 assign [class="^Chromium$"] 1 

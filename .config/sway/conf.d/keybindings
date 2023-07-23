@@ -15,7 +15,6 @@ bindsym $mod+Return exec $term
 # Start a web browser
 bindsym $mod+q exec $web 
 
-bindsym $mod+i exec ~/bin/launcher 
 
 # Kill focused window
 bindsym $mod+Shift+c kill
@@ -37,12 +36,16 @@ bindsym $mod+Control+Shift+o exec grimshot --notify copy output
 bindsym $mod+Control+Shift+w exec grimshot --notify copy window
 bindsym $mod+Control+Shift+a exec grimshot --notify copy area
 
-# Start your launcher
+# launcher: applications 
 bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
 bindsym $mod+d exec 'wofi --show=drun --allow-images'
 
-# wofi web search
-bindsym $mod+slash exec python ~/bin/wofi-search-engine.py 
+# launcher: utilities 
+bindsym $mod+apostrophe exec ~/bin/launcher_utils.sh 
+
+# launcher: web search
+bindsym $mod+slash exec ~/bin/launcher_websearch.sh 
+
 #
 # keybindings (navigation)
 #

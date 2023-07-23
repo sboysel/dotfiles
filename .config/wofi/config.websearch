@@ -1,0 +1,5 @@
+show=dmenu
+location=0
+width=40%
+height=5%
+hide_scroll=true
