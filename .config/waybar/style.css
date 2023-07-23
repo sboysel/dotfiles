@@ -43,6 +43,7 @@ window#waybar {
 #mode,
 #clock,
 #network,
+#custom-mullvad,
 #pulseaudio,
 #idle_inhibitor,
 #battery,
@@ -64,18 +65,22 @@ window#waybar {
     border-bottom: 3px solid #eba0ac; /* maroon */
 }
 
-#pulseaudio {
+#custom-mullvad {
     border-bottom: 3px solid #fab387; /* peach */
 }
 
-#idle_inhibitor {
+#pulseaudio {
     border-bottom: 3px solid #f9e2af; /* yellow */
 }
 
-#battery {
+#idle_inhibitor {
     border-bottom: 3px solid #a6e3a1; /* green */
 }
 
-#tray {
+#battery {
     border-bottom: 3px solid #94e2d5; /* teal */
+}
+
+#tray {
+    border-bottom: 3px solid #89b4fa; /* blue */
 }
