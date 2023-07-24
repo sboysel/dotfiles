@@ -11,10 +11,10 @@ icon-path=/usr/share/icons/Arc
 layer=overlay
 
 # colors (kanagawa)
-background-color=#223249
-border-color=#C8C093
-text-color=#C8C093
+background-color=#313244
+border-color=#b4befe
+text-color=#b4befe
 
 [urgency=critical]
-border-color=#E46876
-text-color=#E46876
+border-color=#f38ba8
+text-color=#f38ba8
