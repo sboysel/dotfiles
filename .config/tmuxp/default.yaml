@@ -5,10 +5,10 @@ windows:
     shell_command_before:
       - cd ~
       - clear
-  - window_name: tariffs
+  - window_name: coopetition
     layout: even-horizontal
     shell_command_before:
-      - cd ~/repos/tariffs
+      - cd ~/repos/oss-coopetition-hardware
     panes:
     - shell_command:
       - cmd: ranger
