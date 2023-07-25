@@ -6,7 +6,8 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode"
+        "sway/mode",
+        "mpris"
     ],
     "modules-right": [
         "clock",
