@@ -175,6 +175,10 @@ end
 #     GDK_BACKEND=x11 /usr/bin/zathura $argv
 # end
 
+function tmuxp --description "tmuxp [profile name]"
+  /usr/bin/tmuxp load $HOME/.config/tmuxp/$argv.yaml
+end
+
 ## utilities
 
 # initialize empty project
