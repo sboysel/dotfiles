@@ -38,7 +38,7 @@ bindsym $mod+Control+Shift+a exec grimshot --notify copy area
 
 # launcher: applications 
 bindsym XF86LaunchA exec 'wofi --show=drun --allow-images'
-bindsym $mod+d exec 'wofi --show=drun --allow-images'
+bindsym $mod+d exec 'wofi --show=drun --allow-images --location=top'
 
 # launcher: utilities 
 bindsym $mod+apostrophe exec ~/bin/launcher_utils.sh 

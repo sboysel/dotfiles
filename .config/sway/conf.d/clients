@@ -2,6 +2,7 @@
 # Clients
 #
 
+title_align center
 default_orientation auto
 default_border pixel 3
 # smart_gaps on
