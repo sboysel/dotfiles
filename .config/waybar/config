@@ -6,7 +6,9 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode",
+        "sway/mode"
+    ],
+    "modules-center": [
         "mpris"
     ],
     "modules-right": [
@@ -27,7 +29,7 @@
         "numeric-first": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "",
+            "1": "",
             "2": "󰇄",
             "3": "",
             "4": "󰈙",
