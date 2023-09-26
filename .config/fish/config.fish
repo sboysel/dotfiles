@@ -12,6 +12,8 @@ set -gx VISUAL /usr/bin/nvim
 set -gx SUDO_EDITOR /usr/bin/nvim
 set -gx SYSTEMD_EDITOR /usr/bin/nvim
 
+set -gx OPENER $HOME/bin/opener.sh
+
 set -gx XDG_CURRENT_DESKTOP sway
 set -gx XDG_SESSION_TYPE wayland
 set -gx MOZ_ENABLE_WAYLAND 1
@@ -64,6 +66,10 @@ end
 
 function ls
     /usr/bin/ls --color -hlX $argv
+end
+
+function mime
+  file --mime-type $argv -b
 end
 
 #
@@ -142,6 +148,10 @@ end
 # aliases
 #
 
+function hx
+  /usr/bin/helix $argv
+end
+
 function cl
     /sbin/clear
 end
@@ -180,6 +190,11 @@ function tmuxp --description "tmuxp [profile name]"
 end
 
 ## utilities
+
+# HTML to markdown
+function curlmd --description "curlmd [url]"
+  curl $argv | pandoc -f html -t markdown
+end
 
 # initialize empty project
 function proj-init
