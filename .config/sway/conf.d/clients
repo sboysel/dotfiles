@@ -44,6 +44,7 @@ set $mauve     #cba6f7
 set $red       #f38ba8
 set $maroon    #eba0ac
 set $peach     #fab387
+set $yellow    #f9e2af
 set $green     #a6e3a1
 set $teal      #94e2d5
 set $sky       #89dceb
@@ -64,11 +65,11 @@ set $mantle    #181825
 set $crust     #11111b
 
 # target                    border    background  text   indicator  child_border
-client.focused              $lavender $lavender   $base  $rosewater $lavender
+client.focused              $surface1 $surface1   $text  $overlay1  $surface1
 client.focused_inactive     $base     $base       $text  $base      $base
 client.focused_tab_title    $base     $base       $text  $base      $base
 client.unfocused            $base     $base       $text  $base      $base
-client.urgent               $peach    $peach      $base  $base      $peach
+client.urgent               $maroon   $maroon     $base  $base      $maroon
 client.background           $base
 
 # vim: set ft=i3config:
