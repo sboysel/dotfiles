@@ -32,6 +32,7 @@ set -gx JULIA_NUM_THREADS 4
 set -gx npm_config_prefix "$HOME/.local"
 set -gx RANGER_LOAD_DEFAULT_RC FALSE
 set -gx RUSTC_WRAPPER sccache
+set -gx NIXPKGS_ALLOW_UNFREE 1
 
 set -gx NOTES_REPO "$HOME/repos/notes"
 set -gx OBSIDIAN_REPO "$HOME/doc/obsidian"
@@ -147,6 +148,10 @@ end
 #
 # aliases
 #
+
+function hypr
+  /usr/bin/Hyprland $argv
+end
 
 function hx
   /usr/bin/helix $argv
