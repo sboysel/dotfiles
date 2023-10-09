@@ -22,13 +22,13 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: #b4befe; /* lavender */
-    border-bottom: 3px solid #b4befe; /* lavender */
+    color: #f5e0dc; /* rosewater */
+    border-bottom: 3px solid #f5e0dc; /* rosewater */
 }
 
 #workspaces button.urgent {
-    color: #fab387; /* peach */
-    border-bottom: 3px solid #fab387; /* peach */
+    color: #f38ba8; /* red */
+    border-bottom: 3px solid #f38ba8; /* red */
 }
 
 #workspaces button:hover {
