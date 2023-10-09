@@ -5,13 +5,8 @@
     // MODULES //
 
     "modules-left": [
-        //"sway/workspaces",
-        //"sway/mode" //,
-        "hyprland/workspaces",
-        "hyprland/window"
-        //"river/tags",
-        //"river/mode",
-        //"river/window"
+        "sway/workspaces",
+        "sway/mode"
     ],
     "modules-center": [
         "mpris"
