@@ -1,0 +1,11 @@
+[Unit]
+Description=udiskie
+Documentation=https://github.com/coldfix/udiskie/wiki
+
+[Service]
+ExecStart=/usr/bin/udiskie -a -t -n
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
