@@ -8,20 +8,17 @@
 riverctl background-color 0x658594
 riverctl border-color-focused 0xfab387
 riverctl border-color-unfocused 0x586e75
-riverctl border-width 4
+riverctl border-width 2
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
 
+# window focus follows mouse cursor
 riverctl focus-follows-cursor normal
 
-# === layout
-riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
-riverctl attach-mode bottom
-
 # === autostart
-riverctl spawn 'waybar -c ~/.config/waybar/config.river -s ~/.config/waybar/style.river.css'
+riverctl spawn 'systemctl --user start waybar.service'
+riverctl spawn 'systemctl --user start udiskie.service'
 # riverctl spawn "sandbar -font 'JetBrainsMono Nerd Font' -hide-vacant-tags -vertical-padding 4"
 
 # === inputs
@@ -43,10 +40,10 @@ riverctl map normal Super+Control L spawn 'swaylock -f -c 658594 -s solid_color 
 riverctl float-filter-add app-id scratchpad
 # riverctl map normal Super+Shift Tab set-view-tags 32
 # riverctl map normal Super Tab toggle-focused-tags 32
-riverctl map normal Super+Shift Tab spawn 'riverctl spawn kitty --class=scratchpad && riverctl set-view-tags 32 && riverctl set-focus-tags 32'
+riverctl map normal Super+Shift Tab set-view-tags 32
+riverctl map normal Super Tab toggle-view-tags 32
 
 # focus views
-riverctl map normal Super Tab focus-view next
 riverctl map normal Super Left focus-view previous
 riverctl map normal Super Down focus-view next
 riverctl map normal Super Up focus-view previous
@@ -83,6 +80,20 @@ riverctl map normal Super+Shift+Alt Up resize vertical +100
 riverctl map normal Super+Shift+Alt Right resize horizontal +100
 riverctl map normal Super+Shift+Alt Down resize vertical -100
 riverctl map normal Super+Shift+Alt Left resize horizontal -100
+riverctl map normal Super+Shift+Alt K resize vertical +100 
+riverctl map normal Super+Shift+Alt L resize horizontal +100
+riverctl map normal Super+Shift+Alt J resize vertical -100
+riverctl map normal Super+Shift+Alt H resize horizontal -100
+
+# move floating views
+riverctl map normal Super+Shift+Control Up move up +50 
+riverctl map normal Super+Shift+Control Right move right +50
+riverctl map normal Super+Shift+Control Down move down +50
+riverctl map normal Super+Shift+Control Left move left +50
+riverctl map normal Super+Shift+Control K move up +50 
+riverctl map normal Super+Shift+Control L move right +50
+riverctl map normal Super+Shift+Control J move down +50
+riverctl map normal Super+Shift+Control H move left +50
 
 # # Super+{Up,Right,Down,Left} to change layout orientation
 riverctl map normal Super+Alt+Control Up    send-layout-cmd rivertile "main-location top"
@@ -115,6 +126,13 @@ do
 
 done
 
+# scratchpad
+scratch_tag=$((1 << 10))
+riverctl map normal Super Tab toggle-focused-tags ${scratch_tag}
+riverctl map normal Super+Shift Tab set-view-tags ${scratch_tag}
+all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
 # media
 #
 # Various media key mapping examples for both normal and locked mode which do
@@ -136,4 +154,7 @@ do
     riverctl map $mode None XF86Display spawn '~/bin/toggle_kbd_backlight.sh'
 done
 
-
+# === layout
+riverctl attach-mode bottom
+riverctl default-layout rivertile
+rivertile -view-padding 4 -outer-padding 4 &
