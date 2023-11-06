@@ -1,0 +1,17 @@
+theme = "catppuccin_mocha"
+
+[editor]
+auto-pairs = false
+bufferline = "multiple"
+cursorline = true
+
+[keys.normal]
+H = "goto_line_start"
+L = "goto_line_end"
+
+# create a new minor mode bound to `'`
+[keys.normal."'"]
+w = ":update"
+q = ":write-quit"
+m = ":run-shell-command make"
+n = ":new"
