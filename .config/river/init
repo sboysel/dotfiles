@@ -10,6 +10,7 @@
 riverctl background-color 0x658594
 riverctl border-color-focused 0xfab387
 riverctl border-color-unfocused 0x586e75
+riverctl border-color-urgent 0xeba0ac
 riverctl border-width 2
 
 # === options.misc
@@ -24,8 +25,11 @@ riverctl attach-mode bottom
 # set default layout
 riverctl default-layout rivertile
 
+riverctl float-filter-add title 'btop \[float\]'
+
 # == autostart
-riverctl spawn 'systemctl --user start waybar-river.service'
+riverctl spawn 'systemctl --user start river-idle.service'
+riverctl spawn 'systemctl --user start river-waybar.service'
 riverctl spawn 'systemctl --user start udiskie.service'
 
 # == inputs
@@ -45,7 +49,7 @@ riverctl map normal Super E         exit
 riverctl map normal Super R         spawn '~/.config/river/init && notify-send "river" "reload config"'
 riverctl map normal Super Return    spawn kitty
 riverctl map normal Super D         spawn 'wofi --show=drun --allow-images --location=top'
-riverctl map normal Super+Control L spawn 'swaylock -f -c 658594 -s solid_color --indicator-radius 250 --indicator-thickness 50'
+riverctl map normal Super+Control L spawn '~/bin/river-lock.sh'
 
 # === keybinds.screenshots
 riverctl map normal Super+Control S         spawn 'grimshot --notify save screen'
@@ -59,17 +63,17 @@ riverctl map normal Super+Control+Shift A   spawn 'grimshot --notify copy area'
 
 # === keybinds.focus
 # focus views
-riverctl map normal Super Left  focus-view previous
-riverctl map normal Super Down  focus-view next
-riverctl map normal Super Up    focus-view previous
-riverctl map normal Super Right focus-view next
-riverctl map normal Super H     focus-view previous
-riverctl map normal Super J     focus-view next
-riverctl map normal Super K     focus-view previous
-riverctl map normal Super L     focus-view next
+riverctl map normal Super Left    focus-view previous
+riverctl map normal Super Down    focus-view next
+riverctl map normal Super Up      focus-view previous
+riverctl map normal Super Right   focus-view next
+riverctl map normal Super H       focus-view previous
+riverctl map normal Super J       focus-view next
+riverctl map normal Super K       focus-view previous
+riverctl map normal Super L       focus-view next
 # focus outputs
-riverctl map normal Super Period focus-output next
-riverctl map normal Super Comma focus-output previous
+riverctl map normal Super Period  focus-output next
+riverctl map normal Super Comma   focus-output previous
 # === keybinds.move
 # move views (within output)
 riverctl map normal Super+Shift Left    swap previous
@@ -124,12 +128,12 @@ riverctl map normal Super+Alt+Control L     send-layout-cmd rivertile "main-loca
 riverctl map normal Super+Alt+Control J     send-layout-cmd rivertile "main-location bottom"
 riverctl map normal Super+Alt+Control H     send-layout-cmd rivertile "main-location left"
 # increase or decrease number of views in main
-riverctl map normal Super+Alt M send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Alt N send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Alt M             send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Alt N             send-layout-cmd rivertile "main-count -1"
 # toggle float
-riverctl map normal Super+Alt Space toggle-float
+riverctl map normal Super+Alt Space         toggle-float
 # toggle fullscreen
-riverctl map normal Super+Alt F toggle-fullscreen
+riverctl map normal Super+Alt F             toggle-fullscreen
 
 # === keybinds.media
 for mode in normal locked
