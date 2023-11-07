@@ -4,7 +4,7 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# === options
+# == options
 
 # === options.colors
 riverctl background-color 0x658594
@@ -15,6 +15,8 @@ riverctl border-width 2
 # === options.misc
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
+# hide cursor timeout
+riverctl hide-cursor timeout 0
 # window focus follows mouse cursor
 riverctl focus-follows-cursor normal
 # place views at bottom of stack
@@ -22,55 +24,67 @@ riverctl attach-mode bottom
 # set default layout
 riverctl default-layout rivertile
 
-# === autostart
+# == autostart
 riverctl spawn 'systemctl --user start waybar-river.service'
 riverctl spawn 'systemctl --user start udiskie.service'
 
-# === inputs
+# == inputs
 for pad in $(riverctl list-inputs | grep -i Synaptics)
 do
-  riverctl input $pad tap enabled
-  riverctl input $pad scroll-method two-finger
-  riverctl input $pad natural-scroll enabled
+  riverctl input $pad tap             enabled
+  riverctl input $pad scroll-method   two-finger
+  riverctl input $pad natural-scroll  enabled
 done
 
-# === keybinds
+# == keybinds
 
 # === keybinds.core
-riverctl map normal Super Q close
-riverctl map normal Super W spawn firefox
-riverctl map normal Super E exit
-riverctl map normal Super R spawn '~/.config/river/init && notify-send "river" ""'
-riverctl map normal Super Return spawn kitty
-riverctl map normal Super D spawn 'wofi --show=drun --allow-images --location=top'
+riverctl map normal Super Q         close
+riverctl map normal Super W         spawn firefox
+riverctl map normal Super E         exit
+riverctl map normal Super R         spawn '~/.config/river/init && notify-send "river" "reload config"'
+riverctl map normal Super Return    spawn kitty
+riverctl map normal Super D         spawn 'wofi --show=drun --allow-images --location=top'
 riverctl map normal Super+Control L spawn 'swaylock -f -c 658594 -s solid_color --indicator-radius 250 --indicator-thickness 50'
+
+# === keybinds.screenshots
+riverctl map normal Super+Control S         spawn 'grimshot --notify save screen'
+riverctl map normal Super+Control O         spawn 'grimshot --notify save output'
+riverctl map normal Super+Control W         spawn 'grimshot --notify save window'
+riverctl map normal Super+Control A         spawn 'grimshot --notify save area'
+riverctl map normal Super+Control+Shift S   spawn 'grimshot --notify copy screen'
+riverctl map normal Super+Control+Shift O   spawn 'grimshot --notify copy output'
+riverctl map normal Super+Control+Shift W   spawn 'grimshot --notify copy window'
+riverctl map normal Super+Control+Shift A   spawn 'grimshot --notify copy area'
 
 # === keybinds.focus
 # focus views
-riverctl map normal Super Left focus-view previous
-riverctl map normal Super Down focus-view next
-riverctl map normal Super Up focus-view previous
+riverctl map normal Super Left  focus-view previous
+riverctl map normal Super Down  focus-view next
+riverctl map normal Super Up    focus-view previous
 riverctl map normal Super Right focus-view next
-riverctl map normal Super H focus-view previous
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view previous
-riverctl map normal Super L focus-view next
+riverctl map normal Super H     focus-view previous
+riverctl map normal Super J     focus-view next
+riverctl map normal Super K     focus-view previous
+riverctl map normal Super L     focus-view next
 # focus outputs
 riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
 # === keybinds.move
-# move views
-riverctl map normal Super+Shift Left swap previous
-riverctl map normal Super+Shift Down swap next
-riverctl map normal Super+Shift Up swap previous
-riverctl map normal Super+Shift Right swap next
-riverctl map normal Super+Shift H swap previous
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift K swap previous
-riverctl map normal Super+Shift L swap next
-riverctl map normal Super+Shift Period send-to-output next
-riverctl map normal Super+Shift Comma send-to-output previous
-riverctl map normal Super+Shift Return zoom
+# move views (within output)
+riverctl map normal Super+Shift Left    swap previous
+riverctl map normal Super+Shift Down    swap next
+riverctl map normal Super+Shift Up      swap previous
+riverctl map normal Super+Shift Right   swap next
+riverctl map normal Super+Shift H       swap previous
+riverctl map normal Super+Shift J       swap next
+riverctl map normal Super+Shift K       swap previous
+riverctl map normal Super+Shift L       swap next
+# move views (across outputs)
+riverctl map normal Super+Shift Period  send-to-output next
+riverctl map normal Super+Shift Comma   send-to-output previous
+# move view to top of layout stack (if already at top, bump to second)
+riverctl map normal Super+Shift Z       zoom
 
 # === keybinds.resize
 # change main ratio
@@ -79,25 +93,25 @@ riverctl map normal Super+Alt Right send-layout-cmd rivertile "main-ratio +0.05"
 riverctl map normal Super+Alt H     send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super+Alt L     send-layout-cmd rivertile "main-ratio +0.05"
 # resize views (forces views to float)
-riverctl map normal Super+Shift+Alt Up    resize vertical +100 
+riverctl map normal Super+Shift+Alt Up    resize vertical   +100 
 riverctl map normal Super+Shift+Alt Right resize horizontal +100
-riverctl map normal Super+Shift+Alt Down  resize vertical -100
+riverctl map normal Super+Shift+Alt Down  resize vertical   -100
 riverctl map normal Super+Shift+Alt Left  resize horizontal -100
-riverctl map normal Super+Shift+Alt K     resize vertical +100 
+riverctl map normal Super+Shift+Alt K     resize vertical   +100 
 riverctl map normal Super+Shift+Alt L     resize horizontal +100
-riverctl map normal Super+Shift+Alt J     resize vertical -100
+riverctl map normal Super+Shift+Alt J     resize vertical   -100
 riverctl map normal Super+Shift+Alt H     resize horizontal -100
 
 # === keybinds.move
 # move floating views
-riverctl map normal Super+Shift+Control Up    move up +50 
-riverctl map normal Super+Shift+Control Right move right +50
-riverctl map normal Super+Shift+Control Down  move down +50
-riverctl map normal Super+Shift+Control Left  move left +50
-riverctl map normal Super+Shift+Control K     move up +50 
-riverctl map normal Super+Shift+Control L     move right +50
-riverctl map normal Super+Shift+Control J     move down +50
-riverctl map normal Super+Shift+Control H     move left +50
+riverctl map normal Super+Shift+Control Up    move up     +50 
+riverctl map normal Super+Shift+Control Right move right  +50
+riverctl map normal Super+Shift+Control Down  move down   +50
+riverctl map normal Super+Shift+Control Left  move left   +50
+riverctl map normal Super+Shift+Control K     move up     +50 
+riverctl map normal Super+Shift+Control L     move right  +50
+riverctl map normal Super+Shift+Control J     move down   +50
+riverctl map normal Super+Shift+Control H     move left   +50
 
 # === keybinds.layout
 # Super+{Up,Right,Down,Left} to change layout orientation
@@ -135,7 +149,7 @@ do
     riverctl map $mode None XF86Display           spawn '~/bin/toggle_kbd_backlight.sh'
 done
 
-# === tags
+# == tags
 for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
@@ -155,7 +169,7 @@ riverctl map normal Super+Shift Tab set-view-tags ${scratch_tag}
 all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
-# === rivertile
+# == rivertile
 pkill "rivertile" || true
 rivertile -view-padding 4 \
   -outer-padding 4 \
