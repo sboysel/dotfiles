@@ -4,45 +4,48 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# === colors
+# === options
+
+# === options.colors
 riverctl background-color 0x658594
 riverctl border-color-focused 0xfab387
 riverctl border-color-unfocused 0x586e75
 riverctl border-width 2
 
+# === options.misc
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
-
 # window focus follows mouse cursor
 riverctl focus-follows-cursor normal
+# place views at bottom of stack
+riverctl attach-mode bottom
+# set default layout
+riverctl default-layout rivertile
 
 # === autostart
-riverctl spawn 'systemctl --user start waybar.service'
+riverctl spawn 'systemctl --user start waybar-river.service'
 riverctl spawn 'systemctl --user start udiskie.service'
-# riverctl spawn "sandbar -font 'JetBrainsMono Nerd Font' -hide-vacant-tags -vertical-padding 4"
 
 # === inputs
 for pad in $(riverctl list-inputs | grep -i Synaptics)
 do
   riverctl input $pad tap enabled
+  riverctl input $pad scroll-method two-finger
+  riverctl input $pad natural-scroll enabled
 done
 
-## === keybinds
+# === keybinds
+
+# === keybinds.core
 riverctl map normal Super Q close
 riverctl map normal Super W spawn firefox
 riverctl map normal Super E exit
-riverctl map normal Super R spawn 'sh -e ~/.config/river/init'
+riverctl map normal Super R spawn '~/.config/river/init && notify-send "river" ""'
 riverctl map normal Super Return spawn kitty
 riverctl map normal Super D spawn 'wofi --show=drun --allow-images --location=top'
 riverctl map normal Super+Control L spawn 'swaylock -f -c 658594 -s solid_color --indicator-radius 250 --indicator-thickness 50'
 
-# scratchpad
-riverctl float-filter-add app-id scratchpad
-# riverctl map normal Super+Shift Tab set-view-tags 32
-# riverctl map normal Super Tab toggle-focused-tags 32
-riverctl map normal Super+Shift Tab set-view-tags 32
-riverctl map normal Super Tab toggle-view-tags 32
-
+# === keybinds.focus
 # focus views
 riverctl map normal Super Left focus-view previous
 riverctl map normal Super Down focus-view next
@@ -52,11 +55,10 @@ riverctl map normal Super H focus-view previous
 riverctl map normal Super J focus-view next
 riverctl map normal Super K focus-view previous
 riverctl map normal Super L focus-view next
-
 # focus outputs
 riverctl map normal Super Period focus-output next
 riverctl map normal Super Comma focus-output previous
-
+# === keybinds.move
 # move views
 riverctl map normal Super+Shift Left swap previous
 riverctl map normal Super+Shift Down swap next
@@ -70,32 +72,35 @@ riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super+Shift Return zoom
 
-# resize views
-riverctl map normal Super+Alt Left send-layout-cmd rivertile "main-ratio -0.05"
+# === keybinds.resize
+# change main ratio
+riverctl map normal Super+Alt Left  send-layout-cmd rivertile "main-ratio -0.05"
 riverctl map normal Super+Alt Right send-layout-cmd rivertile "main-ratio +0.05"
-riverctl map normal Super+Alt H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super+Alt L send-layout-cmd rivertile "main-ratio +0.05"
-
-riverctl map normal Super+Shift+Alt Up resize vertical +100 
+riverctl map normal Super+Alt H     send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super+Alt L     send-layout-cmd rivertile "main-ratio +0.05"
+# resize views (forces views to float)
+riverctl map normal Super+Shift+Alt Up    resize vertical +100 
 riverctl map normal Super+Shift+Alt Right resize horizontal +100
-riverctl map normal Super+Shift+Alt Down resize vertical -100
-riverctl map normal Super+Shift+Alt Left resize horizontal -100
-riverctl map normal Super+Shift+Alt K resize vertical +100 
-riverctl map normal Super+Shift+Alt L resize horizontal +100
-riverctl map normal Super+Shift+Alt J resize vertical -100
-riverctl map normal Super+Shift+Alt H resize horizontal -100
+riverctl map normal Super+Shift+Alt Down  resize vertical -100
+riverctl map normal Super+Shift+Alt Left  resize horizontal -100
+riverctl map normal Super+Shift+Alt K     resize vertical +100 
+riverctl map normal Super+Shift+Alt L     resize horizontal +100
+riverctl map normal Super+Shift+Alt J     resize vertical -100
+riverctl map normal Super+Shift+Alt H     resize horizontal -100
 
+# === keybinds.move
 # move floating views
-riverctl map normal Super+Shift+Control Up move up +50 
+riverctl map normal Super+Shift+Control Up    move up +50 
 riverctl map normal Super+Shift+Control Right move right +50
-riverctl map normal Super+Shift+Control Down move down +50
-riverctl map normal Super+Shift+Control Left move left +50
-riverctl map normal Super+Shift+Control K move up +50 
-riverctl map normal Super+Shift+Control L move right +50
-riverctl map normal Super+Shift+Control J move down +50
-riverctl map normal Super+Shift+Control H move left +50
+riverctl map normal Super+Shift+Control Down  move down +50
+riverctl map normal Super+Shift+Control Left  move left +50
+riverctl map normal Super+Shift+Control K     move up +50 
+riverctl map normal Super+Shift+Control L     move right +50
+riverctl map normal Super+Shift+Control J     move down +50
+riverctl map normal Super+Shift+Control H     move left +50
 
-# # Super+{Up,Right,Down,Left} to change layout orientation
+# === keybinds.layout
+# Super+{Up,Right,Down,Left} to change layout orientation
 riverctl map normal Super+Alt+Control Up    send-layout-cmd rivertile "main-location top"
 riverctl map normal Super+Alt+Control Right send-layout-cmd rivertile "main-location right"
 riverctl map normal Super+Alt+Control Down  send-layout-cmd rivertile "main-location bottom"
@@ -104,39 +109,15 @@ riverctl map normal Super+Alt+Control K     send-layout-cmd rivertile "main-loca
 riverctl map normal Super+Alt+Control L     send-layout-cmd rivertile "main-location right"
 riverctl map normal Super+Alt+Control J     send-layout-cmd rivertile "main-location bottom"
 riverctl map normal Super+Alt+Control H     send-layout-cmd rivertile "main-location left"
-
-# (un)split main
+# increase or decrease number of views in main
 riverctl map normal Super+Alt M send-layout-cmd rivertile "main-count +1"
 riverctl map normal Super+Alt N send-layout-cmd rivertile "main-count -1"
-
-# misc layout stuff
+# toggle float
 riverctl map normal Super+Alt Space toggle-float
+# toggle fullscreen
 riverctl map normal Super+Alt F toggle-fullscreen
 
-# tags
-for i in $(seq 1 9)
-do
-    tags=$((1 << ($i - 1)))
-
-    # focus tag
-    riverctl map normal Super $i set-focused-tags $tags
-
-    # move view to tag
-    riverctl map normal Super+Shift $i set-view-tags $tags
-
-done
-
-# scratchpad
-scratch_tag=$((1 << 10))
-riverctl map normal Super Tab toggle-focused-tags ${scratch_tag}
-riverctl map normal Super+Shift Tab set-view-tags ${scratch_tag}
-all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
-riverctl spawn-tagmask ${all_but_scratch_tag}
-
-# media
-#
-# Various media key mapping examples for both normal and locked mode which do
-# not have a modifier
+# === keybinds.media
 for mode in normal locked
 do
     riverctl map $mode None XF86AudioRaiseVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
@@ -151,10 +132,33 @@ do
     riverctl map $mode None XF86MonBrightnessUp   spawn 'light -s sysfs/backlight/intel_backlight -A 10'
     riverctl map $mode None XF86MonBrightnessDown spawn 'light -s sysfs/backlight/intel_backlight -U 10'
 
-    riverctl map $mode None XF86Display spawn '~/bin/toggle_kbd_backlight.sh'
+    riverctl map $mode None XF86Display           spawn '~/bin/toggle_kbd_backlight.sh'
 done
 
-# === layout
-riverctl attach-mode bottom
-riverctl default-layout rivertile
-rivertile -view-padding 4 -outer-padding 4 &
+# === tags
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # focus tag
+    riverctl map normal Super $i set-focused-tags $tags
+
+    # move view to tag
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+done
+
+# === tags.scratchpad
+scratch_tag=$((1 << 10))
+riverctl map normal Super Tab toggle-focused-tags ${scratch_tag}
+riverctl map normal Super+Shift Tab set-view-tags ${scratch_tag}
+all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
+riverctl spawn-tagmask ${all_but_scratch_tag}
+
+# === rivertile
+pkill "rivertile" || true
+rivertile -view-padding 4 \
+  -outer-padding 4 \
+  -main-location left \
+  -main-count 1 \
+  -main-ratio 0.5 &
