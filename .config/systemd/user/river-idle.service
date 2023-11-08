@@ -1,11 +1,9 @@
 [Unit]
 Description=idle management (swaylock + river wm)
-After=graphical.target
 
 [Service]
 ExecStart=/home/sam/bin/river-idle.sh
 ExecReload=kill -SIGUSR2 $MAINPID
-Restart=on-failure
 
 [Install]
 WantedBy=default.target

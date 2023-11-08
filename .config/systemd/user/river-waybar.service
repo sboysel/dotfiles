@@ -1,12 +1,10 @@
 [Unit]
 Description=Highly customizable Wayland bar for Sway and Wlroots based compositors.
 Documentation=https://github.com/Alexays/Waybar/wiki/
-After=graphical.target
 
 [Service]
 ExecStart=/usr/bin/waybar -c /home/sam/.config/waybar/config.river -s /home/sam/.config/waybar/style.river.css
 ExecReload=kill -SIGUSR2 $MAINPID
-Restart=on-failure
 
 [Install]
 WantedBy=default.target

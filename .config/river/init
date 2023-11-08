@@ -29,9 +29,9 @@ riverctl float-filter-add title 'btop \[float\]'
 
 # == autostart
 riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
-riverctl spawn 'systemctl --user start river-idle.service'
-riverctl spawn 'systemctl --user start river-waybar.service'
-riverctl spawn 'systemctl --user start udiskie.service'
+riverctl spawn 'systemctl --user restart river-idle.service'
+riverctl spawn 'systemctl --user restart river-waybar.service'
+riverctl spawn 'systemctl --user restart udiskie.service'
 
 # == inputs
 for pad in $(riverctl list-inputs | grep -i pointer)
