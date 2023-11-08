@@ -28,16 +28,18 @@ riverctl default-layout rivertile
 riverctl float-filter-add title 'btop \[float\]'
 
 # == autostart
+riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
 riverctl spawn 'systemctl --user start river-idle.service'
 riverctl spawn 'systemctl --user start river-waybar.service'
 riverctl spawn 'systemctl --user start udiskie.service'
 
 # == inputs
-for pad in $(riverctl list-inputs | grep -i Synaptics)
+for pad in $(riverctl list-inputs | grep -i pointer)
 do
-  riverctl input $pad tap             enabled
-  riverctl input $pad scroll-method   two-finger
-  riverctl input $pad natural-scroll  enabled
+  riverctl input $pad tap                   enabled
+  riverctl input $pad disable-while-typing  enabled
+  riverctl input $pad scroll-method         two-finger
+  riverctl input $pad natural-scroll        enabled
 done
 
 # == keybinds
@@ -138,19 +140,19 @@ riverctl map normal Super+Alt F             toggle-fullscreen
 # === keybinds.media
 for mode in normal locked
 do
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
-    riverctl map $mode None XF86AudioMute         spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn '~/bin/volume.sh inc'
+    riverctl map $mode None XF86AudioLowerVolume  spawn '~/bin/volume.sh dec'
+    riverctl map $mode None XF86AudioMute         spawn '~/bin/volume.sh mute'
 
     riverctl map $mode None XF86AudioMedia        spawn 'playerctl play-pause'
     riverctl map $mode None XF86AudioPlay         spawn 'playerctl play-pause'
     riverctl map $mode None XF86AudioPrev         spawn 'playerctl previous'
     riverctl map $mode None XF86AudioNext         spawn 'playerctl next'
 
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'light -s sysfs/backlight/intel_backlight -A 10'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'light -s sysfs/backlight/intel_backlight -U 10'
+    riverctl map $mode None XF86MonBrightnessUp   spawn '~/bin/light-screen.sh inc 10'
+    riverctl map $mode None XF86MonBrightnessDown spawn '~/bin/light-screen.sh dec 10'
 
-    riverctl map $mode None XF86Display           spawn '~/bin/toggle_kbd_backlight.sh'
+    riverctl map $mode None XF86Display           spawn '~/bin/light-kbd.sh'
 done
 
 # == tags
