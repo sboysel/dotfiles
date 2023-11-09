@@ -4,16 +4,17 @@ format=<b>%s</b>\n%b
 default-timeout=60000
 width=400
 border-size=4
-margin=4
+margin=8
 padding=10
 text-alignment=left
 icon-path=/usr/share/icons/Arc
 layer=overlay
 
-# colors (kanagawa)
-background-color=#313244
-border-color=#b4befe
-text-color=#b4befe
+# colors (catppuccin-mocha)
+background-color=#1e1e2e
+border-color=#cdd6f4
+text-color=#cdd6f4
+progress-color=over #313244
 
 [urgency=critical]
 border-color=#f38ba8
