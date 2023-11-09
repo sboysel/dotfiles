@@ -10,7 +10,8 @@
         "river/window"
     ],
     "modules-center": [
-        "mpris"
+        "mpris",
+        "custom/pomo"
     ],
     "modules-right": [
         "clock",
@@ -22,31 +23,15 @@
         "tray"
     ],
 
-    // WORKSPACES
-
-    "river/tags": {
-      "tag-labels": ["", "󰆍", "", "󰈙", "󰅺", "󰎳", "󰎶", "󰎹", "󰎼"]
-    },
-
-    // SWAY MODE 
-
-    "sway/mode": {
-        "format": "{}"
-    },
-
-    // PLAYERCTL / NCSPOT
-
-    "custom/ncspot": {
+    // RIVER WINDOW
+    "river/window": {
         "format": "{}",
-        "max-length": 70,
-        "escape": true,
-        "interval": 1,
-        "exec": "$HOME/.config/waybar/mediaplayer.sh",
-        "on-click": "playerctl play-pause --player ncspot",
+        "max-length": 50
     },
 
     // mpris
     "mpris": {
+      "player": "ncspot",
       "format": "{status_icon} {title} - {artist}",
       "status-icons": {
         "playing": "󰐊",
@@ -54,19 +39,6 @@
         "stopped": ""
       },
       "max-length": 100
-    },
-
-    // CPU
-
-    "cpu": {
-        "format": " {usage}%"
-    },
-
-    // MEMORY
-
-    "memory": {
-        "format": " {}%",
-	"on-click": "kitty -e htop"
     },
 
     // MULLVAD
@@ -139,7 +111,6 @@
         "exec-if": "pgrep pomo"
     },
 
-
     // SYSTEM TRAY
 
     "tray": {
@@ -159,7 +130,7 @@
     // CLOCK
 
     "clock": {
-        "format": "󰃰 {:%I:%M%p}",
+        "format": "{:%I:%M%p}",
         "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{calendar}</small>",
         "on-click": "google-chrome-stable 'https://www.google.com/calendar'"
 

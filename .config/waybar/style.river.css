@@ -7,7 +7,8 @@ window#waybar {
     font-family: JetBrainsMono Nerd Font;
     font-size: 22px;
     color: #cdd6f4; /* text */
-    background-color: #1e1e2e; /* base */
+    background-color: #181825; /* base */
+    transition-property: background;
 }
 
 #tags {
@@ -17,26 +18,23 @@ window#waybar {
 
 #tags button {
     color: #cdd6f4; /* text */
+    background-color: #181825; /* base */    
     padding: 0 12px;
 }
 
 #tags button.focused {
+    font-weight: 900;
+    font-style: italic;
     color: #f5e0dc; /* rosewater */
-    border-bottom: 3px solid #f5e0dc; /* rosewater */
 }
 
 #tags button.urgent {
     color: #f38ba8; /* red */
-    border-bottom: 3px solid #f38ba8; /* red */
 }
 
 #tags button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    transition-duration: inherit;
-    color: #f5e0dc; /* rosewater */
-    background: #1e1e2e; /* base */
-    border-bottom: 3px solid #f5e0dc; /* rosewater */
+    color: #181825; /* base */
+    background: #f5e0dc; /* rosewater */
 }
 
 #tags button:not(.occupied):not(.focused) {

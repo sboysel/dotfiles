@@ -1,15 +1,14 @@
 #!/bin/sh
-# source: /usr/share/river/example/init
-#
+# template: /usr/share/river/example/init
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
 # == options
 
 # === options.colors
-riverctl background-color 0x658594
-riverctl border-color-focused 0xfab387
-riverctl border-color-unfocused 0x586e75
+riverctl background-color 0x446879
+riverctl border-color-focused 0xbac2de
+riverctl border-color-unfocused 0x1e1e2e
 riverctl border-color-urgent 0xeba0ac
 riverctl border-width 2
 
@@ -24,8 +23,6 @@ riverctl focus-follows-cursor normal
 riverctl attach-mode bottom
 # set default layout
 riverctl default-layout rivertile
-
-riverctl float-filter-add title 'btop \[float\]'
 
 # == autostart
 riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
