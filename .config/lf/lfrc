@@ -45,7 +45,7 @@ set cursorpreviewfmt "\033[7;90m"
 # text files and a file opener for the rest.
 # file myfile.ext
 
-cmd open &{{
+cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type $f -b) in
         # text
