@@ -163,16 +163,46 @@ function cl
     /sbin/clear
 end
 
-function todo
-    $GOBIN/ultralist $argv
+# function todo
+#     $GOBIN/ultralist $argv
+# end
+
+# function tl --description "ultralist list"
+#     todo l
+# end
+
+# function ta --description "ultralist add [args]"
+#     todo add $argv
+# end
+
+function todo --description "todo [add=/do=/done/all/edit]"
+
+  set -l TODO $HOME/sync/todo/todo
+  set -l DONE $HOME/sync/todo/done
+
+  argparse 'a/add=' 'do=' 'done' 'all' 'e/edit' -- $argv
+  
+  if set -q _flag_add
+    echo '[ ] '$_flag_add >> $TODO
+  else if set -q _flag_do
+    sed $_flag_do's/\[ \]/\[x\]/' $TODO >> $DONE
+    sed -i $_flag_do'd' $TODO
+  else if set -q _flag_done
+    cat -n $DONE
+  else if set -q _flag_edit
+    $EDITOR $TODO
+  else
+    cat -n $TODO
+  end
+
 end
 
-function tl --description "ultralist list"
-    todo l
+function ta
+  todo --add $argv
 end
 
-function ta --description "ultralist add [args]"
-    todo add $argv
+function td
+  todo --do $argv
 end
 
 function R
