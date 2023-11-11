@@ -14,6 +14,8 @@ set -gx SYSTEMD_EDITOR /usr/bin/nvim
 
 set -gx OPENER $HOME/bin/opener.sh
 
+set -gx BG_COLOR "#446879"
+
 set -gx XDG_CURRENT_DESKTOP sway
 set -gx XDG_SESSION_TYPE wayland
 set -gx MOZ_ENABLE_WAYLAND 1
@@ -195,6 +197,14 @@ function tmuxp --description "tmuxp [profile name]"
 end
 
 ## utilities
+
+function slink --description "save URL to ~/sync/links"
+  if set -q argv[1]
+    echo $argv >> $HOME/sync/links
+  else
+    cat $HOME/sync/links
+  end
+end
 
 # HTML to markdown
 function curlmd --description "curlmd [url]"
