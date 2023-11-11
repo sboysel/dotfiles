@@ -8,7 +8,8 @@ window#waybar {
     font-size: 22px;
     color: #cdd6f4; /* text */
     background-color: #181825; /* base */
-    transition-property: background;
+    transition-property: background-color;
+    transition-duration: 0;
 }
 
 #tags {
@@ -33,8 +34,12 @@ window#waybar {
 }
 
 #tags button:hover {
+    font-weight: 900;
+    font-style: italic;    
     color: #181825; /* base */
     background: #f5e0dc; /* rosewater */
+    transition-property: background-color;
+    transition-duration: 0;
 }
 
 #tags button:not(.occupied):not(.focused) {
