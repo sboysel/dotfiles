@@ -47,7 +47,7 @@ riverctl map normal Super W         spawn firefox
 riverctl map normal Super E         exit
 riverctl map normal Super R         spawn '~/.config/river/init && notify-send "river" "reload config"'
 riverctl map normal Super Return    spawn kitty
-riverctl map normal Super D         spawn 'wofi --show=drun --allow-images --location=top'
+riverctl map normal Super D         spawn 'wofi'
 riverctl map normal Super+Control L spawn '~/bin/river-lock.sh'
 
 # === keybinds.screenshots
@@ -71,8 +71,8 @@ riverctl map normal Super J       focus-view next
 riverctl map normal Super K       focus-view previous
 riverctl map normal Super L       focus-view next
 # focus outputs
-riverctl map normal Super Period  focus-output next
-riverctl map normal Super Comma   focus-output previous
+riverctl map normal Super+Control Period  focus-output next
+riverctl map normal Super+Control Comma   focus-output previous
 # === keybinds.move
 # move views (within output)
 riverctl map normal Super+Shift Left    swap previous
@@ -84,8 +84,8 @@ riverctl map normal Super+Shift J       swap next
 riverctl map normal Super+Shift K       swap previous
 riverctl map normal Super+Shift L       swap next
 # move views (across outputs)
-riverctl map normal Super+Shift Period  send-to-output next
-riverctl map normal Super+Shift Comma   send-to-output previous
+riverctl map normal Super+Control+Shift Period  send-to-output next
+riverctl map normal Super+Control+Shift Comma   send-to-output previous
 # move view to top of layout stack (if already at top, bump to second)
 riverctl map normal Super+Shift Z       zoom
 
@@ -164,6 +164,10 @@ do
     riverctl map normal Super+Shift $i set-view-tags $tags
 
 done
+
+# === tags.previous_tag
+riverctl map normal Super       Comma focus-previous-tags
+riverctl map normal Super+Shift Comma send-to-previous-tags
 
 # === tags.scratchpad
 scratch_tag=$((1 << 10))
