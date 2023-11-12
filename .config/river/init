@@ -29,6 +29,8 @@ riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
 riverctl spawn 'systemctl --user restart river-idle.service'
 riverctl spawn 'systemctl --user restart river-waybar.service'
 riverctl spawn 'systemctl --user restart udiskie.service'
+riverctl spawn 'systemctl --user restart gammastep.service'
+riverctl spawn 'systemctl --user restart gammastep-indicator.service'
 
 # == inputs
 for pad in $(riverctl list-inputs | grep -i pointer)
