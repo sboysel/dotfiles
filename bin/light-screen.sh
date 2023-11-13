@@ -1,5 +1,13 @@
 #!/bin/sh
-DEVICE=sysfs/backlight/intel_backlight
+
+case "$MACHINE" in
+   "")
+     DEVICE=sysfs/backlight/intel_backlight
+     ;;
+   "Apple Inc. MacBookAir7,2")
+     DEVICE=sysfs/backlight/acpi_video0
+     ;;
+esac
 
 get_current() {
   light -s $DEVICE  

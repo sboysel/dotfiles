@@ -1,5 +1,13 @@
 #!/bin/sh
-DEVICE=sysfs/leds/tpacpi::kbd_backlight
+
+case "$MACHINE" in
+   "")
+     DEVICE=sysfs/leds/tpacpi::kbd_backlight
+     ;;
+   "Apple Inc. MacBookAir7,2")
+     DEVICE=sysfs/leds/smc::kbd_backlight
+     ;;
+esac
 
 get_current() {
   light -s $DEVICE
