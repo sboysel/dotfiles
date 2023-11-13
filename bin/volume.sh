@@ -9,6 +9,15 @@ get_current() {
   echo "${CURRENT}*100" | bc
 }
 
+is_muted() {
+  MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{ print $3 }')
+  if [ $MUTED == "[MUTED]" ]; then
+    echo "󰝟 "  
+  else
+    echo "󰕾 " 
+  fi
+}
+
 popup() {
   makoctl dismiss
   notify-send -h string:syncronous:volume -h int:value:$(get_current) $1
@@ -17,7 +26,7 @@ popup() {
 main() {
   OPR="${1}" 
   case ${OPR} in 
-     "mute") pactl set-sink-mute @DEFAULT_SINK@ toggle && popup "󰝟 ";; 
+     "mute") pactl set-sink-mute @DEFAULT_SINK@ toggle && popup $(is_muted);; 
      "inc") pactl set-sink-volume @DEFAULT_SINK@ +10% && popup "󰝝 ";; 
      "dec") pactl set-sink-volume @DEFAULT_SINK@ -10% && popup "󰝞 ";; 
   esac
