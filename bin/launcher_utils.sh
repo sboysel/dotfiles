@@ -3,6 +3,18 @@
 TERM="/usr/bin/kitty"
 WOFI="wofi -c ${HOME}/.config/wofi/config.utils"
 
+menu_mullvad() {
+  MENU="status\nconnect"
+  CHOICE=$(echo -e ${MENU} | ${WOFI})
+  TERM_OPTS="--detach --class=floating-mullvad"
+  CMD="${TERM} ${TERM_OPTS}"
+  case $CHOICE in
+      "status") $CMD notify-send "mullvad status" "$(mullvad status)";;
+      "connect") $CMD mullvad connect;;
+      *) echo "nothing";;
+  esac 
+}
+
 menu_systemd() {
   MENU="status (all)\nstatus (failed)\njournalctl"
   CHOICE=$(echo -e ${MENU} | ${WOFI})
@@ -29,13 +41,14 @@ menu_zerotier() {
 }
 
 main() {
-  MENU="btop\ndocker\nnewsboat\nsystemd\nyadm\nzerotier"
+  MENU="btop\ndocker\nmullvad\nnewsboat\nsystemd\nyadm\nzerotier"
   CHOICE=$(echo -e ${MENU} | ${WOFI})
   TERM_OPTS="--detach --class=floating-${CHOICE}"
   CMD="${TERM} ${TERM_OPTS}"
   case ${CHOICE} in
       "btop") $CMD btop;;
       "docker") $CMD lazydocker;;
+      "mullvad") menu_mullvad;;
       "newsboat") $CMD newsboat;;
       "systemd") menu_systemd;;
       "yadm") $CMD lazygit -g $HOME/.local/share/yadm/repo.git/;;
