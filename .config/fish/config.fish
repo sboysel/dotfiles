@@ -4,6 +4,10 @@ if status is-interactive
 end
 
 ### environment ###
+set -gx MACHINE_VENDOR (hostnamectl | grep Vendor | sed 's/\s.*Hardware Vendor:\s//g')
+set -gx MACHINE_MODEL (hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g')
+set -gx MACHINE "$MACHINE_VENDOR $MACHINE_MODEL" 
+
 set -gx LC_ALL en_US.UTF-8
 set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
