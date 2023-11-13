@@ -1,10 +1,14 @@
 #!/bin/sh
 
-case "$MACHINE" in
-   "")
+get_model() {
+  hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g'
+}
+
+case "$(get_model)" in
+   "ThinkPad X1 Carbon 3rd")
      DEVICE=sysfs/backlight/intel_backlight
      ;;
-   "Apple Inc. MacBookAir7,2")
+   "MacBookAir7,2")
      DEVICE=sysfs/backlight/acpi_video0
      ;;
 esac
