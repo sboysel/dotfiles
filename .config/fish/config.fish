@@ -165,30 +165,20 @@ function cl
     /sbin/clear
 end
 
-# function todo
-#     $GOBIN/ultralist $argv
-# end
-
-# function tl --description "ultralist list"
-#     todo l
-# end
-
-# function ta --description "ultralist add [args]"
-#     todo add $argv
-# end
-
-function todo --description "todo [add=/do=/done/all/edit]"
+function todo --description "todo [--a/add 'thing to do'] | [--d/do #] | [--t/tag 'a task tag'] | [--done] | [--all] | [--edit]"
 
   set -l TODO $HOME/sync/todo/todo
   set -l DONE $HOME/sync/todo/done
 
-  argparse 'a/add=' 'do=' 'done' 'all' 'e/edit' -- $argv
+  argparse 'a/add=' 'do=' 't/tag=' 'done' 'all' 'e/edit' -- $argv
   
   if set -q _flag_add
-    echo '[ ] '$_flag_add >> $TODO
+    echo $_flag_add >> $TODO
   else if set -q _flag_do
-    sed $_flag_do's/\[ \]/\[x\]/' $TODO >> $DONE
+    sed -n $_flag_do'p' $TODO >> $DONE
     sed -i $_flag_do'd' $TODO
+  else if set -q _flag_tag
+    cat -n $TODO | grep '\['$_flag_tag'\]'
   else if set -q _flag_done
     cat -n $DONE
   else if set -q _flag_edit
