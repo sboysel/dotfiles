@@ -1,0 +1,72 @@
+#!/bin/sh
+
+modelinfo() {
+  hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g'
+}
+
+vendorinfo() {
+  hostnamectl | grep Vendor | sed 's/\s.*Hardware Vendor:\s//g'
+}
+
+machineinfo() {
+  echo "$(vendorinfo) $(modelinfo)"
+}
+
+hostinfo() {
+  cat /etc/hostname
+}
+
+kernelinfo() {
+  uname -r
+}
+
+cpuinfo() {
+  cat /proc/cpuinfo | grep -m 1 'model name' | sed 's/model name\s.*\:\s*//g'
+}
+
+meminfo() {
+  KB=$(cat /proc/meminfo | grep 'MemTotal' | sed 's/MemTotal\:\s*//g' | awk '{ print $1 }') 
+  GB=$(echo "scale=2; $(echo $KB) / 1024^2" | bc)
+  echo $GB' GB'
+}
+
+pkginfo() {
+  paru -Q | wc -l
+}
+
+terminfo() {
+  echo $TERM
+}
+
+editorinfo() {
+  echo $EDITOR | sed 's/\/usr\/bin\///'
+}
+
+shellinfo() {
+  echo $SHELL | sed 's/\/usr\/bin\///'
+}
+
+wminfo() {
+  echo $WM | sed 's/\/usr\/bin\///'
+}
+
+info() {
+  SEP="::"
+  printf "\n" 
+  printf "%-8s $SEP $(hostinfo)\n" "host" 
+  printf "%-8s $SEP $(machineinfo)\n" "machine" 
+  printf "%-8s $SEP $(cpuinfo)\n" "cpu" 
+  printf "%-8s $SEP $(meminfo)\n" "mem" 
+  printf "%-8s $SEP $(kernelinfo)\n" "kernel" 
+  printf "%-8s $SEP $(pkginfo)\n" "packages" 
+  printf "%-8s $SEP $(terminfo)\n" "term" 
+  printf "%-8s $SEP $(shellinfo)\n" "shell" 
+  printf "%-8s $SEP $(editorinfo)\n" "editor" 
+  printf "%-8s $SEP $(wminfo)\n" "wm" 
+}
+
+main() {
+  info | lolcat -t -S 55
+}
+
+main

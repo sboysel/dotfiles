@@ -12,6 +12,8 @@ set -gx VISUAL /usr/bin/nvim
 set -gx SUDO_EDITOR /usr/bin/nvim
 set -gx SYSTEMD_EDITOR /usr/bin/nvim
 
+set -gx WM /usr/bin/river
+
 set -gx OPENER $HOME/bin/opener.sh
 
 set -gx BG_COLOR "#446879"
