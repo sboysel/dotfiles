@@ -1,9 +1,7 @@
 #!/bin/sh
-LOCK="sh -e ~/bin/river-lock.sh"
-LIGHT="light -s sysfs/backlight/intel_backlight -S 10"
 swayidle -d -w \
-    timeout 60 "$LIGHT" \
-    timeout 60 "$LOCK" \
+    timeout 60 "sh -e ~/bin/light-screen.sh set 10" \
+    timeout 60 "sh -e ~/bin/river-lock.sh" \
     timeout 600 'systemctl suspend' \
-    before-sleep "$LOCK" \
-    lock "$LOCK"
+    before-sleep "sh -e ~/bin/river-lock.sh" \
+    lock "sh -e ~/bin/river-lock.sh"
