@@ -29,7 +29,6 @@ riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
 riverctl spawn 'systemctl --user restart river-idle.service'
 riverctl spawn 'systemctl --user restart river-waybar.service'
 riverctl spawn 'systemctl --user restart udiskie.service'
-riverctl spawn 'systemctl --user restart gammastep.service'
 riverctl spawn 'systemctl --user restart gammastep-indicator.service'
 
 # == inputs
@@ -53,14 +52,15 @@ riverctl map normal Super D         spawn 'wofi'
 riverctl map normal Super+Control L spawn '~/bin/river-lock.sh'
 
 # === keybinds.screenshots
-riverctl map normal Super+Control S         spawn 'grimshot --notify save screen'
-riverctl map normal Super+Control O         spawn 'grimshot --notify save output'
-riverctl map normal Super+Control W         spawn 'grimshot --notify save window'
-riverctl map normal Super+Control A         spawn 'grimshot --notify save area'
-riverctl map normal Super+Control+Shift S   spawn 'grimshot --notify copy screen'
-riverctl map normal Super+Control+Shift O   spawn 'grimshot --notify copy output'
-riverctl map normal Super+Control+Shift W   spawn 'grimshot --notify copy window'
-riverctl map normal Super+Control+Shift A   spawn 'grimshot --notify copy area'
+riverctl declare-mode   screenshot
+riverctl map screenshot Super S         enter-mode screenshot
+riverctl map screenshot Super O         spawn 'grimshot --notify save output'
+riverctl map screenshot Super W         spawn 'grimshot --notify save window'
+riverctl map screenshot Super A         spawn 'grimshot --notify save area'
+riverctl map screenshot Super+Shift O   spawn 'grimshot --notify copy output'
+riverctl map screenshot Super+Shift W   spawn 'grimshot --notify copy window'
+riverctl map screenshot Super+Shift A   spawn 'grimshot --notify copy area'
+riverctl map screenshot Super S         enter-mode normal
 
 # === keybinds.focus
 # focus views
@@ -152,6 +152,8 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn '~/bin/light-screen.sh dec 10'
 
     riverctl map $mode None XF86Display           spawn '~/bin/light-kbd.sh'
+    riverctl map $mode None XF86KbdBrightnessUp   spawn '~/bin/light-kbd.sh'
+    riverctl map $mode None XF86KbdBrightnessDown spawn '~/bin/light-kbd.sh'
 done
 
 # == tags
