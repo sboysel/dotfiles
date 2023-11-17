@@ -16,6 +16,10 @@ hostinfo() {
   cat /etc/hostname
 }
 
+osinfo() {
+  hostnamectl | grep 'Operating System' | sed 's/Operating System:\s//g'
+}
+
 kernelinfo() {
   uname -r
 }
@@ -31,7 +35,7 @@ meminfo() {
 }
 
 pkginfo() {
-  paru -Q | wc -l
+  pacman -Q | wc -l
 }
 
 terminfo() {
@@ -50,13 +54,14 @@ wminfo() {
   echo $WM | sed 's/\/usr\/bin\///'
 }
 
-info() {
+fetch() {
   SEP="::"
   printf "\n" 
   printf "%-8s $SEP $(hostinfo)\n" "host" 
   printf "%-8s $SEP $(machineinfo)\n" "machine" 
   printf "%-8s $SEP $(cpuinfo)\n" "cpu" 
   printf "%-8s $SEP $(meminfo)\n" "mem" 
+  printf "%-8s $SEP $(osinfo)\n" "os" 
   printf "%-8s $SEP $(kernelinfo)\n" "kernel" 
   printf "%-8s $SEP $(pkginfo)\n" "packages" 
   printf "%-8s $SEP $(terminfo)\n" "term" 
@@ -66,7 +71,7 @@ info() {
 }
 
 main() {
-  info | lolcat -t -S 55
+  fetch
 }
 
 main
