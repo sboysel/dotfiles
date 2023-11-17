@@ -5,6 +5,9 @@ auto-pairs = false
 bufferline = "multiple"
 cursorline = true
 
+[editor.lsp]
+display-messages = true
+
 [keys.normal]
 H = "goto_line_start"
 L = "goto_line_end"
