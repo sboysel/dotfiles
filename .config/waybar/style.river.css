@@ -1,13 +1,14 @@
 tooltip {
     font-family: JetBrainsMono Nerd Font;
     font-size: 22px;
-}
+    color: #c6d0f5; /* text */
+    background-color: #303446; /* base */}
 
 window#waybar {
     font-family: JetBrainsMono Nerd Font;
     font-size: 22px;
-    color: #cdd6f4; /* text */
-    background-color: #181825; /* base */
+    color: #c6d0f5; /* text */
+    background-color: #303446; /* base */
     transition-property: background-color;
     transition-duration: 0;
 }
@@ -18,26 +19,26 @@ window#waybar {
 }
 
 #tags button {
-    color: #cdd6f4; /* text */
-    background-color: #181825; /* base */    
+    color: #c6d0f5; /* text */
+    background-color: #303446; /* base */    
     padding: 0 12px;
 }
 
 #tags button.focused {
     font-weight: 900;
     font-style: italic;
-    color: #f5e0dc; /* rosewater */
+    color: #f2d5cf; /* rosewater */
 }
 
 #tags button.urgent {
-    color: #f38ba8; /* red */
+    color: #e78284; /* red */
 }
 
 #tags button:hover {
     font-weight: 900;
     font-style: italic;    
-    color: #181825; /* base */
-    background: #f5e0dc; /* rosewater */
+    color: #303446; /* base */
+    background: #f2d5cf; /* rosewater */
     transition-property: background-color;
     transition-duration: 0;
 }
