@@ -49,4 +49,4 @@ vim.g.slime_default_config = {socket_name="default", target_pane=":.1"}
 vim.g.everforest_background = 'hard'
 
 -- [[ colorscheme ]]
-cmd 'colorscheme catppuccin'
+cmd 'colorscheme catppuccin-frappe'

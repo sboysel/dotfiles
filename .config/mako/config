@@ -1,21 +1,21 @@
 # general
-font=JetBrainsMono Nerd Font 12
+font=JetBrainsMono Nerd Font 18
 format=<b>%s</b>\n%b
-default-timeout=60000
-width=400
-border-size=4
-margin=8
+default-timeout=600000
+width=600
+border-size=2
+margin=20
 padding=10
 text-alignment=left
 icon-path=/usr/share/icons/Arc
 layer=overlay
 
 # colors (catppuccin-mocha)
-background-color=#1e1e2e
-border-color=#cdd6f4
-text-color=#cdd6f4
-progress-color=over #313244
+background-color=#414559
+border-color=#c6d0f5
+text-color=#c6d0f5
+progress-color=over #232634
 
 [urgency=critical]
-border-color=#f38ba8
-text-color=#f38ba8
+border-color=#ea999c
+text-color=#ea999c

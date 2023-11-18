@@ -1,4 +1,5 @@
-theme = "catppuccin_mocha"
+theme = "catppuccin_frappe"
+# theme = "tokyonight_storm"
 
 [editor]
 auto-pairs = false

@@ -1,6 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    fish_config theme choose catppuccin_mocha
+    fish_config theme choose catppuccin_frappe
 end
 
 ### environment ###
@@ -11,10 +11,10 @@ set -gx MACHINE "$MACHINE_VENDOR $MACHINE_MODEL"
 set -gx LC_ALL en_US.UTF-8
 set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
-set -gx EDITOR /usr/bin/nvim
-set -gx VISUAL /usr/bin/nvim
-set -gx SUDO_EDITOR /usr/bin/nvim
-set -gx SYSTEMD_EDITOR /usr/bin/nvim
+set -gx EDITOR /usr/bin/helix
+set -gx VISUAL /usr/bin/helix
+set -gx SUDO_EDITOR /usr/bin/helix
+set -gx SYSTEMD_EDITOR /usr/bin/helix
 
 set -gx WM /usr/bin/river
 
@@ -85,55 +85,35 @@ end
 # package management
 #
 
-function yu --description "Update system"
-    yay -Syyu $argv
+function pu --description "[paru] update system"
+    /usr/bin/paru $argv
 end
 
-function yss --description "Search packages"
-    yay -Ss $argv
+function pss --description "[paru] search packages"
+    /usr/bin/paru -Ss $argv
 end
 
-function ys --description "Install packages"
-    yay -S $argv
+function ps --description "[paru] install packages"
+    /usr/bin/paru -S $argv
 end
 
-function yqi --description "Information about installed package"
-    yay -Si $argv
+function psi --description "[paru] information about installed package"
+    /usr/bin/paru -Si $argv
 end 
 
-function yql --description "Query files owned by installed package"
-    yay -Ql $argv
+function pql --description "[paru] query files owned by installed package"
+    /usr/bin/paru -Ql $argv
 end 
-
-function yo --description "List orphaned packages"
-    yay -Qtdq
-end
-
-function yc --description "Clean yay package cache"
-    yay -Scc
-end
-
-function yd --description "Removed unneeded yay dependencies"
-    yay -Yc
-end
-
-function ye --description "Show explicitly installed packages"
-    yay -Qe
-end
-
-function ym --description "Show manually installed packages"
-    yay -Qm
-end
 
 #
 # maintenance
 #
 
 function rmcache --description "Clears $HOME/.cache"
-    set BEFORE (sudo du -sh $HOME/.cache 2>/dev/null)
+    set -l BEFORE (sudo du -sh $HOME/.cache 2>/dev/null)
     echo -e "before:\t$BEFORE"
     sudo rm -rf $HOME/.cache/*
-    set AFTER (sudo du -sh $HOME/.cache 2>/dev/null)
+    set -l AFTER (sudo du -sh $HOME/.cache 2>/dev/null)
     echo -e "after:\t$AFTER"
 end
 
@@ -146,7 +126,7 @@ function rmjourn --description "Vaccum systemd journal"
 end
 
 function pkgdiff --description "changes in packages installed on system"
-    yay -Qe | diff $HOME/.pkglist -
+    /usr/bin/paru -Qe | diff $HOME/.pkglist -
 end
 
 function nixpkgdiff --description "changes in Nix packages installed on system"
