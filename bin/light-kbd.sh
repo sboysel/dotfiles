@@ -25,10 +25,10 @@ popup() {
 main() {
   if (( $(echo "$(get_current) > 0" | bc -l) )); then
     light -s $DEVICE -S 0
-    popup "󰃞  "
+    popup " "
   else
     light -s $DEVICE -S 100
-    popup "󰃞  "
+    popup " "
   fi
 }
 

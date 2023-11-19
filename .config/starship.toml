@@ -82,12 +82,11 @@ $os\
 $container\
 $shell \
 $fill \
-$battery\
-$time\
 $line_break\
 $character"""
 
 [character]
+format = '$symbol '
 success_symbol = "[->](bold green)"
 error_symbol = "[~>](bold red)"
 
@@ -99,7 +98,7 @@ threshold = 100
 
 [time]
 disabled = false
-format = '$time '
+format = '$time'
 time_format = '%I:%M%p'
 use_12hr = true
 utc_time_offset = '-4'
