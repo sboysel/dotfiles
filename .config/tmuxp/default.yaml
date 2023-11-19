@@ -5,19 +5,33 @@ windows:
     shell_command_before:
       - cd ~
       - clear
-  - window_name: coopetition
+  - window_name: build
     layout: even-horizontal
     shell_command_before:
       - cd ~/repos/coopetition
     panes:
     - shell_command:
-      - cmd: ranger
+      - cmd: cd src/build && ranger
     - shell_command:
       - cmd: clear
-  - window_name: automation
+  - window_name: analysis
     layout: even-horizontal
     shell_command_before:
-      - cd ~/repos/oss-automation
+      - cd ~/repos/coopetition
+    panes:
+    - shell_command:
+      - cmd: cd src/analysis && ranger
+    - shell_command:
+      - cmd: clear
+  - window_name: results
+    layout: tiled
+    shell_command_before:
+      - cd ~/repos/coopetition/output/estimates
+      - ranger
+  - window_name: lightcast
+    layout: even-horizontal
+    shell_command_before:
+      - cd /mnt/atma/lightcast
     panes:
     - shell_command:
       - cmd: ranger
