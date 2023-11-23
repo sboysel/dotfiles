@@ -1,11 +1,11 @@
 tooltip {
-    font-family: JetBrainsMono Nerd Font;
+    font-family: JetBrainsMono NF;
     font-size: 22px;
     color: #c6d0f5; /* text */
     background-color: #303446; /* base */}
 
 window#waybar {
-    font-family: JetBrainsMono Nerd Font;
+    font-family: JetBrainsMono NF;
     font-size: 22px;
     color: #c6d0f5; /* text */
     background-color: #303446; /* base */

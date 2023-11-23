@@ -1,5 +1,5 @@
 # set font "FiraCode Nerd Font 16"
-set font "JetBrainsMono Nerd Font Mono 16"
+set font "JetBrainsMono NF 16"
 
 # Open document in fit-width mode by default
 set adjust-open "width"

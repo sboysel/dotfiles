@@ -1,5 +1,5 @@
 # general
-font=JetBrainsMono Nerd Font 18
+font=JetBrainsMono NF 18
 format=<b>%s</b>\n%b
 default-timeout=600000
 width=600
