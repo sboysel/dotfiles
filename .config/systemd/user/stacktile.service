@@ -1,0 +1,22 @@
+[Unit]
+Description=stacktile
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/stacktile \
+	--per-tag-config \
+	--primary-count 1 \
+	--primary-ratio 0.5 \
+	--primary-sublayout columns \
+	--primary-position left \
+	--secondary-count 1 \
+	--secondary-ratio 0.5 \
+	--secondary-sublayout rows \
+	--remainder-sublayout stack \
+	--inner-padding 8 \
+	--outer-padding 8
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

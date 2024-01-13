@@ -3,13 +3,22 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
+
+# == autostart
+riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
+riverctl spawn 'systemctl --user restart river-idle.service'
+riverctl spawn 'systemctl --user restart river-waybar.service'
+riverctl spawn 'systemctl --user restart udiskie.service'
+riverctl spawn 'systemctl --user restart gammastep-indicator.service'
+riverctl spawn 'systemctl --user restart stacktile.service'
+
 # == options
 
 # === options.colors
-riverctl background-color 0x446879
-riverctl border-color-focused 0xbac2de
-riverctl border-color-unfocused 0x1e1e2e
-riverctl border-color-urgent 0xeba0ac
+riverctl background-color 0x537d90
+riverctl border-color-focused 0xf2d5cf
+riverctl border-color-unfocused 0x303446
+riverctl border-color-urgent 0xe78284
 riverctl border-width 2
 
 # === options.misc
@@ -22,14 +31,17 @@ riverctl focus-follows-cursor normal
 # place views at bottom of stack
 riverctl attach-mode bottom
 # set default layout
-riverctl default-layout rivertile
-
-# == autostart
-riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
-riverctl spawn 'systemctl --user restart river-idle.service'
-riverctl spawn 'systemctl --user restart river-waybar.service'
-riverctl spawn 'systemctl --user restart udiskie.service'
-riverctl spawn 'systemctl --user restart gammastep-indicator.service'
+riverctl default-layout stacktile
+riverctl send-layout-cmd stacktile 'reset'
+riverctl send-layout-cmd stacktile 'primary_count 1'
+riverctl send-layout-cmd stacktile 'primary_ratio 0.4'
+riverctl send-layout-cmd stacktile 'primary_sublayout columns'
+riverctl send-layout-cmd stacktile 'primary_postion left'
+riverctl send-layout-cmd stacktile 'secondary_count 1'
+riverctl send-layout-cmd stacktile 'secondary_ratio 0.5'
+riverctl send-layout-cmd stacktile 'secondary_sublayout rows'
+riverctl send-layout-cmd stacktile 'inner_padding 8'
+riverctl send-layout-cmd stacktile 'outer_padding 8'
 
 # == inputs
 for pad in $(riverctl list-inputs | grep -i pointer)
@@ -93,10 +105,10 @@ riverctl map normal Super+Shift Z       zoom
 
 # === keybinds.resize
 # change main ratio
-riverctl map normal Super+Alt Left  send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super+Alt Right send-layout-cmd rivertile "main-ratio +0.05"
-riverctl map normal Super+Alt H     send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super+Alt L     send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super+Alt Left  send-layout-cmd stacktile "primary_ratio -0.05"
+riverctl map normal Super+Alt Right send-layout-cmd stacktile "primary_ratio +0.05"
+riverctl map normal Super+Alt H     send-layout-cmd stacktile "primary_ratio -0.05"
+riverctl map normal Super+Alt L     send-layout-cmd stacktile "primary_ratio +0.05"
 # resize views (forces views to float)
 riverctl map normal Super+Shift+Alt Up    resize vertical   +100 
 riverctl map normal Super+Shift+Alt Right resize horizontal +100
@@ -181,9 +193,9 @@ all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
 # == rivertile
-pkill "rivertile" || true
-rivertile -view-padding 4 \
-  -outer-padding 4 \
-  -main-location left \
-  -main-count 1 \
-  -main-ratio 0.5 &
+# pkill "rivertile" || true
+# rivertile -view-padding 4 \
+#   -outer-padding 4 \
+#   -main-location left \
+#   -main-count 1 \
+#   -main-ratio 0.5 &
