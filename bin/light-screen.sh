@@ -19,7 +19,7 @@ get_current() {
 
 popup() {
   makoctl dismiss
-  notify-send -h string:syncronous:volume -h int:value:$(get_current) "󰃞"
+  notify-send -h string:syncronous:volume -h int:value:$(get_current) -a osd "󰃞"
 }
 
 main() {

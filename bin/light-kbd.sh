@@ -19,7 +19,7 @@ get_current() {
 
 popup() {
   makoctl dismiss
-  notify-send -h int:value:$(get_current) $1 
+  notify-send -h int:value:$(get_current) -a osd "${1}"
 }
 
 main() {

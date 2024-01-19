@@ -20,7 +20,7 @@ is_muted() {
 
 popup() {
   makoctl dismiss
-  notify-send -h string:syncronous:volume -h int:value:$(get_current) $1
+  notify-send -h string:syncronous:volume -h int:value:$(get_current) -a osd "${1}"
 }
 
 main() {
