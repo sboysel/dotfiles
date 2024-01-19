@@ -1,6 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    fish_config theme choose catppuccin_frappe
+    fish_config theme choose "fish default"
 end
 
 ### environment ###
@@ -85,7 +85,7 @@ end
 # package management
 #
 
-function pu --description "[paru] update system"
+function u --description "[paru] update system"
     /usr/bin/paru $argv
 end
 
@@ -278,6 +278,13 @@ function proj-init
   jupyter labextension install @techrah/text-shortcuts
   # print tree
   tree -L 2 $PROJ_PATH
+end
+
+# project-level venv
+function mkvenv
+    python -m venv ".env/$argv"
+    echo "source .env/$argv/bin/activate" >> .envrc
+    direnv allow .
 end
 
 # interactively commit changes to dotfiles
