@@ -1,13 +1,19 @@
-theme = "catppuccin_frappe"
+theme = "sonokai"
 
 [editor]
 auto-pairs = false
 bufferline = "multiple"
 cursorline = true
 true-color = true
+color-modes = true
 
 [editor.lsp]
 display-messages = true
+
+[editor.statusline]
+left = ["mode", "selections", "register", "spinner"]
+center = ["file-name", "read-only-indicator", "file-modification-indicator", "version-control"]
+right = ["diagnostics", "position", "position-percentage", "file-type", "file-encoding"]
 
 [keys.normal]
 H = "goto_line_start"
@@ -16,6 +22,6 @@ L = "goto_line_end"
 # create a new minor mode bound to `'`
 [keys.normal."'"]
 w = ":update"
-q = ":write-quit"
+q = ":buffer-close"
 m = ":run-shell-command make"
 n = ":new"
