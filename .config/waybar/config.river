@@ -10,11 +10,9 @@
         "river/window"
     ],
     "modules-center": [
-        "mpris",
-        "custom/pomo"
+        "clock"
     ],
     "modules-right": [
-        "clock",
         "network",
         "custom/mullvad",
         "pulseaudio",
