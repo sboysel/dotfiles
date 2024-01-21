@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 BROWSER=/usr/bin/google-chrome-stable
 CONFIG="-c ${HOME}/.config/wofi/config.websearch"
 

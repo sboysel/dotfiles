@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 STATUS=$(mullvad status -v) 
 
 if [ $(echo $STATUS | awk '{ print $1 }') = "Connected" ]; then

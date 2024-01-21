@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# echo "my_secret_password" >> ~/.cert/hbs
+# gpg -c ~/.cert/hbs
+# rm ~/.cert/hbs
+
+gpg --decrypt $HOME/.cert/hbs.gpg 2> /dev/null | sudo openconnect \
+  --background \
+  --protocol=pulse \
+  --user=sboysel@hbs.edu \
+  --passwd-on-stdin \
+  https://vpnconnect.hbs.edu/duopush
+

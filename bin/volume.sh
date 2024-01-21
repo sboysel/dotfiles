@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 as_numeric() {
   echo "scale = 1; ${1}*100" | bc | printf '%.0f\n'

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 TERM="/usr/bin/kitty"
 WOFI="wofi -c ${HOME}/.config/wofi/config.utils"

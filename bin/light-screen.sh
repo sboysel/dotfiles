@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 get_model() {
   hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g'

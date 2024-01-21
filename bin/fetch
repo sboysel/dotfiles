@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 modelinfo() {
   hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g'
@@ -34,8 +34,16 @@ meminfo() {
   echo $GB' GB'
 }
 
-pkginfo() {
+pacmaninfo() {
   pacman -Q | wc -l
+}
+
+nixinfo() {
+  nix-env -qa --installed "*" | wc -l
+}
+
+pkginfo() {
+  echo "$(pacmaninfo) (pacman), $(nixinfo) (nix)"
 }
 
 terminfo() {
@@ -51,12 +59,30 @@ shellinfo() {
 }
 
 wminfo() {
-  echo $WM | sed 's/\/usr\/bin\///'
+  echo $XDG_CURRENT_DESKTOP
+}
+
+
+lines() {
+  
+  _rand_char() {
+    echo ".:;" | grep -o . | shuf -n1
+  }
+    
+  local x=""
+  
+  for i in {0..50}; do
+    x="${x}$(_rand_char)"
+  done
+
+  echo "${x}"
+    
 }
 
 fetch() {
-  SEP="::"
-  printf "\n" 
+  SEP=" "
+  printf "\n"
+  lines
   printf "%-8s $SEP $(hostinfo)\n" "host" 
   printf "%-8s $SEP $(machineinfo)\n" "machine" 
   printf "%-8s $SEP $(cpuinfo)\n" "cpu" 
@@ -68,6 +94,7 @@ fetch() {
   printf "%-8s $SEP $(shellinfo)\n" "shell" 
   printf "%-8s $SEP $(editorinfo)\n" "editor" 
   printf "%-8s $SEP $(wminfo)\n" "wm" 
+  lines
 }
 
 main() {

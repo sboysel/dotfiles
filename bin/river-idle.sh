@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 swayidle -d -w \
     timeout 60 "sh -e ~/bin/light-screen.sh set 10" \
     timeout 60 "sh -e ~/bin/river-lock.sh" \
