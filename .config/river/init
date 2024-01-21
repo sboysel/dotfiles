@@ -17,7 +17,7 @@ riverctl spawn 'systemctl --user restart stacktile.service'
 # === options.colors
 # riverctl background-color 0x8ABEB7
 riverctl background-color 0x002b36
-riverctl border-color-focused 0xC5C8C6
+riverctl border-color-focused 0x373B41
 riverctl border-color-unfocused 0x1D1F21
 riverctl border-color-urgent 0xCC6666
 riverctl border-width 2

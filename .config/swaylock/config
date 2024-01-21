@@ -1,6 +1,7 @@
+# tomorrow night colors
 daemonize
 
-color=002B36
+color=1D1F21
 
 indicator-radius=300
 indicator-thickness=50
@@ -9,11 +10,11 @@ indicator-caps-lock
 
 separator-color=00000000
 
-bs-hl-color=F0C67450
 key-hl-color=B5BD68FF
+bs-hl-color=F0C67450
 
-caps-lock-key-hl-color=ffd204FF
-caps-lock-bs-hl-color=dededeFF
+caps-lock-key-hl-color=8ABEB7FF
+caps-lock-bs-hl-color=8ABEB750
 
 inside-color=00000000
 inside-clear-color=F0C67433
@@ -23,7 +24,7 @@ inside-wrong-color=CC666633
 
 ring-color=B5BD6833
 ring-clear-color=F0C674FF
-ring-caps-lock-color=8ABEB7FF
+ring-caps-lock-color=8ABEB733
 ring-ver-color=B294BBFF
 ring-wrong-color=CC6666FF
 

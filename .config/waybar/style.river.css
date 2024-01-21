@@ -2,14 +2,14 @@ tooltip {
     font-family: JetBrainsMono NF;
     font-size: 22px;
     color: #C5C8C6; /* text */
-    background-color: #282A2E; /* base */
+    background-color: #1D1F21; /* base */
 }
 
 window#waybar {
     font-family: JetBrainsMono NF;
     font-size: 22px;
     color: #C5C8C6; /* text */
-    background-color: #282A2E; /* base */
+    background-color: #1D1F21; /* base */
     transition-property: background-color;
     transition-duration: 0;
 }
@@ -21,7 +21,7 @@ window#waybar {
 
 #tags button {
     color: #C5C8C6; /* text */
-    background-color: #282A2E; /* base */    
+    background-color: #1D1F21; /* base */    
     padding: 0 12px;
 }
 
