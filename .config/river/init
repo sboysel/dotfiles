@@ -5,6 +5,7 @@
 
 
 # == autostart
+riverctl spawn 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
 riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
 riverctl spawn 'systemctl --user restart river-idle.service'
 riverctl spawn 'systemctl --user restart river-waybar.service'
