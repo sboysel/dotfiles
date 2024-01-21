@@ -1,35 +1,44 @@
-window {
-  color: #C5C8C6; /* text */
-  background-color: transparent;
-  font-size: 22px;
+@define-color fg #C5C8C6;
+@define-color bg #282A2E;
+@define-color highlight #B5BD68; 
+
+* {
   font-family: JetBrainsMono NF;
+  font-size: 22px;
+}
+
+window {
+  background-color: transparent;
+  color: @fg;
 }
 
 #outer-box {
   background-color: transparent;
-  border: 0px solid #C5C8C6; /* text */
+  border: 0px solid @fg;
 }
 
 #input {
-  color: #C5C8C6; /* text */
-  background-color: #282A2E; /* bg1 */
-  border: 0px solid #C5C8C6; /* text */
+  color: @fg;
+  background-color: @bg;
+  border: 0px solid @fg;
   padding: 8px;
 }
 
 #entry {
-  background-color: #282A2E; /* bg1 */
+  background-color: @bg;
   padding: 8px;
 }
 
 #entry:selected {
-  color: #B5BD68; /* green */
+  background-color: @highlight;
   font-weight: 900;
   font-style: italic;
+}
+
+#entry:selected #text {
+  color: @bg;
 }
 
 #entry image {
   padding-right: 8px;
 }
-
-
