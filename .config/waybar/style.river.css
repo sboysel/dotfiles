@@ -1,14 +1,15 @@
 tooltip {
     font-family: JetBrainsMono NF;
     font-size: 22px;
-    color: #e2e2e3; /* text */
-    background-color: #2c2e34; /* base */}
+    color: #C5C8C6; /* text */
+    background-color: #282A2E; /* base */
+}
 
 window#waybar {
     font-family: JetBrainsMono NF;
     font-size: 22px;
-    color: #e2e2e3; /* text */
-    background-color: #2c2e34; /* base */
+    color: #C5C8C6; /* text */
+    background-color: #282A2E; /* base */
     transition-property: background-color;
     transition-duration: 0;
 }
@@ -19,26 +20,26 @@ window#waybar {
 }
 
 #tags button {
-    color: #e2e2e3; /* text */
-    background-color: #2c2e34; /* base */    
+    color: #C5C8C6; /* text */
+    background-color: #282A2E; /* base */    
     padding: 0 12px;
 }
 
 #tags button.focused {
     font-weight: 900;
     font-style: italic;
-    color: #9ed072; /* green */
+    color: #B5BD68; /* green */
 }
 
 #tags button.urgent {
-    color: #fc5d7c; /* red */
+    color: #CC6666; /* red */
 }
 
 #tags button:hover {
     font-weight: 900;
     font-style: italic;    
-    color: #2c2e34; /* base */
-    background: #9ed072; /* green */
+    color: #282A2E; /* base */
+    background: #B5BD68; /* green */
     transition-property: background-color;
     transition-duration: 0;
 }
@@ -67,29 +68,29 @@ window#waybar {
 
 #mode {
     font-style: italic;
-    color: #ff6077; /* red */
+    color: #CC6666; /* red */
 }
 
 #network {
-    border-top: 3px solid #fc5d7c; /* red */
+    border-top: 3px solid #CC6666; /* red */
 }
 
 #custom-mullvad {
-    border-top: 3px solid #f39660; /* orange */
+    border-top: 3px solid #F0C674; /* yellow */
 }
 
 #pulseaudio {
-    border-top: 3px solid #e7c644; /* yellow */
+    border-top: 3px solid #B5BD68; /* green */
 }
 
 #idle_inhibitor {
-    border-top: 3px solid #9ed072; /* green */
+    border-top: 3px solid #8ABEB7; /* cyan */
 }
 
 #battery {
-    border-top: 3px solid #76cce0; /* blue */
+    border-top: 3px solid #81A2BE; /* blue */
 }
 
 #tray {
-    border-top: 3px solid #b39df3; /* purple */
+    border-top: 3px solid #B294BB; /* purple */
 }

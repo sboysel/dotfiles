@@ -1,4 +1,3 @@
-# set font "FiraCode Nerd Font 16"
 set font "JetBrainsMono NF 16"
 
 # Open document in fit-width mode by default
@@ -31,6 +30,4 @@ set selection-clipboard clipboard
 set sandbox none
 
 # colors
-# include themes/catppuccin-mocha
-# include themes/everforest-dark-medium
-include themes/catppuccin-frappe
+include colors

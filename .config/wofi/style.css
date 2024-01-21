@@ -1,5 +1,5 @@
 window {
-  color: #e2e2e3; /* text */
+  color: #C5C8C6; /* text */
   background-color: transparent;
   font-size: 22px;
   font-family: JetBrainsMono NF;
@@ -7,25 +7,25 @@ window {
 
 #outer-box {
   background-color: transparent;
-  border: 0px solid #e2e2e3; /* text */
+  border: 0px solid #C5C8C6; /* text */
 }
 
 #input {
-  color: #cdd6f4; /* text */
-  background-color: #33353f; /* bg1 */
-  border: 0px solid #e2e2e3; /* text */
+  color: #C5C8C6; /* text */
+  background-color: #282A2E; /* bg1 */
+  border: 0px solid #C5C8C6; /* text */
   padding: 8px;
 }
 
 #entry {
-  color: #e2e2e3; /* text */
-  background-color: #33353f; /* bg1 */
+  background-color: #282A2E; /* bg1 */
   padding: 8px;
 }
 
 #entry:selected {
-  color: #33353f; /* bg1 */
-  background-color: #595f6f; /* gray */
+  color: #B5BD68; /* green */
+  font-weight: 900;
+  font-style: italic;
 }
 
 #entry image {

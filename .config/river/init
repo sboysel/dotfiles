@@ -9,16 +9,17 @@ riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
 riverctl spawn 'systemctl --user restart river-idle.service'
 riverctl spawn 'systemctl --user restart river-waybar.service'
 riverctl spawn 'systemctl --user restart udiskie.service'
-riverctl spawn 'systemctl --user restart gammastep-indicator.service'
+# riverctl spawn 'systemctl --user restart gammastep-indicator.service'
 riverctl spawn 'systemctl --user restart stacktile.service'
 
 # == options
 
 # === options.colors
-riverctl background-color 0x537d90
-riverctl border-color-focused 0xe2e2e3
-riverctl border-color-unfocused 0x2c2e34
-riverctl border-color-urgent 0xefc5d7c
+# riverctl background-color 0x8ABEB7
+riverctl background-color 0x002b36
+riverctl border-color-focused 0xC5C8C6
+riverctl border-color-unfocused 0x1D1F21
+riverctl border-color-urgent 0xCC6666
 riverctl border-width 2
 
 # === options.misc

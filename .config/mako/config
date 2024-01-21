@@ -10,15 +10,15 @@ text-alignment=left
 icon-path=/usr/share/icons/Arc
 layer=overlay
 
-# colors (sonokai)
-background-color=#33353f
-border-color=#e2e2e3
-text-color=#e2e2e3
-progress-color=over #8ebb66
+# colors (tomorrow night)
+background-color=#282A2E
+border-color=#C5C8C6
+text-color=#C5C8C6
+progress-color=over #B5BD68
 
 [urgency=critical]
-border-color=#fc5d7c
-text-color=#fc5d7c
+border-color=#CC6666
+text-color=#CC6666
 
 [app-name=osd]
 padding=10,30,10,10

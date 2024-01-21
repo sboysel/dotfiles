@@ -1,4 +1,4 @@
-theme = "sonokai"
+theme = "base16-tomorrow-night"
 
 [editor]
 auto-pairs = false

@@ -17,7 +17,7 @@ config.font = wezterm.font 'JetBrainsMono Nerd Font'
 config.font_size = 16
 
 -- Colorscheme:
-config.color_scheme = 'Sonokai (Gogh)'
+config.color_scheme = 'Tomorrow Night'
 
 -- Disable tab
 config.enable_tab_bar = false
