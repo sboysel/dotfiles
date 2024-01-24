@@ -22,7 +22,7 @@ set -gx VISUAL /usr/bin/helix
 set -gx SUDO_EDITOR /usr/bin/helix
 set -gx SYSTEMD_EDITOR /usr/bin/helix
 
-set -gx XDG_CURRENT_DESKTOP sway
+set -gx XDG_CURRENT_DESKTOP river
 set -gx XDG_SESSION_TYPE wayland
 set -gx MOZ_ENABLE_WAYLAND 1
 set -gx WLR_NO_HARDWARE_CURSORS 1
