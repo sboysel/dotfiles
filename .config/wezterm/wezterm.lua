@@ -22,5 +22,20 @@ config.color_scheme = 'Tomorrow Night'
 -- Disable tab
 config.enable_tab_bar = false
 
+-- SSH Domains
+
+config.ssh_domains = {
+  {
+    -- This name identifies the domain
+    name = 'augie',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = '192.168.0.220',
+    -- The username to use on the remote host
+    username = 'sam',
+  },
+}
+
+
 -- and finally, return the configuration to wezterm
 return config
