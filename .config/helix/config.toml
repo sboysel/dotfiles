@@ -7,6 +7,9 @@ cursorline = true
 true-color = true
 color-modes = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.lsp]
 display-messages = true
 
