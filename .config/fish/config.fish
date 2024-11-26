@@ -13,7 +13,7 @@ set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
 set -gx MACHINE_VENDOR (hostnamectl | grep Vendor | sed 's/\s.*Hardware Vendor:\s//g')
 set -gx MACHINE_MODEL (hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g')
-set -gx MACHINE "$MACHINE_VENDOR $MACHINE_MODEL" 
+set -gx MACHINE "$MACHINE_VENDOR $MACHINE_MODEL"
 
 set -gx GPG_TTY $(tty)
 
@@ -28,10 +28,10 @@ set -gx MOZ_ENABLE_WAYLAND 1
 set -gx WLR_NO_HARDWARE_CURSORS 1
 set -gx QT_QPA_PLATFORM wayland
 
-set -gx GOPATH "$HOME/go"
-set -gx GOBIN "$HOME/go/bin"
-set -gx GOOS "linux"
-set -gx GOARCH "amd64" 
+set -gx GOPATH "$HOME/.go"
+set -gx GOBIN "$GOPATH/bin"
+set -gx GOOS linux
+set -gx GOARCH amd64
 set -gx JULIA_PROJECT '@.'
 set -gx JULIA_NUM_THREADS 4
 set -gx npm_config_prefix "$HOME/.local"
@@ -39,7 +39,7 @@ set -gx RANGER_LOAD_DEFAULT_RC FALSE
 set -gx RUSTC_WRAPPER sccache
 set -gx NIXPKGS_ALLOW_UNFREE 1
 
-set -gx NOTES_REPO "$HOME/repos/notes"
+set -gx NOTES_HOME "$HOME/doc/notes"
 set -gx OBSIDIAN_REPO "$HOME/doc/obsidian"
 set -gx XDG_SCREENSHOTS_DIR "$HOME/img/screenshots"
 
@@ -48,7 +48,7 @@ set fish_greeting
 
 # === simple aliases
 function hx
-  /usr/bin/helix $argv
+    /usr/bin/helix $argv
 end
 
 function cl
@@ -69,12 +69,12 @@ function ls
 end
 
 function mime
-  file --mime-type $argv -b
+    file --mime-type $argv -b
 end
 
 # === simple aliases // package management
 function pa --description "[paru] update system and install packages"
-    /usr/bin/paru -S archlinux-keyring && /usr/bin/paru -Syyu $argv
+    /usr/bin/paru -Syyu $argv
 end
 
 function par --description "[paru] uninstall packages"
@@ -87,11 +87,11 @@ end
 
 function pasi --description "[paru] information about installed package"
     /usr/bin/paru -Si $argv
-end 
+end
 
 function paql --description "[paru] query files owned by installed package"
     /usr/bin/paru -Ql $argv
-end 
+end
 
 # === simple aliases // system maintenance
 function rmorph --description "Remove orphaned packages"
@@ -124,7 +124,7 @@ set fzf_fd_opts --hidden --exclude=.git --exclude=.cache
 pyenv init - | source
 
 # === hooks // direnv
-set -gx DIRENV_LOG_FORMAT 
+set -gx DIRENV_LOG_FORMAT
 direnv hook fish | source
 
 # === hooks // starship
