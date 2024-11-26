@@ -7,14 +7,15 @@
 # == autostart
 riverctl spawn 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
 riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
+riverctl spawn 'systemctl --user daemon-reload'
 riverctl spawn 'systemctl --user restart river-idle.service'
 riverctl spawn 'systemctl --user restart river-waybar.service'
 riverctl spawn 'systemctl --user restart udiskie.service'
-# riverctl spawn 'systemctl --user restart gammastep-indicator.service'
+riverctl spawn 'systemctl --user restart gammastep-indicator.service'
 riverctl spawn 'systemctl --user restart stacktile.service'
 
-# == options
 
+# == options
 # === options.colors
 # riverctl background-color 0x8ABEB7
 riverctl background-color 0x002b36
@@ -31,19 +32,7 @@ riverctl hide-cursor timeout 0
 # window focus follows mouse cursor
 riverctl focus-follows-cursor normal
 # place views at bottom of stack
-riverctl attach-mode bottom
-# set default layout
-riverctl default-layout stacktile
-riverctl send-layout-cmd stacktile 'reset'
-riverctl send-layout-cmd stacktile 'primary_count 1'
-riverctl send-layout-cmd stacktile 'primary_ratio 0.4'
-riverctl send-layout-cmd stacktile 'primary_sublayout columns'
-riverctl send-layout-cmd stacktile 'primary_postion left'
-riverctl send-layout-cmd stacktile 'secondary_count 1'
-riverctl send-layout-cmd stacktile 'secondary_ratio 0.5'
-riverctl send-layout-cmd stacktile 'secondary_sublayout rows'
-riverctl send-layout-cmd stacktile 'inner_padding 8'
-riverctl send-layout-cmd stacktile 'outer_padding 8'
+riverctl default-attach-mode bottom
 
 # == inputs
 for pad in $(riverctl list-inputs | grep -i pointer)
@@ -55,7 +44,6 @@ do
 done
 
 # == keybinds
-
 # === keybinds.core
 riverctl map normal Super Q         close
 riverctl map normal Super W         spawn firefox
@@ -111,6 +99,11 @@ riverctl map normal Super+Alt Left  send-layout-cmd stacktile "primary_ratio -0.
 riverctl map normal Super+Alt Right send-layout-cmd stacktile "primary_ratio +0.05"
 riverctl map normal Super+Alt H     send-layout-cmd stacktile "primary_ratio -0.05"
 riverctl map normal Super+Alt L     send-layout-cmd stacktile "primary_ratio +0.05"
+riverctl map normal Super+Alt Up    send-layout-cmd stacktile "secondary_ratio -0.05"
+riverctl map normal Super+Alt Down  send-layout-cmd stacktile "secondary_ratio +0.05"
+riverctl map normal Super+Alt K     send-layout-cmd stacktile "secondary_ratio -0.05"
+riverctl map normal Super+Alt J     send-layout-cmd stacktile "secondary_ratio +0.05"
+
 # resize views (forces views to float)
 riverctl map normal Super+Shift+Alt Up    resize vertical   +100 
 riverctl map normal Super+Shift+Alt Right resize horizontal +100
@@ -134,17 +127,14 @@ riverctl map normal Super+Shift+Control H     move left   +50
 
 # === keybinds.layout
 # Super+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super+Alt+Control Up    send-layout-cmd rivertile "main-location top"
-riverctl map normal Super+Alt+Control Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super+Alt+Control Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super+Alt+Control Left  send-layout-cmd rivertile "main-location left"
-riverctl map normal Super+Alt+Control K     send-layout-cmd rivertile "main-location top"
-riverctl map normal Super+Alt+Control L     send-layout-cmd rivertile "main-location right"
-riverctl map normal Super+Alt+Control J     send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super+Alt+Control H     send-layout-cmd rivertile "main-location left"
-# increase or decrease number of views in main
-riverctl map normal Super+Alt M             send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Alt N             send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Alt+Control Up    send-layout-cmd stacktile "primary_position top"
+riverctl map normal Super+Alt+Control Right send-layout-cmd stacktile "primary_position right"
+riverctl map normal Super+Alt+Control Down  send-layout-cmd stacktile "primary_position bottom"
+riverctl map normal Super+Alt+Control Left  send-layout-cmd stacktile "primary_position left"
+riverctl map normal Super+Alt+Control K     send-layout-cmd stacktile "primary_position top"
+riverctl map normal Super+Alt+Control L     send-layout-cmd stacktile "primary_position right"
+riverctl map normal Super+Alt+Control J     send-layout-cmd stacktile "primary_position bottom"
+riverctl map normal Super+Alt+Control H     send-layout-cmd stacktile "primary_position left"
 # toggle float
 riverctl map normal Super+Alt Space         toggle-float
 # toggle fullscreen
@@ -194,10 +184,17 @@ riverctl map normal Super+Shift Tab set-view-tags ${scratch_tag}
 all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
-# == rivertile
-# pkill "rivertile" || true
-# rivertile -view-padding 4 \
-#   -outer-padding 4 \
-#   -main-location left \
-#   -main-count 1 \
-#   -main-ratio 0.5 &
+# === layout
+# set default layout
+riverctl default-layout stacktile
+# layout commands (should mimic stacktile.service)
+# riverctl send-layout-cmd stacktile 'reset'
+# riverctl send-layout-cmd stacktile 'primary_count 1'
+# riverctl send-layout-cmd stacktile 'primary_ratio 0.4'
+# riverctl send-layout-cmd stacktile 'primary_sublayout columns'
+# riverctl send-layout-cmd stacktile 'primary_postion left'
+# riverctl send-layout-cmd stacktile 'secondary_count 1'
+# riverctl send-layout-cmd stacktile 'secondary_ratio 0.7'
+# riverctl send-layout-cmd stacktile 'secondary_sublayout rows'
+# riverctl send-layout-cmd stacktile 'remainder_sublayout stack'
+# riverctl send-layout-cmd stacktile 'all_padding 8'
