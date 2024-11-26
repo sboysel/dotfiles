@@ -128,7 +128,7 @@
     // CLOCK
 
     "clock": {
-        "format": "{:%I:%M%p}",
+        "format": "{:%H:%M}",
         "tooltip-format": "<big>{:%Y %B %d}</big>\n<small>{calendar}</small>",
         "on-click": "google-chrome-stable 'https://www.google.com/calendar'"
 
