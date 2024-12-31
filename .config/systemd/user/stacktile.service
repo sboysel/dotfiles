@@ -7,11 +7,11 @@ After=graphical-session.target
 ExecStart=/usr/bin/stacktile \
 	--per-tag-config \
 	--primary-count 1 \
-	--primary-ratio 0.4 \
+	--primary-ratio 0.5 \
 	--primary-sublayout columns \
 	--primary-position left \
 	--secondary-count 1 \
-	--secondary-ratio 0.7 \
+	--secondary-ratio 0.75 \
 	--secondary-sublayout rows \
 	--remainder-sublayout stack
 Restart=on-failure
