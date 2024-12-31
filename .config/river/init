@@ -49,7 +49,8 @@ riverctl map normal Super Q         close
 riverctl map normal Super W         spawn firefox
 riverctl map normal Super E         exit
 riverctl map normal Super R         spawn '~/.config/river/init && notify-send "river" "reload config"'
-riverctl map normal Super Return    spawn wezterm
+# riverctl map normal Super Return    spawn wezterm
+riverctl map normal Super Return    spawn foot
 riverctl map normal Super D         spawn 'wofi'
 riverctl map normal Super+Control L spawn '~/bin/river-lock.sh'
 
