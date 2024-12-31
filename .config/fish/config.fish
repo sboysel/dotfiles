@@ -11,10 +11,6 @@ end
 set -gx LC_ALL en_US.UTF-8
 set -gx LOCALE_ARCHIVE /usr/lib/locale/locale-archive
 
-set -gx MACHINE_VENDOR (hostnamectl | grep Vendor | sed 's/\s.*Hardware Vendor:\s//g')
-set -gx MACHINE_MODEL (hostnamectl | grep Model | sed 's/\s.*Hardware Model:\s//g')
-set -gx MACHINE "$MACHINE_VENDOR $MACHINE_MODEL"
-
 set -gx GPG_TTY $(tty)
 
 set -gx EDITOR /usr/bin/helix
@@ -32,21 +28,30 @@ set -gx GOPATH "$HOME/.go"
 set -gx GOBIN "$GOPATH/bin"
 set -gx GOOS linux
 set -gx GOARCH amd64
+
 set -gx JULIA_PROJECT '@.'
 set -gx JULIA_NUM_THREADS 4
+
 set -gx npm_config_prefix "$HOME/.local"
-set -gx RANGER_LOAD_DEFAULT_RC FALSE
+
 set -gx RUSTC_WRAPPER sccache
 set -gx NIXPKGS_ALLOW_UNFREE 1
+
+set -gx RANGER_LOAD_DEFAULT_RC FALSE
 
 set -gx NOTES_HOME "$HOME/doc/notes"
 set -gx OBSIDIAN_REPO "$HOME/doc/obsidian"
 set -gx XDG_SCREENSHOTS_DIR "$HOME/img/screenshots"
 
+
 # remove fish greeting
 set fish_greeting
 
 # === simple aliases
+function fish_source --description "Reload fish configuration"
+    source $HOME/.config/fish/config.fish
+end
+
 function hx
     /usr/bin/helix $argv
 end
@@ -77,22 +82,6 @@ function pa --description "[paru] update system and install packages"
     /usr/bin/paru -Syyu $argv
 end
 
-function par --description "[paru] uninstall packages"
-    /usr/bin/paru -Rsn $argv
-end
-
-function pas --description "[paru] search packages"
-    /usr/bin/paru -Ss $argv
-end
-
-function pasi --description "[paru] information about installed package"
-    /usr/bin/paru -Si $argv
-end
-
-function paql --description "[paru] query files owned by installed package"
-    /usr/bin/paru -Ql $argv
-end
-
 # === simple aliases // system maintenance
 function rmorph --description "Remove orphaned packages"
     sudo pacman -Rns (pacman -Qtdq)
@@ -102,17 +91,36 @@ function rmjourn --description "Vaccum systemd journal"
     sudo journalctl --vacuum-time=2weeks
 end
 
-function pkgdiff --description "changes in packages installed on system"
-    /usr/bin/paru -Qe | diff $HOME/.pkglist -
+function rmcache --description "Clears $HOME/.cache"
+    set -l BEFORE (sudo du -sh $HOME/.cache 2>/dev/null)
+    echo -e "before:\t$BEFORE"
+    sudo rm -rf $HOME/.cache/*
+    set -l AFTER (sudo du -sh $HOME/.cache 2>/dev/null)
+    echo -e "after:\t$AFTER"
 end
 
-function nixpkgdiff --description "changes in Nix packages installed on system"
-    nix-env -qa --installed "*" | diff $HOME/.nixpkglist -
+# === utilities
+# notes
+function n --description "n [-b/--browse]"
+    argparse --name=note b/browse -- $argv
+    or return
+
+    if set -q _flag_browse
+        ranger $NOTES_HOME
+    else
+        set -l NOTE $NOTES_HOME/(date +'%Y%m%d').md
+        $EDITOR $NOTE
+    end
+
 end
 
-# === simple aliases // misc
-function tmuxp --description "tmuxp [profile name]"
-  /usr/bin/tmuxp load $HOME/.config/tmuxp/$argv.yaml
+# save links
+function slink --description "save URL to ~/sync/links"
+    if set -q argv[1]
+        echo $argv >>$HOME/sync/links
+    else
+        cat $HOME/sync/links
+    end
 end
 
 # === plugins
