@@ -14,7 +14,6 @@
     ],
     "modules-right": [
         "network",
-        "custom/mullvad",
         "pulseaudio",
         "idle_inhibitor",
         "battery",
@@ -67,7 +66,7 @@
         "scroll-step": 5,
         "format": "{icon}",
         "tooltip-format": "volume\t{volume}% \ndesc\t{desc}",
-        "format-muted": "󰝟",
+        "format-muted": "",
         "format-icons": {
             "default": ["", ""]
         },
