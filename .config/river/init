@@ -178,6 +178,11 @@ done
 riverctl map normal Super       Comma focus-previous-tags
 riverctl map normal Super+Shift Comma send-to-previous-tags
 
+# === tags.river-shifttags
+# https://gitlab.com/akumar-xyz/river-shifttags
+riverctl map normal Super Prior spawn 'river-shifttags --shifts -1 --occupied'
+riverctl map normal Super Next  spawn 'river-shifttags --occupied'
+
 # === tags.scratchpad
 scratch_tag=$((1 << 10))
 riverctl map normal Super Tab toggle-focused-tags ${scratch_tag}
