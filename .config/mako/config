@@ -1,5 +1,5 @@
 # general
-font=JetBrainsMono NF 18
+font=JetBrainsMono NF 16
 format=<b>%s</b>\n%b
 default-timeout=600000
 width=600
@@ -12,7 +12,7 @@ layer=overlay
 
 # colors (tomorrow night)
 background-color=#282A2E
-border-color=#C5C8C6
+border-color=#81a2be
 text-color=#C5C8C6
 progress-color=over #B5BD68
 
@@ -21,5 +21,12 @@ border-color=#CC6666
 text-color=#CC6666
 
 [app-name=osd]
-padding=10,30,10,10
+border-size=0
+
+[app-name=osd-lt80]
+border-size=0
 text-alignment=right
+
+[app-name=osd-gt80]
+border-size=0
+text-color=#282A2E
