@@ -13,7 +13,10 @@ riverctl spawn 'systemctl --user restart river-waybar.service'
 riverctl spawn 'systemctl --user restart udiskie.service'
 riverctl spawn 'systemctl --user restart gammastep-indicator.service'
 riverctl spawn 'systemctl --user restart stacktile.service'
-
+riverctl spawn 'systemctl --user restart udiskie.service'
+# riverctl spawn 'systemctl --user restart gammastep-indicator.service'
+riverctl spawn 'swaybg -m fill -i ~/.wallpaper/wall1.jpg'
+# riverctl spawn 'swaybg -m fill -i ~/.wallpaper/thinkpad/fiber.jpg'
 
 # == options
 # === options.colors
