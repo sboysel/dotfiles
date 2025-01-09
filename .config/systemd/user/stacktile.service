@@ -11,7 +11,7 @@ ExecStart=/usr/bin/stacktile \
 	--primary-sublayout columns \
 	--primary-position left \
 	--secondary-count 1 \
-	--secondary-ratio 0.75 \
+	--secondary-ratio 0.7 \
 	--secondary-sublayout rows \
 	--remainder-sublayout stack
 Restart=on-failure
