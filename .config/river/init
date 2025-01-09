@@ -3,6 +3,12 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
+# === autostart
+# === options
+# === inputs
+# === keybinds
+# === tags
+# === layout
 
 # == autostart
 riverctl spawn 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
@@ -10,8 +16,6 @@ riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
 riverctl spawn 'systemctl --user daemon-reload'
 riverctl spawn 'systemctl --user restart river-idle.service'
 riverctl spawn 'systemctl --user restart river-waybar.service'
-riverctl spawn 'systemctl --user restart udiskie.service'
-riverctl spawn 'systemctl --user restart gammastep-indicator.service'
 riverctl spawn 'systemctl --user restart stacktile.service'
 riverctl spawn 'systemctl --user restart udiskie.service'
 # riverctl spawn 'systemctl --user restart gammastep-indicator.service'
@@ -22,7 +26,7 @@ riverctl spawn 'swaybg -m fill -i ~/.wallpaper/wall1.jpg'
 # === options.colors
 # riverctl background-color 0x8ABEB7
 riverctl background-color 0x002b36
-riverctl border-color-focused 0x373B41
+riverctl border-color-focused 0x81a2be
 riverctl border-color-unfocused 0x1D1F21
 riverctl border-color-urgent 0xCC6666
 riverctl border-width 2
@@ -52,10 +56,10 @@ riverctl map normal Super Q         close
 riverctl map normal Super W         spawn firefox
 riverctl map normal Super E         exit
 riverctl map normal Super R         spawn '~/.config/river/init && notify-send "river" "reload config"'
-# riverctl map normal Super Return    spawn wezterm
 riverctl map normal Super Return    spawn foot
-riverctl map normal Super D         spawn 'wofi'
+riverctl map normal Super D         spawn tofi-drun
 riverctl map normal Super+Control L spawn '~/bin/river-lock.sh'
+riverctl map normal None XF86Tools       spawn menu
 
 # === keybinds.screenshots
 riverctl declare-mode   screenshot
@@ -81,6 +85,7 @@ riverctl map normal Super L       focus-view next
 # focus outputs
 riverctl map normal Super+Control Period  focus-output next
 riverctl map normal Super+Control Comma   focus-output previous
+
 # === keybinds.move
 # move views (within output)
 riverctl map normal Super+Shift Left    swap previous
@@ -188,22 +193,10 @@ riverctl map normal Super Next  spawn 'river-shifttags --occupied'
 
 # === tags.scratchpad
 scratch_tag=$((1 << 10))
-riverctl map normal Super Tab toggle-focused-tags ${scratch_tag}
-riverctl map normal Super+Shift Tab set-view-tags ${scratch_tag}
+riverctl map normal Super S       toggle-focused-tags ${scratch_tag}
+riverctl map normal Super+Shift S set-view-tags ${scratch_tag}
 all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
 riverctl spawn-tagmask ${all_but_scratch_tag}
 
 # === layout
-# set default layout
 riverctl default-layout stacktile
-# layout commands (should mimic stacktile.service)
-# riverctl send-layout-cmd stacktile 'reset'
-# riverctl send-layout-cmd stacktile 'primary_count 1'
-# riverctl send-layout-cmd stacktile 'primary_ratio 0.4'
-# riverctl send-layout-cmd stacktile 'primary_sublayout columns'
-# riverctl send-layout-cmd stacktile 'primary_postion left'
-# riverctl send-layout-cmd stacktile 'secondary_count 1'
-# riverctl send-layout-cmd stacktile 'secondary_ratio 0.7'
-# riverctl send-layout-cmd stacktile 'secondary_sublayout rows'
-# riverctl send-layout-cmd stacktile 'remainder_sublayout stack'
-# riverctl send-layout-cmd stacktile 'all_padding 8'
