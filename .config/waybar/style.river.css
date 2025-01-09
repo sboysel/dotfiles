@@ -62,7 +62,7 @@ window#waybar {
 #idle_inhibitor,
 #battery,
 #tray {
-    padding: 0 20px;
+    padding: 0 12px;
     margin: 0 0px;
 }
 
@@ -71,8 +71,12 @@ window#waybar {
     color: #CC6666; /* red */
 }
 
-#network {
+#clock {
     border-top: 3px solid #CC6666; /* red */
+}
+
+#network {
+    border-top: 3px solid #de935f; /*orange */
 }
 
 #custom-mullvad {

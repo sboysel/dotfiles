@@ -1,6 +1,6 @@
 {
     "layer": "top", // Waybar in front of windows
-    "position": "top",
+    "position": "bottom",
 
     // MODULES //
 
@@ -9,10 +9,8 @@
         "river/mode",
         "river/window"
     ],
-    "modules-center": [
-        "clock"
-    ],
     "modules-right": [
+        "clock",
         "network",
         "pulseaudio",
         "idle_inhibitor",
@@ -25,6 +23,7 @@
         "format": "{}",
         "max-length": 50
     },
+
 
     // mpris
     "mpris": {
