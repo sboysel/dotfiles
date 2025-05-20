@@ -1,0 +1,11 @@
+# after 15 seconds, dim screen
+timeout 15 'light -S 10'
+# after 1 minute, lock screen
+timeout 60 swaylock
+# after 10 minutes, suspend
+timeout 600 systemctl suspend
+# lock before going to sleep
+before-sleep swaylock
+lock swaylock
+# undo dim when waking up
+after-resume light -S 50

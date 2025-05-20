@@ -2,7 +2,7 @@
 Description=idle management (swaylock + river wm)
 
 [Service]
-ExecStart=/home/sam/bin/river-idle.sh
+ExecStart=swayidle -d -w
 ExecReload=kill -SIGUSR2 $MAINPID
 
 [Install]

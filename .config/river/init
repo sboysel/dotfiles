@@ -3,36 +3,16 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# === autostart
-# === options
-# === inputs
-# === keybinds
-# === tags
-# === layout
+notify-send -t 5000 "(Re)load river config"
 
-# == autostart
-riverctl spawn 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
-riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
-riverctl spawn 'systemctl --user daemon-reload'
-riverctl spawn 'systemctl --user restart river-idle.service'
-riverctl spawn 'systemctl --user restart river-waybar.service'
-riverctl spawn 'systemctl --user restart stacktile.service'
-riverctl spawn 'systemctl --user restart udiskie.service'
-# riverctl spawn 'systemctl --user restart gammastep-indicator.service'
-riverctl spawn 'swaybg -m fill -i ~/.wallpaper/wall1.jpg'
-# riverctl spawn 'swaybg -m fill -i ~/.wallpaper/thinkpad/fiber.jpg'
-
-# == options
-# === options.colors
-# riverctl background-color 0x8ABEB7
+# === options ===
+# colors
 riverctl background-color 0x002b36
 riverctl border-color-focused 0x81a2be
 riverctl border-color-unfocused 0x1D1F21
 riverctl border-color-urgent 0xCC6666
 riverctl border-width 2
-
-# === options.misc
-# Set keyboard repeat rate
+# set keyboard repeat rate
 riverctl set-repeat 50 300
 # hide cursor timeout
 riverctl hide-cursor timeout 0
@@ -41,7 +21,14 @@ riverctl focus-follows-cursor normal
 # place views at bottom of stack
 riverctl default-attach-mode bottom
 
-# == inputs
+# === autostart ===
+riverctl spawn 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
+riverctl spawn 'systemctl --user import-environment DISPLAY WAYLAND_DISPLAY'
+riverctl spawn 'systemctl --user daemon-reload'
+riverctl spawn 'systemctl --user restart river-idle.service'
+riverctl spawn 'systemctl --user restart river-waybar.service'
+
+# === inputs ===
 for pad in $(riverctl list-inputs | grep -i pointer)
 do
   riverctl input $pad tap                   enabled
@@ -50,106 +37,65 @@ do
   riverctl input $pad natural-scroll        enabled
 done
 
-# == keybinds
-# === keybinds.core
-riverctl map normal Super Q         close
-riverctl map normal Super W         spawn firefox
-riverctl map normal Super E         exit
-riverctl map normal Super R         spawn '~/.config/river/init && notify-send "river" "reload config"'
-riverctl map normal Super Return    spawn foot
-riverctl map normal Super D         spawn tofi-drun
-riverctl map normal Super+Control L spawn '~/bin/river-lock.sh'
-riverctl map normal None XF86Tools       spawn menu
+# === keybinds ===
+# core keybinds
+riverctl map normal Super                 Q         close
+riverctl map normal Super                 W         spawn 'firefox --app-id=firefox'
+riverctl map normal Super                 E         exit
+riverctl map normal Super                 R         spawn '~/.config/river/init'
+riverctl map normal Super                 Return    spawn foot
+riverctl map normal Super                 D         spawn wofi
+riverctl map normal Super+Control         L         spawn swaylock
+# system maintenance script
+riverctl map normal None                  XF86Tools spawn 'foot --hold sys'          
 
-# === keybinds.screenshots
-riverctl declare-mode   screenshot
-riverctl map screenshot Super S         enter-mode screenshot
-riverctl map screenshot Super O         spawn 'grimshot --notify save output'
-riverctl map screenshot Super W         spawn 'grimshot --notify save window'
-riverctl map screenshot Super A         spawn 'grimshot --notify save area'
-riverctl map screenshot Super+Shift O   spawn 'grimshot --notify copy output'
-riverctl map screenshot Super+Shift W   spawn 'grimshot --notify copy window'
-riverctl map screenshot Super+Shift A   spawn 'grimshot --notify copy area'
-riverctl map screenshot Super S         enter-mode normal
-
-# === keybinds.focus
-# focus views
-riverctl map normal Super Left    focus-view previous
-riverctl map normal Super Down    focus-view next
-riverctl map normal Super Up      focus-view previous
-riverctl map normal Super Right   focus-view next
-riverctl map normal Super H       focus-view previous
-riverctl map normal Super J       focus-view next
-riverctl map normal Super K       focus-view previous
-riverctl map normal Super L       focus-view next
-# focus outputs
-riverctl map normal Super+Control Period  focus-output next
-riverctl map normal Super+Control Comma   focus-output previous
-
-# === keybinds.move
-# move views (within output)
-riverctl map normal Super+Shift Left    swap previous
-riverctl map normal Super+Shift Down    swap next
-riverctl map normal Super+Shift Up      swap previous
-riverctl map normal Super+Shift Right   swap next
-riverctl map normal Super+Shift H       swap previous
-riverctl map normal Super+Shift J       swap next
-riverctl map normal Super+Shift K       swap previous
-riverctl map normal Super+Shift L       swap next
-# move views (across outputs)
-riverctl map normal Super+Control+Shift Period  send-to-output next
-riverctl map normal Super+Control+Shift Comma   send-to-output previous
-# move view to top of layout stack (if already at top, bump to second)
-riverctl map normal Super+Shift Z       zoom
-
-# === keybinds.resize
-# change main ratio
-riverctl map normal Super+Alt Left  send-layout-cmd stacktile "primary_ratio -0.05"
-riverctl map normal Super+Alt Right send-layout-cmd stacktile "primary_ratio +0.05"
-riverctl map normal Super+Alt H     send-layout-cmd stacktile "primary_ratio -0.05"
-riverctl map normal Super+Alt L     send-layout-cmd stacktile "primary_ratio +0.05"
-riverctl map normal Super+Alt Up    send-layout-cmd stacktile "secondary_ratio -0.05"
-riverctl map normal Super+Alt Down  send-layout-cmd stacktile "secondary_ratio +0.05"
-riverctl map normal Super+Alt K     send-layout-cmd stacktile "secondary_ratio -0.05"
-riverctl map normal Super+Alt J     send-layout-cmd stacktile "secondary_ratio +0.05"
-
-# resize views (forces views to float)
-riverctl map normal Super+Shift+Alt Up    resize vertical   +100 
-riverctl map normal Super+Shift+Alt Right resize horizontal +100
-riverctl map normal Super+Shift+Alt Down  resize vertical   -100
-riverctl map normal Super+Shift+Alt Left  resize horizontal -100
-riverctl map normal Super+Shift+Alt K     resize vertical   +100 
-riverctl map normal Super+Shift+Alt L     resize horizontal +100
-riverctl map normal Super+Shift+Alt J     resize vertical   -100
-riverctl map normal Super+Shift+Alt H     resize horizontal -100
-
-# === keybinds.move
-# move floating views
-riverctl map normal Super+Shift+Control Up    move up     +50 
-riverctl map normal Super+Shift+Control Right move right  +50
-riverctl map normal Super+Shift+Control Down  move down   +50
-riverctl map normal Super+Shift+Control Left  move left   +50
-riverctl map normal Super+Shift+Control K     move up     +50 
-riverctl map normal Super+Shift+Control L     move right  +50
-riverctl map normal Super+Shift+Control J     move down   +50
-riverctl map normal Super+Shift+Control H     move left   +50
-
-# === keybinds.layout
-# Super+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super+Alt+Control Up    send-layout-cmd stacktile "primary_position top"
-riverctl map normal Super+Alt+Control Right send-layout-cmd stacktile "primary_position right"
-riverctl map normal Super+Alt+Control Down  send-layout-cmd stacktile "primary_position bottom"
-riverctl map normal Super+Alt+Control Left  send-layout-cmd stacktile "primary_position left"
-riverctl map normal Super+Alt+Control K     send-layout-cmd stacktile "primary_position top"
-riverctl map normal Super+Alt+Control L     send-layout-cmd stacktile "primary_position right"
-riverctl map normal Super+Alt+Control J     send-layout-cmd stacktile "primary_position bottom"
-riverctl map normal Super+Alt+Control H     send-layout-cmd stacktile "primary_position left"
+# == views ==
+# focus
+riverctl map normal Super                 Left      focus-view previous
+riverctl map normal Super                 H         focus-view previous
+riverctl map normal Super                 Right     focus-view next
+riverctl map normal Super                 L         focus-view next
+# move
+riverctl map normal Super+Shift           Left      swap previous
+riverctl map normal Super+Shift           H         swap previous
+riverctl map normal Super+Shift           Right     swap next
+riverctl map normal Super+Shift           L         swap next
 # toggle float
-riverctl map normal Super+Alt Space         toggle-float
+riverctl map normal Super+Alt             Space     toggle-float
 # toggle fullscreen
-riverctl map normal Super+Alt F             toggle-fullscreen
+riverctl map normal Super+Alt             F         toggle-fullscreen
 
-# === keybinds.media
+# == tags ==
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+
+    # focus tags
+    riverctl map normal Super             $i        set-focused-tags $tags
+
+    # move view to tag
+    riverctl map normal Super+Shift       $i        set-view-tags $tags
+
+done
+# focus previous tags
+riverctl map normal Super                 Space     focus-previous-tags
+riverctl map normal Super                 Space     focus-previous-tags
+riverctl map normal Super+Shift           Space     send-to-previous-tags
+# TODO: cycle occupied tags (e.g. alt-tab). none of the recommended utilities i tried worked.
+
+# == layout stuff == 
+# change main ratio
+riverctl map normal Super+Alt             Left      send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super+Alt             H         send-layout-cmd rivertile "main-ratio -0.05"
+riverctl map normal Super+Alt             Right     send-layout-cmd rivertile "main-ratio +0.05"
+riverctl map normal Super+Alt             L         send-layout-cmd rivertile "main-ratio +0.05"
+# Super+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super+Alt+Control     Up        send-layout-cmd rivertile "main-location top"
+riverctl map normal Super+Alt+Control     Right     send-layout-cmd rivertile "main-location right"
+riverctl map normal Super+Alt+Control     Down      send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super+Alt+Control     Left      send-layout-cmd rivertile "main-location left"
+
+# == media keys ==
 for mode in normal locked
 do
     riverctl map $mode None XF86AudioRaiseVolume  spawn 'osd volume inc'
@@ -169,34 +115,6 @@ do
     riverctl map $mode None XF86KbdBrightnessDown spawn 'osd brightness --kbd'
 done
 
-# == tags
-for i in $(seq 1 9)
-do
-    tags=$((1 << ($i - 1)))
-
-    # focus tag
-    riverctl map normal Super $i set-focused-tags $tags
-
-    # move view to tag
-    riverctl map normal Super+Shift $i set-view-tags $tags
-
-done
-
-# === tags.previous_tag
-riverctl map normal Super       Comma focus-previous-tags
-riverctl map normal Super+Shift Comma send-to-previous-tags
-
-# === tags.river-shifttags
-# https://gitlab.com/akumar-xyz/river-shifttags
-riverctl map normal Super Prior spawn 'river-shifttags --shifts -1 --occupied'
-riverctl map normal Super Next  spawn 'river-shifttags --occupied'
-
-# === tags.scratchpad
-scratch_tag=$((1 << 10))
-riverctl map normal Super S       toggle-focused-tags ${scratch_tag}
-riverctl map normal Super+Shift S set-view-tags ${scratch_tag}
-all_but_scratch_tag=$(( ((1 << 9) - 1) ^ $scratch_tag ))
-riverctl spawn-tagmask ${all_but_scratch_tag}
-
-# === layout
-riverctl default-layout stacktile
+# === layout ===
+riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 6 &

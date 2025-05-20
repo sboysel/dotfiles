@@ -11,6 +11,15 @@ LIGHT_KBD = 'sysfs/leds/tpacpi::kbd_backlight'
 
 def main():
     """
+    On screen display (via mako notifications) for adjustment to
+    - volume
+    - brightness: monitor
+    - brightness: keyboard backlight
+
+    Examples:
+
+    > osd volume mute|inc|dec
+    > osd brightness [--kbd] inc|dec
     """
 
     parser = argparse.ArgumentParser(description="A tool with multiple subcommands.")
@@ -62,29 +71,16 @@ def main():
             cmd = brightness_mon()
             if args.action == 'inc':
                 subprocess.run(['light', '-s', LIGHT_MON, '-A', '10'])
-            elif args.action == 'dec':
+            else:
                 subprocess.run(['light', '-s', LIGHT_MON, '-U', '10'])
                 
         n.run(cmd)
-
-    else:
-        n.dismiss()
-        # reload config
-        n.reload()
-        # run
-        components = {
-            'clock': clock(),
-            'battery': battery(),
-            'volume': volume(),
-        }
-        for c in reversed(components.values()):
-            n.run(c)
 
     sys.exit(0)
 
 
 class Notify:
-    def __init__(self, cmd=['notify-send', '-t', '5000']):
+    def __init__(self, cmd=['notify-send', '-t', '2000']):
         self.cmd = cmd
 
     def run(self, cmd):
@@ -97,26 +93,10 @@ class Notify:
         subprocess.run(['makoctl', 'reload'])
 
 
-def battery():
-    """
-    """
-    b = capture(['acpi', '-b'])
-    b = float(b)
-    if b <= 80:
-        cmd = ['-a', 'osd-lt80']
-    else:
-        cmd = ['-a', 'osd-gt80']
-    cmd.extend(['-h', f'int:value:{b}'])
-    cmd.append(f'󰁹 {b}%')
-    return cmd, b
-
-def clock():
-    cmd = []
-    cmd.extend(['-a', 'osd'])
-    cmd.append(f" {capture(['date'])}")
-    return cmd
-
 def volume():
+    """
+    Form notification command: volume
+    """
     output = capture(['wpctl', 'get-volume', '@DEFAULT_AUDIO_SINK@']).split()
     vol = int(float(output[1]) * 100)
     if len(output) == 3:
@@ -134,9 +114,10 @@ def volume():
 
 def brightness_mon():
     """
+    Form notification command: brightness (monitor)
     """
     b = capture(['light', '-s', LIGHT_MON])
-    b = float(b)
+    b = int(float(b))
     if b <= 80:
         cmd = ['-a', 'osd-lt80']
     else:
@@ -147,9 +128,10 @@ def brightness_mon():
 
 def brightness_kbd():
     """
+    Form notification command: brightness (keyboard backlight)
     """
     b = capture(['light', '-s', LIGHT_KBD])
-    b = float(b)
+    b = int(float(b))
     if b <= 80:
         cmd = ['-a', 'osd-lt80']
     else:
@@ -168,20 +150,14 @@ def capture(cmd):
     except subprocess.CalledProcessError:
         return None
 
-
-def extract_number_from_percentage(string: str) -> int:
-    """
-    """
-    match = re.search(r'(\d+(?:\.\d+)?)%', string)
-    if match:
-        return int(match.group(1))
-    return None        
-
 def is_active():
-    output = json.loads(capture(['makoctl', 'list']))
-    data = output['data'][0]
-    return len(data) > 0
+    """check if there are any active mako notifications"""
+    active = False
+    output = capture(['makoctl', 'list'])
+    if output is not None and re.search(r'Notification', output):
+        active = True
 
+    return active
 
 if __name__ == '__main__':
     main()

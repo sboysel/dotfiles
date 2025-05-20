@@ -43,11 +43,10 @@ set -gx NOTES_HOME "$HOME/doc/notes"
 set -gx OBSIDIAN_REPO "$HOME/doc/obsidian"
 set -gx XDG_SCREENSHOTS_DIR "$HOME/img/screenshots"
 
-
 # remove fish greeting
 set fish_greeting
 
-# === simple aliases
+# === aliases
 function fish_source --description "Reload fish configuration"
     source $HOME/.config/fish/config.fish
 end
@@ -60,13 +59,8 @@ function cl
     /sbin/clear
 end
 
-function R
-    /usr/bin/R --no-save $argv
-end
-
-# === simple aliaes // working with files
 function e --description "Alternative to `ls` (pretty, detailed)"
-    /usr/bin/exa -o --icons --group-directories-first --total-size --time-style long-iso -lg $argv
+    /usr/bin/eza -o --icons --group-directories-first --total-size --time-style long-iso -lg $argv
 end
 
 function ls
@@ -77,41 +71,15 @@ function mime
     file --mime-type $argv -b
 end
 
-# === simple aliases // package management
+# === aliases // package management
 function pa --description "[paru] update system and install packages"
     /usr/bin/paru -Syyu $argv
 end
 
-# === simple aliases // system maintenance
-function rmorph --description "Remove orphaned packages"
-    sudo pacman -Rns (pacman -Qtdq)
-end
-
-function rmjourn --description "Vaccum systemd journal"
-    sudo journalctl --vacuum-time=2weeks
-end
-
-function rmcache --description "Clears $HOME/.cache"
-    set -l BEFORE (sudo du -sh $HOME/.cache 2>/dev/null)
-    echo -e "before:\t$BEFORE"
-    sudo rm -rf $HOME/.cache/*
-    set -l AFTER (sudo du -sh $HOME/.cache 2>/dev/null)
-    echo -e "after:\t$AFTER"
-end
-
 # === utilities
 # notes
-function n --description "n [-b/--browse]"
-    argparse --name=note b/browse -- $argv
-    or return
-
-    if set -q _flag_browse
-        ranger $NOTES_HOME
-    else
-        set -l NOTE $NOTES_HOME/(date +'%Y%m%d').md
-        $EDITOR $NOTE
-    end
-
+function n --description "browse notes directory"
+    /usr/bin/ranger $NOTES_HOME
 end
 
 # save links
@@ -128,9 +96,6 @@ end
 set fzf_fd_opts --hidden --exclude=.git --exclude=.cache
 
 # === hooks
-# === hooks // pyenv
-pyenv init - | source
-
 # === hooks // direnv
 set -gx DIRENV_LOG_FORMAT
 direnv hook fish | source

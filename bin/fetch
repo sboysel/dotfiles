@@ -38,12 +38,8 @@ pacmaninfo() {
   pacman -Q | wc -l
 }
 
-nixinfo() {
-  nix-env -qa --installed "*" | wc -l
-}
-
 pkginfo() {
-  echo "$(pacmaninfo) (pacman), $(nixinfo) (nix)"
+  echo "$(pacmaninfo)"
 }
 
 terminfo() {
@@ -66,7 +62,7 @@ wminfo() {
 lines() {
   
   _rand_char() {
-    echo ".:;" | grep -o . | shuf -n1
+    echo ":." | grep -o . | shuf -n1
   }
     
   local x=""
@@ -80,8 +76,8 @@ lines() {
 }
 
 fetch() {
-  SEP=" "
-  printf "\n"
+  SEP="::"
+  # printf "\n"
   lines
   printf "%-8s $SEP $(hostinfo)\n" "host" 
   printf "%-8s $SEP $(machineinfo)\n" "machine" 
