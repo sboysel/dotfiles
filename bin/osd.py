@@ -59,20 +59,33 @@ def main():
         if args.kbd:
             b = capture(['light', '-s', LIGHT_KBD, '-G'])
             b = float(b)
-            print(b)
             if b > 0:
                 b = 0                
             else:
                 b = 100
             subprocess.run(['light', '-s', LIGHT_KBD, '-S', str(b)])
+
             cmd = brightness_kbd()
 
         else:
-            cmd = brightness_mon()
+
+            b = capture(['light', '-s', LIGHT_MON])
+            b = round(float(b))
+            
             if args.action == 'inc':
-                subprocess.run(['light', '-s', LIGHT_MON, '-A', '10'])
+                if b >= 90:
+                    subprocess.run(['light', '-s', LIGHT_MON, '-S', '100'])
+                if b <= 1:
+                    subprocess.run(['light', '-s', LIGHT_MON, '-S', '10'])
+                else:
+                    subprocess.run(['light', '-s', LIGHT_MON, '-A', '10'])
             else:
-                subprocess.run(['light', '-s', LIGHT_MON, '-U', '10'])
+                if b <= 10:
+                    subprocess.run(['light', '-s', LIGHT_MON, '-S', '0'])
+                else:
+                    subprocess.run(['light', '-s', LIGHT_MON, '-U', '10'])
+
+            cmd = brightness_mon()
                 
         n.run(cmd)
 
@@ -98,7 +111,7 @@ def volume():
     Form notification command: volume
     """
     output = capture(['wpctl', 'get-volume', '@DEFAULT_AUDIO_SINK@']).split()
-    vol = int(float(output[1]) * 100)
+    vol = round(float(output[1]) * 100)
     if len(output) == 3:
         text = f'  {vol}%'
     else:
@@ -117,7 +130,7 @@ def brightness_mon():
     Form notification command: brightness (monitor)
     """
     b = capture(['light', '-s', LIGHT_MON])
-    b = int(float(b))
+    b = round(float(b))
     if b <= 80:
         cmd = ['-a', 'osd-lt80']
     else:
@@ -131,7 +144,7 @@ def brightness_kbd():
     Form notification command: brightness (keyboard backlight)
     """
     b = capture(['light', '-s', LIGHT_KBD])
-    b = int(float(b))
+    b = round(float(b))
     if b <= 80:
         cmd = ['-a', 'osd-lt80']
     else:
