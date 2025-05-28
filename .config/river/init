@@ -81,7 +81,9 @@ done
 riverctl map normal Super                 Space     focus-previous-tags
 riverctl map normal Super                 Space     focus-previous-tags
 riverctl map normal Super+Shift           Space     send-to-previous-tags
-# TODO: cycle occupied tags (e.g. alt-tab). none of the recommended utilities i tried worked.
+# cycle occupied tags
+# > cargo install --git https://github.com/stefur/flow flow
+riverctl map normal Super                 Tab       spawn 'flow cycle-tags next 32 --occupied'
 
 # == layout stuff == 
 # change main ratio
