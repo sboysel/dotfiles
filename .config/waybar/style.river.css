@@ -58,7 +58,7 @@ window#waybar {
 #clock,
 #network,
 #custom-mullvad,
-#pulseaudio,
+#wireplumber,
 #idle_inhibitor,
 #battery,
 #tray {
@@ -83,7 +83,7 @@ window#waybar {
     border-top: 3px solid #F0C674; /* yellow */
 }
 
-#pulseaudio {
+#wireplumber {
     border-top: 3px solid #B5BD68; /* green */
 }
 
