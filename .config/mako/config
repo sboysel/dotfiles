@@ -1,5 +1,5 @@
 # general
-font=JetBrainsMono NF 16
+font=JetBrainsMono NF 12
 format=<b>%s</b>\n%b
 default-timeout=600000
 width=600
@@ -21,18 +21,21 @@ border-color=#CC6666
 text-color=#CC6666
 
 [app-name=osd]
-anchor=center
+anchor=bottom-center
+outer-margin=10
 border-color=#282A2E
 border-size=2
 
 [app-name=osd-lt80]
-anchor=center
+anchor=bottom-center
+outer-margin=10
 border-color=#282A2E
 border-size=2
 text-alignment=right
 
 [app-name=osd-gt80]
-anchor=center
+anchor=bottom-center
+outer-margin=10
 border-color=#282A2E
 border-size=2
 text-color=#282A2E

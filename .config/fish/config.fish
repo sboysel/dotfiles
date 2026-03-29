@@ -73,7 +73,7 @@ end
 
 # === aliases // package management
 function pa --description "[paru] update system and install packages"
-    /usr/bin/paru -Syyu $argv
+    /usr/bin/paru -Syu $argv
 end
 
 # === utilities

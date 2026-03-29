@@ -1,10 +1,10 @@
 [Unit]
-Description=Runs python http.server in ~/dev/startpage
+Description=Runs python http.server in ~/pkg/startpage
 
 [Service]
 Type=simple
 Restart=always
-ExecStart=python -m http.server 8005 --bind 127.0.0.1 --directory /home/sam/dev/startpage
+ExecStart=python -m http.server 8005 --bind 127.0.0.1 --directory /home/sam/pkg/startpage
 ExecStop=kill `ps aux | grep http.server | grep -v grep | awk '{ print $2 }'`
 
 [Install]
