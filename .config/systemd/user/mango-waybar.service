@@ -1,0 +1,10 @@
+[Unit]
+Description=Highly customizable Wayland bar for Sway and Wlroots based compositors.
+Documentation=https://github.com/Alexays/Waybar/wiki/
+
+[Service]
+ExecStart=/usr/bin/waybar -c /home/sam/.config/waybar/config.mango -s /home/sam/.config/waybar/style.mango.css
+ExecReload=kill -SIGUSR2 $MAINPID
+
+[Install]
+WantedBy=default.target
