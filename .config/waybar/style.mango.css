@@ -1,0 +1,100 @@
+tooltip {
+    font-family: JetBrainsMono NF;
+    font-size: 16px;
+    color: #C5C8C6; /* text */
+    background-color: #1D1F21; /* base */
+}
+
+window#waybar {
+    font-family: JetBrainsMono NF;
+    font-size: 16px;
+    color: #C5C8C6; /* text */
+    background-color: #1D1F21; /* base */
+    transition-property: background-color;
+    transition-duration: 0;
+}
+
+#tags {
+    margin: 0 0px;
+    padding: 0 0px;
+}
+
+#tags button {
+    color: #C5C8C6; /* text */
+    background-color: #1D1F21; /* base */    
+    padding: 0 12px;
+}
+
+#tags button.focused {
+    font-weight: 900;
+    font-style: italic;
+    color: #B5BD68; /* green */
+}
+
+#tags button.urgent {
+    color: #CC6666; /* red */
+}
+
+#tags button:hover {
+    font-weight: 900;
+    font-style: italic;    
+    color: #282A2E; /* base */
+    background: #B5BD68; /* green */
+    transition-property: background-color;
+    transition-duration: 0;
+}
+
+#tags button:not(.occupied):not(.focused) {
+  all: unset;
+	font-size: 0;
+	min-width: 0;
+	min-height: 0;
+	padding: 0 0;
+	border: 0;
+}
+
+#window,
+#mode,
+#clock,
+#network,
+#custom-mullvad,
+#wireplumber,
+#idle_inhibitor,
+#battery,
+#tray {
+    padding: 0 12px;
+    margin: 0 0px;
+}
+
+#mode {
+    font-style: italic;
+    color: #CC6666; /* red */
+}
+
+#clock {
+    border-top: 3px solid #CC6666; /* red */
+}
+
+#network {
+    border-top: 3px solid #de935f; /*orange */
+}
+
+#custom-mullvad {
+    border-top: 3px solid #F0C674; /* yellow */
+}
+
+#wireplumber {
+    border-top: 3px solid #B5BD68; /* green */
+}
+
+#idle_inhibitor {
+    border-top: 3px solid #8ABEB7; /* cyan */
+}
+
+#battery {
+    border-top: 3px solid #81A2BE; /* blue */
+}
+
+#tray {
+    border-top: 3px solid #B294BB; /* purple */
+}
